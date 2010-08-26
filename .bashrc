@@ -67,7 +67,9 @@ alias lla='ls -la'
 alias lsa='ls -a'
 alias sl='ls'
 alias dc='cd'
+
 alias vim='vim -T xterm-color'
+alias vimc='vim -T xterm-color -u .coding_vimrc
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

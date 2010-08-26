@@ -20,3 +20,8 @@ filetype plugin indent on
 
 colo zellner
 
+autocmd VimEnter * NERDTree
+autocmd VimEnter * vertical resize +20
+autocmd VimEnter * sv ~/vim_notes.txt
+autocmd VimEnter * wincmd l
+
