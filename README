@@ -1,0 +1,5 @@
+This project contains all of my personal configuration files for unix systems
+
+.bashrc     -- Configuration for the bash shell
+.vimrc      -- Configuration for the vim editor
+.vim/       -- Configuration and plugins for the vim editor
