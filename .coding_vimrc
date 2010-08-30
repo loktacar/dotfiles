@@ -5,6 +5,7 @@ set sts=4
 syntax on
 set nu
 set expandtab
+set nocp
 
 set title
 
