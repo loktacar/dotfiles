@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export PATH=$HOME/git_1.7/bin:$HOME/vim_7.3/bin:$PATH
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -20,13 +22,24 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# enable programmable completion features (you dont need to enable
+# this, if its already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
 xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+    PS1="\e[0;32m\u \e[0;31m\$(__git_ps1 '%s') \e[0;34m\W \e[m\$ "
     ;;
 *)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+    PS1="\u \$(__git_ps1 '%s') \W \$ "
     ;;
 esac
 
@@ -69,13 +82,4 @@ alias sl='ls'
 alias dc='cd'
 
 alias vim='vim -T xterm-color'
-alias vimc='vim -T xterm-color -u .coding_vimrc
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-export PATH=$HOME/git_1.7/bin:$HOME/vim_7.3/bin:$PATH
+alias vimc='vim -T xterm-color -u .coding_vimrc'
