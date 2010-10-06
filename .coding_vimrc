@@ -23,9 +23,8 @@ set wildmenu                    " Tab completion for command mode
 set wildmode=list:longest
 set relativenumber              " Shows the relative line numbers
 set scrolloff=5                 " Always shows 5 lines above and below cursor
-set cursorline                  " Shows a line under the cursor and to the edges of the screen
-set ttyfast                     " More responsive
-set laststatus=2
+"set cursorline                  " Shows a line under the cursor and to the edges of the screen
+"set ttyfast                     " More responsive
 
 map :set indentexpr= ft=mason
 
@@ -35,7 +34,8 @@ filetype on            " enables filetype detection
 filetype plugin on     " enables filetype specific plugins
 filetype plugin indent on
 
-colo zellner
+"colo zellner
+colo sienna
 
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
             \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
