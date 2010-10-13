@@ -47,3 +47,6 @@ hi SpellBad ctermbg=lightgray
 
 set laststatus=2
 set statusline=[%02n]%F%m%r%h%w\ \ %Y%=%04l,%04v\ \ %p%%\ \ %L\ \lines
+
+imap <CR> <ESC>        " Changes the ESC key to ENTER
+" TODO: Map <C-Enter> to newline character in INSERT MODE
