@@ -23,8 +23,8 @@ set wildmenu                    " Tab completion for command mode
 set wildmode=list:longest
 set relativenumber              " Shows the relative line numbers
 set scrolloff=5                 " Always shows 5 lines above and below cursor
-"set cursorline                  " Shows a line under the cursor and to the edges of the screen
-"set ttyfast                     " More responsive
+"set cursorline                 " Shows a line under the cursor and to the edges of the screen
+"set ttyfast                    " More responsive
 
 map :set indentexpr= ft=mason
 
@@ -56,4 +56,7 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
       \ formatoptions+=croq softtabstop=4 smartindent
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 
+au BufRead,BufNewFile * set relativenumber
 
+" Changes the ESC key to ENTER
+inoremap <CR> <Esc>`^
