@@ -16,7 +16,7 @@ set incsearch                   " Incremental search, searches as you type
 set nobackup
 set noswapfile                  " No swap or backup files
 
-set list
+set list                        " Show erronius whitespace characters
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 set encoding=utf-8
@@ -27,7 +27,7 @@ set scrolloff=5                 " Always shows 5 lines above and below cursor
 "set cursorline                 " Shows a line under the cursor and to the edges of the screen
 "set ttyfast                    " More responsive
 
-set noerrorbells
+set noerrorbells                " No more loud noises and distractions
 set novisualbell
 set t_vb=
 set tm=500
@@ -37,4 +37,8 @@ set nohidden                    " No hidden buffers
 set laststatus=2
 set statusline=%F%m%r%h%w\ %Y\ %{&fenc==\"\"?&enc:&fenc}\ %{&ff}%=%L\ \lines\ %04l,%04v\ \ %p%%\ \buffer\ %n
 
-set showmatch matchpairs+=<:>
+set showmatch matchpairs+=<:>  " Enables highlighting of matching < and > pairs
+
+syntax on
+filetype plugin indent on
+colo zellner
