@@ -37,8 +37,6 @@ set nohidden                    " No hidden buffers
 set laststatus=2
 set statusline=%F%m%r%h%w\ %Y\ %{&fenc==\"\"?&enc:&fenc}\ %{&ff}%=%L\ \lines\ %04l,%04v\ \ %p%%\ \buffer\ %n
 
-set showmatch matchpairs+=<:>  " Enables highlighting of matching < and > pairs
-
 syntax on
 filetype plugin indent on
 colo zellner
