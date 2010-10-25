@@ -1,4 +1,4 @@
-python_fn shortcuts: 
+python_fn shortcuts:
 ]t      -- Jump to beginning of block
 ]e      -- Jump to end of block
 ]v      -- Select (Visual Line Mode) block
