@@ -35,8 +35,12 @@ set tm=500
 set nohidden                    " No hidden buffers
 
 set laststatus=2
-set statusline=%F%m%r%h%w\ %Y\ %{&fenc==\"\"?&enc:&fenc}\ %{&ff}%=%L\ \lines\ %04l,%04v\ \ %p%%\ \buffer\ %n
+set statusline=%F%m%r%h%w\ %Y\ %{&fenc==\"\"?&enc:&fenc}\ %{&ff}%=(\lines:\ \%l\/%L\ %p%%)\ (\column:\ %v)\ (\buffer:\ %n)
+" Status line:
+"     right: path flags filetype encoding newline_char_type
+"     left: (lines: currline/line_count scroll_down_%) (columns: curr_col) (buffer: buffer_number)
 
 syntax on
 filetype plugin indent on
-colo zellner
+
+colorscheme sienna
