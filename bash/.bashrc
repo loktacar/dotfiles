@@ -73,7 +73,7 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 # some more ls aliases
-alias ls='ls --color -h'
+alias ls='ls --color -hF'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
