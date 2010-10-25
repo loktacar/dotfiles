@@ -1,0 +1,48 @@
+python_fn shortcuts: 
+]t      -- Jump to beginning of block
+]e      -- Jump to end of block
+]v      -- Select (Visual Line Mode) block
+]<      -- Shift block to left
+]>      -- Shift block to right
+]#      -- Comment selection
+]u      -- Uncomment selection
+]c      -- Select current/previous class
+]d      -- Select current/previous function
+]<up>   -- Jump to previous line with the same/
+           lower indentation
+]<down> -- Jump to next line with the same/
+           lower indentation
+
+Omni completion shortcuts:
+^X^P    -- Existing text matching
+^X^F    -- File matching
+^X^O    -- Plugin matching
+
+Indentation commands:
+<<      -- Lessen indent
+>>      -- Increase indent
+<       -- Lessen indent of selected
+           text VISUAL MODE
+>       -- Increase indent of the
+           selected text
+           VISUAL MODE
+==      -- Auto indent one line
+
+General goodness:
+gv      -- Select last VISUAL selection
+gi      -- Enter insert mode in the same
+           position as last time
+cit     -- Delete text between tags and enter
+           INSERT mode
+ci'     -- Same as above but between '
+da"     -- Delete text between " and
+           the " aswell
+
+:w ++enc=utf-8    -- for django files
+:w ++enc=latin-1  -- for mako files
+
+dt[character]
+        -- Deletes text untill [character]
+gd      -- Search and go to first occurance of
+           word under cursor
+gt      -- Switches to next tab (T for prev)
