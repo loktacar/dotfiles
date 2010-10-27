@@ -40,6 +40,7 @@ da"     -- Delete text between " and
 
 :w ++enc=utf-8    -- for django files
 :w ++enc=latin-1  -- for mako files
+:w ++ff=unix      -- writes in unix file format
 
 dt[character]
         -- Deletes text untill [character]

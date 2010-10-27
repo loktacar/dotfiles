@@ -44,4 +44,4 @@ set statusline=%F%m%r%w\ %Y\ %{&fenc==\"\"?&enc:&fenc}\ %{&ff}\ %=\ (\lin.:\ \%l
 syntax on
 filetype plugin indent on
 
-colorscheme sienna
+colorscheme liquidcarbon
