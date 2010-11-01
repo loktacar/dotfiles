@@ -34,12 +34,30 @@ set tm=500
 
 set nohidden                    " No hidden buffers
 
-set laststatus=2
-set statusline=%F%m%r%w\ %Y\ %{&fenc==\"\"?&enc:&fenc}\ %{&ff}\ %=\ (\lin.:\ \%l\/%L\ %p%%)\ (\col.:\ %v)\ (\buf.:\ %n)%<
 
-" Status line:
-"     right: path flags filetype encoding newline_char_type
-"     left: (lines: currline/line_count scroll_down_%) (columns: curr_col) (buffer: buffer_number)
+set laststatus=2
+
+set statusline=%F               " Full path to the current file
+set statusline+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
+set statusline+=%Y\             " Type of file in buffer
+set statusline+=%{&fenc==\"\"?&enc:&fenc}\ 
+                                " File encoding
+set statusline+=%{&ff}\         " File format
+
+set statusline+=%=\             " Split left and right
+
+set statusline+=(\lin.:\ \%l\/%L\ %p%%)\ 
+                                " Line number, total line count, and
+                                " percentage of current line and total
+set statusline+=(\col.:\ %v)\   " Column number
+set statusline+=(\buf.:\ %n)    " Buffer number
+set statusline+=%<              " Truncate status line (Show beginning)
+
+
+set showcmd                     " Shows what characters you've built up in the "command" buffer
+set autochdir                   " Switches the dir to where the file which was opened is
+set more                        " If there has to be displayed more info that fits on the screen
+                                " display it as ' | more' in terminal. 
 
 syntax on
 filetype plugin indent on
