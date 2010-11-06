@@ -39,7 +39,7 @@ xterm-color)
 *)
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-    PS1="\u \$(__git_ps1 '%s') \W \$ "
+    PS1="\u\$(__git_ps1 ' %s') \W \$ "
     ;;
 esac
 
@@ -80,6 +80,13 @@ alias lla='ls -la'
 alias lsa='ls -a'
 alias sl='ls'
 alias dc='cd'
+alias cd..='cd ..'
+
+alias :q='exit'
 
 alias vim='vim -T xterm-color'
 alias vimc='vim -T xterm-color -u .coding_vimrc'
+
+alias gvim='gvim --remote-silent'
+
+PATH=$PATH:/home/viktor/projects/tit/
