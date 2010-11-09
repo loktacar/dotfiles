@@ -89,4 +89,4 @@ alias vimc='vim -T xterm-color -u .coding_vimrc'
 
 alias gvim='gvim --remote-silent'
 
-PATH=$PATH:/home/viktor/projects/tit/
+PATH=$PATH:/home/viktor/projects/tit/:/home/viktor/arduino

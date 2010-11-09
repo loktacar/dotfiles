@@ -32,6 +32,18 @@ set tm=500
 
 set nohidden                    " No hidden buffers
 
+"""""""""""""""""""""""""""""""""
+" Statusline                    "
+"""""""""""""""""""""""""""""""""
+function! StatuslineCurrentHighlight()
+    let name = synIDattr(synID(line('.'),col('.'),1),'name')
+    if name == ''
+        return ''
+    else
+        return '[' . name . ']'
+    endif
+endfunction
+
 set laststatus=2
 
 set statusline=%F               " Full path to the current file
@@ -46,6 +58,9 @@ set statusline+=%=\             " Split left and right
 set statusline+=(\lin.:\ \%l\/%L\ %p%%)\ 
                                 " Line number, total line count, and
                                 " percentage of current line and total
+
+set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
+
 set statusline+=(\col.:\ %v)\   " Column number
 set statusline+=(\buf.:\ %n)    " Buffer number
 set statusline+=%<              " Truncate status line (Show beginning)
@@ -56,15 +71,12 @@ set autochdir                   " Switches the dir to where the file which was o
 set more                        " If there has to be displayed more info that fits on the screen
                                 " display it as ' | more' in terminal. 
 
-syntax on
+syntax enable
 filetype plugin indent on
 
 if has("gui_running")
   set guioptions=achegirLm         " Just some gui options
   set guifont=Andale\ Mono\ 9      " GUI font
-
-  set lines=999
-  set columns=999 " Always start maximized
 
   colorscheme liquidcarbon
 else
