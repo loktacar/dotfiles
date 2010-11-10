@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/viktor/.vim'
-let g:netrw_dirhist_2='/home/viktor/django'
-let g:netrw_dirhist_3='/home/viktor/django/apps'
-let g:netrw_dirhist_4='/Users/viktor/dotfiles/.vim'
