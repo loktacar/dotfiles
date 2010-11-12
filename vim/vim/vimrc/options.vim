@@ -32,45 +32,10 @@ set tm=500
 
 set nohidden                    " No hidden buffers
 
-"""""""""""""""""""""""""""""""""
-" Statusline                    "
-"""""""""""""""""""""""""""""""""
-function! StatuslineCurrentHighlight()
-    let name = synIDattr(synID(line('.'),col('.'),1),'name')
-    if name == ''
-        return ''
-    else
-        return '[' . name . ']'
-    endif
-endfunction
-
-set laststatus=2
-
-set statusline=%F               " Full path to the current file
-set statusline+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
-set statusline+=%Y\             " Type of file in buffer
-set statusline+=%{&fenc==\"\"?&enc:&fenc}\ 
-                                " File encoding
-set statusline+=%{&ff}\         " File format
-
-set statusline+=%=\             " Split left and right
-
-set statusline+=(\lin.:\ \%l\/%L\ %p%%)\ 
-                                " Line number, total line count, and
-                                " percentage of current line and total
-
-set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
-
-set statusline+=(\col.:\ %v)\   " Column number
-set statusline+=(\buf.:\ %n)    " Buffer number
-set statusline+=%<              " Truncate status line (Show beginning)
-
-
 set showcmd                     " Shows what characters you've built up in the "command" buffer
 set autochdir                   " Switches the dir to where the file which was opened is
 set more                        " If there has to be displayed more info that fits on the screen
                                 " display it as ' | more' in terminal. 
-
 syntax enable
 filetype plugin indent on
 
@@ -82,3 +47,24 @@ if has("gui_running")
 else
   colorscheme koehler
 endif
+
+" Statusline settings
+set laststatus=2
+
+set statusline=%F               " Full path to the current file
+set statusline+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
+set statusline+=%Y\             " Type of file in buffer
+set statusline+=%{&fenc==\"\"?&enc:&fenc}\ 
+                                " File encoding
+set statusline+=%{&ff}\         " File format
+
+set statusline+=%=\             " Split left and right
+
+set statusline+=(\line:\ \%l\/%L\ %p%%)\ 
+                                " Line number, total line count, and
+                                " percentage of current line and total
+
+set statusline+=(\col.:\ %v)\   " Column number
+set statusline+=(\buf.:\ %n)    " Buffer number
+set statusline+=%<              " Truncate status line (Show beginning)
+
