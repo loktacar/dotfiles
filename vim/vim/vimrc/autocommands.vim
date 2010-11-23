@@ -16,3 +16,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " Auto commands to be run upon opening/re-opening files
 autocmd BufRead,BufNewFile * set relativenumber
+
+" Auto commands to be run upon switching modes
+
+" Turn off relative numbers when in insert mode
+autocmd InsertEnter * set number
+autocmd InsertLeave * set relativenumber
