@@ -36,7 +36,7 @@ set showcmd                     " Shows what characters you've built up in the "
 set autochdir                   " Switches the dir to where the file which was opened is
 set more                        " If there has to be displayed more info that fits on the screen
                                 " display it as ' | more' in terminal. 
-syntax enable
+syntax on
 filetype plugin indent on
 
 if has("gui_running")
