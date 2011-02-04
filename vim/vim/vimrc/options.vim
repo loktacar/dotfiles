@@ -36,6 +36,9 @@ set showcmd                     " Shows what characters you've built up in the "
 set autochdir                   " Switches the dir to where the file which was opened is
 set more                        " If there has to be displayed more info that fits on the screen
                                 " display it as ' | more' in terminal. 
+
+set clipboard+=unnamed
+
 syntax on
 filetype plugin indent on
 
