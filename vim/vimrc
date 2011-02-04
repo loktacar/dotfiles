@@ -1,7 +1,143 @@
-so ~/.vim/vimrc/options.vim
-so ~/.vim/vimrc/autocommands.vim
-so ~/.vim/vimrc/plugin_options.vim
-so ~/.vim/vimrc/mappings.vim
-so ~/.vim/vimrc/misc.vim
+" {{{ General settings set ts=2
+set sw=2
+set sts=2
 
-so ~/.vim/vimrc/coding_windows.vim
+set nu                          " Numbered lines
+set expandtab
+set nocp                        " No compatibility with vi
+
+set title
+
+set hlsearch                    " Highlights search results
+set incsearch                   " Incremental search, searches as you type
+
+set nobackup
+set noswapfile                  " No swap or backup files
+
+set list                        " Show erronius whitespace characters
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+
+set encoding=utf-8
+set wildmenu                    " Filename completion for command mode
+set wildmode=list:longest
+set relativenumber              " Shows the relative line numbers for the file specified when running vim
+set scrolloff=5                 " Always shows 5 lines above and below cursor
+
+set noerrorbells                " No more loud noises and distractions
+set novisualbell
+set t_vb=
+set tm=500
+
+set nohidden                    " No hidden buffers
+
+set showcmd                     " Shows what characters you've built up in the "command" buffer
+set autochdir                   " Switches the dir to where the file which was opened is
+set more                        " If there has to be displayed more info that fits on the screen
+                                " display it as ' | more' in terminal. 
+
+set clipboard+=unnamed
+
+syntax on
+filetype plugin indent on
+
+if has("gui_running")
+  set guioptions=achegirLm         " Just some gui options
+  set guifont=Andale\ Mono\ 9      " GUI font
+
+  colorscheme liquidcarbon
+else
+  colorscheme koehler
+endif
+
+" Statusline settings
+set laststatus=2
+
+set statusline=%F               " Full path to the current file
+set statusline+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
+set statusline+=%Y\             " Type of file in buffer
+set statusline+=%{&fenc==\"\"?&enc:&fenc}\ 
+                                " File encoding
+set statusline+=%{&ff}\         " File format
+
+set statusline+=%=\             " Split left and right
+
+set statusline+=(\line:\ \%l\/%L\ %p%%)\ 
+                                " Line number, total line count, and
+                                " percentage of current line and total
+
+set statusline+=(\col.:\ %v)\   " Column number
+set statusline+=(\buf.:\ %n)    " Buffer number
+set statusline+=%<              " Truncate status line (Show beginning)
+
+" }}}
+
+" {{{ Auto commands, to be run on various occasions
+
+" This is run so that re-sourcing .vimrc won't double the autocmd's
+if !exists("custom_autocommands_loaded")
+
+    " Specific filetype auto commands
+    autocmd BufRead,BufNewFile ~/blog/*.html set filetype=mason
+    autocmd BufRead,BufNewFile ~/viktor_nytt/*.html set filetype=mason
+    autocmd BufRead,BufNewFile *.mhtml set filetype=mako
+    autocmd BufRead,BufNewFile *.mc set filetype=mako
+
+    autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
+          \ formatoptions+=croq softtabstop=4 smartindent
+          \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+    " Auto commands to be run upon opening/re-opening files
+    autocmd BufRead,BufNewFile * set relativenumber
+
+    " Auto commands to be run upon switching modes
+
+    " Turn off relative numbers when in insert mode
+    autocmd InsertEnter * set number
+    autocmd InsertLeave * set relativenumber
+
+    let custom_autocommands_loaded = 1
+endif
+" }}}
+
+" {{{ Plugin settings
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+" Options for Supertab
+let g:SuperTabCrMapping=0          " Doesn't set <CR> in insert mode
+
+let NERDTreeChDirMode=2            " Current root node is working directory
+let NERDChristmasTree=1
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+let NERDTreeHighlightCursorline=1
+" }}}
+
+" {{{ Keyboard mappings
+" Changes the ESC key to ENTER
+inoremap <CR> <ESC>`^
+inoremap jj <C-J>
+vnoremap <CR> <ESC>
+
+" reselect visual block after in/dedent so we can in/dedent more
+vnoremap < <gv
+vnoremap > >gv
+
+" The next lines help with folding
+
+" Fold unfold with space in normal mode
+nnoremap <silent> <Space> za
+
+" Create a fold with space in visual mode
+vnoremap <silent> <Space> zf
+" }}}
+
+" {{{ Various other settings
+hi SpellBad ctermbg=lightgray
+" }}}
+
+" {{{ Commands to be run when vim starts
+autocmd VimEnter * exe "NERDTree" | wincmd p
+" }}}
