@@ -12,4 +12,4 @@
 	tool = opendiff
 
 [alias]
-	ls = status
+	lg = log --color=auto --graph
