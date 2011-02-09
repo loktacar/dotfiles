@@ -1,0 +1,17 @@
+[core]
+	editor = vim
+	pager = less -Rc
+
+[color]
+	ui = always
+
+[user]
+	name = Viktor Alex
+	email = viktor@lokserver~hjemme
+
+[merge]
+	tool = opendiff
+
+[alias]
+	lg = log --color=auto --graph --decorate
+	st = status

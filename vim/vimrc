@@ -1,4 +1,5 @@
-" {{{ General settings
+" {{{ Options
+
 set ts=2
 set sw=2
 set sts=2
@@ -38,7 +39,7 @@ set more                        " If there has to be displayed more info that fi
 
 set lazyredraw                  " doesn't draw whole window when executing macros etc.
 
-syntax on
+syntax enable
 filetype plugin indent on
 
 if has("gui_running")
@@ -52,7 +53,15 @@ else
   colorscheme koehler
 endif
 
-" Statusline settings
+" }}}
+
+" {{{ Statusline settings
+"
+" Ex. Left side:
+"   /path/to/file[flags] typeoffile encoding fileformat
+"
+" Ex. Right side:
+"   (line: 1/lineno 0%) (col.: colno) (buf.: bufno)
 set laststatus=2
 
 set statusline=%F               " Full path to the current file
@@ -142,9 +151,13 @@ nnoremap ,f :FufFile<CR>
 " }}}
 
 " {{{ Various other settings
+
 hi SpellBad ctermbg=lightgray
+
 " }}}
 
-" {{{ Commands to be run when vim starts
+" {{{ Commands to be run on first start
+
 autocmd VimEnter * exe "NERDTree" | wincmd p
+
 " }}}

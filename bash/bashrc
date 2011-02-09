@@ -81,6 +81,7 @@ alias lsa='ls -a'
 alias sl='ls'
 alias dc='cd'
 alias cd..='cd ..'
+alias less='less -Rc'
 
 alias :q='exit'
 
@@ -88,5 +89,7 @@ alias vim='vim -T xterm-color'
 alias vimc='vim -T xterm-color -u .coding_vimrc'
 
 alias gvim='gvim --remote-silent'
+
+alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 
 PATH=$PATH:/home/viktor/projects/tit/:/home/viktor/arduino
