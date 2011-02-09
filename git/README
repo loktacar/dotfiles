@@ -1,0 +1,8 @@
+Git configuration
+
+Files:
+    - gitconfig
+      * configuration file for git, should be linked to '~/.gitconfig'.
+    - gitignore
+      * a whole file that contains all the filenames that are to be ignored
+      * linked to '~/.gitignore'

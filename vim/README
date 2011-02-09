@@ -1,0 +1,17 @@
+Vim configuration
+
+Folders:
+    - vim
+        * contains all the scripts, colorschemes, plugins etc.
+        * linked to ~/.vim/
+    - vim/bundle
+        * this folder contained and managed by pathogen
+        * to install new plugin add the doc and plugin etc. foldrs into the
+          folder in a folder of the same name as the plugin.
+
+Files:
+    - vimrc
+        * contains all my personal customizations of vim
+        * linked to ~/.vimrc
+
+Other files are documented online.
