@@ -73,23 +73,29 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 # some more ls aliases
+# always display pwd
 alias ls='pwd && ls --color -hF'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lsa='ls -a'
+
+# Input error (PEBCAK)
 alias sl='ls'
 alias dc='cd'
 alias cd..='cd ..'
+
+# to enable colors from ex. ls -r | less
 alias less='less -Rc'
 
+# If I'm stuck in vim mode
 alias :q='exit'
 
 alias vim='vim -T xterm-color'
-alias vimc='vim -T xterm-color -u .coding_vimrc'
 
 alias gvim='gvim --remote-silent'
 
+# handy little additions for uptime info
 alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 
 PATH=$PATH:/home/viktor/projects/tit/:/home/viktor/arduino
