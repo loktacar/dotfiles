@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	pager = less -Rc
 
 [color]
 	ui = always
@@ -13,3 +14,4 @@
 
 [alias]
 	lg = log --color=auto --graph --decorate
+	st = status
