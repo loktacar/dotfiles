@@ -1,4 +1,5 @@
-" {{{ General settings set ts=2
+" {{{ General settings
+set ts=2
 set sw=2
 set sts=2
 
@@ -35,7 +36,7 @@ set autochdir                   " Switches the dir to where the file which was o
 set more                        " If there has to be displayed more info that fits on the screen
                                 " display it as ' | more' in terminal. 
 
-set clipboard+=unnamed
+set lazyredraw                  " doesn't draw whole window when executing macros etc.
 
 syntax on
 filetype plugin indent on
@@ -45,6 +46,8 @@ if has("gui_running")
   set guifont=Andale\ Mono\ 9      " GUI font
 
   colorscheme liquidcarbon
+  " For mac OSX atleast
+  set clipboard+=unnamed
 else
   colorscheme koehler
 endif
@@ -132,6 +135,10 @@ nnoremap <silent> <Space> za
 
 " Create a fold with space in visual mode
 vnoremap <silent> <Space> zf
+
+" Getting some use out of FuzzyFinder
+nnoremap ,b :FufBuffer<CR>
+nnoremap ,f :FufFile<CR>
 " }}}
 
 " {{{ Various other settings
