@@ -1,86 +1,11 @@
-" Depricated as of atleast 2010
-
 This project contains all of my personal configuration files for applications that I use.
 
-My usage:
-    - I've pulled this git project into a new folder in my home folder called
-      dotfiles.
-        ~/ $ mkdir dotfiles/ && cd dotfiles/
-        ~/dotfiles/ $ git init
-        ~/dotfiles/ $ git remote add origin git://github.com/loktacar/dotfiles.git
-        ~/dotfiles/ $ git pull
-        ~/dotfiles/ $ cd ..
-    - I've removed all the old configurations files.
-        ~/ $ rm -rf .bashrc .vimrc .vim
-    - And instead of the old configuration files I've created symlinks straight
-      into the dotfiles folder.
-        ~/ $ ln -s dotfiles/vim/.vimrc .vimrc
-        ~/ $ ln -s dotfiles/vim/.vim/ .vim
-        ~/ $ ln -s dotfiles/vim/vim_notes.txt vim_notes.txt
-        ~/ $ ln -s dotfiles/bash/.bashrc .bashrc
+Usage:
+    - This project is cloned from github and the various config files
+      are symlinked to the various contents of the subfolders.
+      ex.
+            ~/.vimrc -> ~/dotfiles/vim/vimrc
+            ~/.vim -> ~/dotfiles/vim/vim
 
 The reasoning behind this setup is for customizability and seamless integration
 with git.
-
-Vim:
-  - I've created two vimrc files:
-    .vimrc
-      - This file sources the .vim files in the vimrc folder inside the .vim
-        folder.
-    .coding_vimrc
-      - This file is indentical to .vimrc except that this file also sources
-        vimrc/coding_windows.vim.
-
-  - In the .vim/vimrc folder are the files usually contained within .vimrc:
-    autocommands.vim
-      - Contains the autocmd commands which tells vim to do certain things at
-        certain times e.g. Turning relative line numbers on when opening a new
-        buffer.
-    coding_windows.vim
-      - Opens the NERDTree plugin and .viminfo file and sets their size.
-    mappings.vim
-      - Contains keyboard mappings, see a lower section for more info.
-    misc.vim
-      - Miscelanious settings.
-    options.vim
-      - Mostly 'set' commands but also some general options that are good to
-        have.
-    plugin_options.vim
-      - Here I set the options for various plugins.
-
-  - Keyboard mappings:
-    I've remapped the Enter key to the Escape key.
-        inoremap <CR> <ESC>`^
-    To create a new line while in insert mode you can type 'jj', Ctrl+J or just
-    exit insert mode.
-        inoremap jj <C-J>
-
-    I've also remapped the < and > key's in visual selection mode
-        vnoremap < <gv
-        vnoremap > >gv
-    This is so that upon indenting in visual selection mode the selection is
-    not lost and I stay in visual selection mode.
-
-  - Plugins:
-    Fugitive
-      A git wrapper that can be used through vim.
-        - Hasn't been tested by me, or used for that matter.
-    NERDTree
-      A filesystem browser. A superb plugin.
-    Genutils
-      Yeaaaah, I can't remember what this is.
-    Matchit
-      Jumps between html tags with %.
-    MiniBugExplorer
-      A minimalistic buffer explorer that hangs usefully at the top og the
-      screen.
-    Supertab
-      An omni-completion plugin that is a little borked at the moment because
-      of my usage of the Enter key as the Escape key.
-    Synastic
-      Can't say I've used this one, it enables enables on the fly syntax checking.
-    Python_fn
-      Added support and commands for python coding.
-
-  - Colorscheme:
-    At the moment I'm using Liquid Carbon. I'm experimenting with dark background themes. 
