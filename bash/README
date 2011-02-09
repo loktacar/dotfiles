@@ -1,0 +1,7 @@
+Bash configuration
+
+Files:
+    - bashrc
+        * Uses bash completion and colored terms if available.
+        * Has a long list of personal aliases aswell as a special PATH 
+          declaration at the bottom.
