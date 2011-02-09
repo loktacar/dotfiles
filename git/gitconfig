@@ -1,0 +1,27 @@
+[core]
+	editor = vim
+	pager = less -Rc
+	excludesfile = ~/.gitignore
+
+[color]
+	ui = always
+
+[user]
+	name = Viktor Alex
+	email = viktor@lokserver~hjemme
+
+[merge]
+	tool = vimdiff
+
+[alias]
+	lg = log --color=auto --graph --decorate
+	st = status
+	br = branch -a -v
+	co = checkout
+	di = diff --color-words
+	dis = diff --color-words --staged
+	pu = pull --ff-only
+	up = pull --rebase # like svn does
+	lo = log --decorate --abbrev-commit --stat
+	staged = diff --cached
+	tree = log --graph --pretty=oneline --abbrev-commit --decorate
