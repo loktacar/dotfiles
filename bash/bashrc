@@ -55,6 +55,11 @@ xterm*|rxvt*)
     ;;
 esac
 
+# set pager
+export PAGER=less
+# to enable colors from ex. ls -r | less
+export LESS="-SRc"
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -84,9 +89,6 @@ alias lsa='ls -a'
 alias sl='ls'
 alias dc='cd'
 alias cd..='cd ..'
-
-# to enable colors from ex. ls -r | less
-alias less='less -Rc'
 
 # If I'm stuck in vim mode
 alias :q='exit'
