@@ -137,7 +137,11 @@ vnoremap <CR> <ESC>
 vnoremap < <gv
 vnoremap > >gv
 
-" The next lines help with folding
+" Easier window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Fold unfold with space in normal mode
 nnoremap <silent> <Space> za
@@ -148,6 +152,9 @@ vnoremap <silent> <Space> zf
 " Getting some use out of FuzzyFinder
 nnoremap ,b :FufBuffer<CR>
 nnoremap ,f :FufFile<CR>
+
+" Clear search easyer
+nnoremap ,<Space> :nohlsearch<CR>
 " }}}
 
 " {{{ Various other settings
