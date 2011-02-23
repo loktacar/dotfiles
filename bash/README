@@ -3,9 +3,10 @@ Bash configuration
 Files:
     - bashrc
         * Uses bash completion and colored terms if available.
-        * Has a long list of personal aliases aswell as a special PATH
-          declaration at the bottom.
+        * Has a long list of personal aliases
         * Linked to '~/.bashrc'
+        * $PATH is set to ~/bin/ this folder contain
+          symbolic links to executables.
     - git-completion.bash
         * Adds tab completion to git commands and arguments.
         * linked to '~/.git-completion.bash'
