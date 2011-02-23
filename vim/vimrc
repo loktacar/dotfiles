@@ -1,4 +1,10 @@
+" @author: Viktor Alex Brynjarsson
+"
+" My .vimrc
+"
+
 " {{{ Options
+" vim: set fdm=marker:
 
 set ts=2
 set sw=2
@@ -16,8 +22,10 @@ set incsearch                   " Incremental search, searches as you type
 set nobackup
 set noswapfile                  " No swap or backup files
 
+set modeline                    " Reads last or first five lines for file specific vim settings
+
 set list                        " Show erronius whitespace characters
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=tab:\ \ ,trail:.,extends:µ,precedes:µ,nbsp:.
 
 set encoding=utf-8
 set wildmenu                    " Filename completion for command mode
@@ -108,6 +116,9 @@ if !exists("custom_autocommands_loaded")
     autocmd InsertEnter * set number
     autocmd InsertLeave * set relativenumber
 
+    " For mono F# development
+    autocmd BufRead,BufNewFile *.fs set filetype=fs
+
     let custom_autocommands_loaded = 1
 endif
 " }}}
@@ -128,6 +139,9 @@ let NERDTreeHighlightCursorline=1
 " }}}
 
 " {{{ Keyboard mappings
+" The button that is used as <Leader>
+let mapleader = ","
+
 " Changes the ESC key to ENTER
 inoremap <CR> <ESC>`^
 inoremap jj <C-J>
@@ -150,11 +164,11 @@ nnoremap <silent> <Space> za
 vnoremap <silent> <Space> zf
 
 " Getting some use out of FuzzyFinder
-nnoremap ,b :FufBuffer<CR>
-nnoremap ,f :FufFile<CR>
+nnoremap <Leader>b :FufBuffer<CR>
+nnoremap <Leader>f :FufFile<CR>
 
 " Clear search easyer
-nnoremap ,<Space> :nohlsearch<CR>
+nnoremap <Leader><Space> :nohlsearch<CR>
 " }}}
 
 " {{{ Various other settings
