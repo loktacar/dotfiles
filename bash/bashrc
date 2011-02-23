@@ -93,11 +93,10 @@ alias cd..='cd ..'
 # If I'm stuck in vim mode
 alias :q='exit'
 
-alias vim='vim -T xterm-color'
-
-alias gvim='gvim --remote-silent'
-
 # handy little additions for uptime info
 alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 
-PATH=$PATH:/home/viktor/projects/tit/:/home/viktor/arduino
+alias fsi='mono ~/FSharp2.0/bin/fsi.exe'
+alias fsc='mono ~/FSharp2.0/bin/fsc.exe --warnaserror'
+
+PATH=$PATH:/home/viktor/bin
