@@ -1,0 +1,109 @@
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css" />
+<title>MblPictureBox</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<h1 id="toc_1">mblPictureBox</h1>
+<p>
+This jQuery plugin can be called on links that point to an image and will upon the link being pressed display the linked image in a colorbox fashion.
+</p>
+
+<p>
+<em>Developed for mbl.is</em>
+</p>
+
+<h2 id="toc_1.1">Examples</h2>
+<blockquote>
+$('.newsimg-left a, .newsimg-right a, .newsitem_main_img_big a, .news-extraimg li a').mblPictureBox({
+'get_text': function(link) { return link.next().html(); }
+});
+</blockquote>
+
+<p>
+or
+</p>
+<blockquote>
+$('.myndasyrpa').mblPictureBox({ 'show_text': false });
+</blockquote>
+
+<h2 id="toc_1.2">Settings</h2>
+
+<h3 id="toc_1.2.1">show_close</h3>
+<p>
+  <em>default</em>: true
+</p>
+
+<p>
+  Show close button?
+</p>
+
+<h3 id="toc_1.2.2">show_text</h3>
+<p>
+  <em>default</em>: true
+</p>
+
+<p>
+  Show description text?
+</p>
+
+<h3 id="toc_1.2.3">show_navigation</h3>
+<p>
+  <em>default</em>: true
+</p>
+
+<p>
+  Show next, previous image buttons. They will not appear if the plugin is run on only one image.
+</p>
+
+<h3 id="toc_1.2.4">show_count</h3>
+<p>
+  <em>default</em>: true
+</p>
+
+<p>
+  Show the number of images that are in the current selection.
+</p>
+
+<h3 id="toc_1.2.5">disable_keyboard</h3>
+<p>
+  <em>default</em>: false
+</p>
+
+<p>
+  When set to true keyboard shortcuts are disabled.
+</p>
+
+<h3 id="toc_1.2.6">load_item</h3>
+<p>
+  <em>default</em>: undefined
+</p>
+
+<p>
+  This is a function that is called to load the item. This function should be of the form load_item(link, context, text).
+</p>
+<ul>
+<li>
+link: A jQuery object of the link pressed
+</li>
+<li>
+context: A jQuery object which will be displayed where the image is normally placed
+</li>
+<li>
+text: A jQuery object of the element where the text is displayed.
+    This function should call mblPictureBox.resizeContainerToFit() and mblPictureBox.containerCenterInWindow().
+</li>
+</ul>
+
+<h3 id="toc_1.2.7">get_text</h3>
+<p>
+  <em>default</em>: undefined
+</p>
+
+<p>
+  When defined this function is called with a jQuery object of the link pressed. This function should then return the text to be displayed with the image or <strong>null</strong> if nothing should be shown.
+</p>
+
+</body>
+</html>

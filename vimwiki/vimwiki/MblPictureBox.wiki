@@ -1,0 +1,55 @@
+= mblPictureBox =
+This jQuery plugin can be called on links that point to an image and will upon the link being pressed display the linked image in a colorbox fashion.
+
+_Developed for mbl.is_
+
+== Examples ==
+
+    $('.newsimg-left a, .newsimg-right a, .newsitem_main_img_big a, .news-extraimg li a').mblPictureBox({
+        'get_text': function(link) { return link.next().html(); }
+    });
+
+or
+
+    $('.myndasyrpa').mblPictureBox({ 'show_text': false });
+
+== Settings ==
+
+=== show_close ===
+  _default_: true
+
+  Show close button?
+
+=== show_text ===
+  _default_: true
+
+  Show description text?
+
+=== show_navigation ===
+  _default_: true
+
+  Show next, previous image buttons. They will not appear if the plugin is run on only one image.
+
+=== show_count ===
+  _default_: true
+
+  Show the number of images that are in the current selection.
+
+=== disable_keyboard ===
+  _default_: false
+
+  When set to true keyboard shortcuts are disabled.
+
+=== load_item ===
+  _default_: undefined
+
+  This is a function that is called to load the item. This function should be of the form load_item(link, context, text).
+    * link: A jQuery object of the link pressed
+    * context: A jQuery object which will be displayed where the image is normally placed
+    * text: A jQuery object of the element where the text is displayed.
+    This function should call mblPictureBox.resizeContainerToFit() and mblPictureBox.containerCenterInWindow().
+
+=== get_text ===
+  _default_: undefined
+
+  When defined this function is called with a jQuery object of the link pressed. This function should then return the text to be displayed with the image or *null* if nothing should be shown.
