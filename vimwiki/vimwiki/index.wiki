@@ -1,0 +1,12 @@
+= Wiki of Viktor =
+
+== TODO ==
+  * Add !VimExit autocommand that creates html files for vimwiki
+
+== Solutions ==
+  Solutions I've programmed for myself and/or for work
+
+  * [[mblPictureBox]] jQuery plugin for displaying larger images.
+
+  * [[mblRenningur]] jQuery plugin for sliders.
+

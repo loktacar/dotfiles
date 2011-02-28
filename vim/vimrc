@@ -1,11 +1,11 @@
+" vim: set fdm=marker:
+"
 " @author: Viktor Alex Brynjarsson
 "
 " My .vimrc
 "
 
 " {{{ Options
-" vim: set fdm=marker:
-
 set ts=2
 set sw=2
 set sts=2
@@ -54,9 +54,8 @@ if has("gui_running")
   set guioptions=achegirLm         " Just some gui options
   set guifont=Andale\ Mono\ 9      " GUI font
 
-  colorscheme liquidcarbon
+  colorscheme mustang
   " For mac OSX atleast
-  set clipboard+=unnamed
 else
   colorscheme koehler
 endif
@@ -179,6 +178,10 @@ hi SpellBad ctermbg=lightgray
 
 " {{{ Commands to be run on first start
 
-autocmd VimEnter * exe "NERDTree" | wincmd p
+autocmd VimEnter * exe "NERDTree"
+autocmd VimEnter * split
+autocmd VimEnter * wincmd j
+autocmd VimEnter * exe "normal ,ww"
+autocmd VimEnter * wincmd l
 
 " }}}
