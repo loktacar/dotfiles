@@ -118,6 +118,9 @@ if !exists("custom_autocommands_loaded")
     " For mono F# development
     autocmd BufRead,BufNewFile *.fs set filetype=fs
 
+    " Writes the vimwiki html files
+    autocmd VimLeavePre * VimwikiAll2HTML
+
     let custom_autocommands_loaded = 1
 endif
 " }}}
