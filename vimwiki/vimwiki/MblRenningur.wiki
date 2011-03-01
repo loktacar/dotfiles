@@ -3,7 +3,6 @@ A slider jQuery plugin.
 
 _Developed for mbl.is_
 
-
 == Download ==
   Latest release http://mbl.is/~viktor/mblRenningur.js
 
