@@ -3,6 +3,19 @@ This jQuery plugin can be called on links that point to an image and will upon t
 
 _Developed for mbl.is_
 
+== Features ==
+  * Keyboard shortcuts
+    - Right and left arrow keys to navigate.
+    - Space bar to see next image.
+    - Escape to close.
+  * Override default behaviour
+    - Set load_item function in settings and it will be called instead of the default loading of the image in the link.
+      * You then have access to both the text and the main elements, and you can put anything you want in there.
+      * When you're done putting the items you want into those fields you can either set position and size manually or call the built in functions.
+      * mblPicturebox.resizeContainerToFit() and mblPictureBox.containerCenterInWindow()
+    - Set get_text function in settings and the return value from that function will be used as image description.
+  * Built in css. Check the javascript file and it should be pretty evident.
+
 == Download ==
   Latest release http://mbl.is/~viktor/mblPictureBox.js
 

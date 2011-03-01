@@ -14,12 +14,55 @@ This jQuery plugin can be called on links that point to an image and will upon t
 <em>Developed for mbl.is</em>
 </p>
 
-<h2 id="toc_1.1">Download</h2>
+<h2 id="toc_1.1">Features</h2>
+<ul>
+<li>
+Keyboard shortcuts
+</li>
+<ul>
+<li>
+Right and left arrow keys to navigate.
+</li>
+<li>
+Space bar to see next image.
+</li>
+<li>
+Escape to close.
+</li>
+</ul>
+<li>
+Override default behaviour
+</li>
+<ul>
+<li>
+Set load_item function in settings and it will be called instead of the default loading of the image in the link.
+</li>
+<ul>
+<li>
+You then have access to both the text and the main elements, and you can put anything you want in there.
+</li>
+<li>
+When you're done putting the items you want into those fields you can either set position and size manually or call the built in functions.
+</li>
+<li>
+mblPicturebox.resizeContainerToFit() and mblPictureBox.containerCenterInWindow()
+</li>
+</ul>
+<li>
+Set get_text function in settings and the return value from that function will be used as image description.
+</li>
+</ul>
+<li>
+Built in css. Check the javascript file and it should be pretty evident.
+</li>
+</ul>
+
+<h2 id="toc_1.2">Download</h2>
 <p>
   Latest release <a href="http://mbl.is/~viktor/mblPictureBox.js">http://mbl.is/~viktor/mblPictureBox.js</a>
 </p>
 
-<h2 id="toc_1.2">Examples</h2>
+<h2 id="toc_1.3">Examples</h2>
 <blockquote>
 $('.newsimg-left a, .newsimg-right a, .newsitem_main_img_big a, .news-extraimg li a').mblPictureBox({
 'get_text': function(link) { return link.next().html(); }
@@ -42,9 +85,9 @@ Live examples can be found here:
 </li>
 </ul>
 
-<h2 id="toc_1.3">Settings</h2>
+<h2 id="toc_1.4">Settings</h2>
 
-<h3 id="toc_1.3.1">show_close</h3>
+<h3 id="toc_1.4.1">show_close</h3>
 <p>
   <em>default</em>: true
 </p>
@@ -53,7 +96,7 @@ Live examples can be found here:
   Show close button?
 </p>
 
-<h3 id="toc_1.3.2">show_text</h3>
+<h3 id="toc_1.4.2">show_text</h3>
 <p>
   <em>default</em>: true
 </p>
@@ -62,7 +105,7 @@ Live examples can be found here:
   Show description text?
 </p>
 
-<h3 id="toc_1.3.3">show_navigation</h3>
+<h3 id="toc_1.4.3">show_navigation</h3>
 <p>
   <em>default</em>: true
 </p>
@@ -71,7 +114,7 @@ Live examples can be found here:
   Show next, previous image buttons. They will not appear if the plugin is run on only one image.
 </p>
 
-<h3 id="toc_1.3.4">show_count</h3>
+<h3 id="toc_1.4.4">show_count</h3>
 <p>
   <em>default</em>: true
 </p>
@@ -80,7 +123,7 @@ Live examples can be found here:
   Show the number of images that are in the current selection.
 </p>
 
-<h3 id="toc_1.3.5">disable_keyboard</h3>
+<h3 id="toc_1.4.5">disable_keyboard</h3>
 <p>
   <em>default</em>: false
 </p>
@@ -89,7 +132,7 @@ Live examples can be found here:
   When set to true keyboard shortcuts are disabled.
 </p>
 
-<h3 id="toc_1.3.6">load_item</h3>
+<h3 id="toc_1.4.6">load_item</h3>
 <p>
   <em>default</em>: undefined
 </p>
@@ -110,7 +153,7 @@ text: A jQuery object of the element where the text is displayed.
 </li>
 </ul>
 
-<h3 id="toc_1.3.7">get_text</h3>
+<h3 id="toc_1.4.7">get_text</h3>
 <p>
   <em>default</em>: undefined
 </p>
