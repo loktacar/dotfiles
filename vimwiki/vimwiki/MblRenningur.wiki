@@ -1,11 +1,11 @@
 = mblRenningur =
-A slider jQuery plugin.
+This jQuery plugin is called on ul lists with fixed height items. The plugin creates a viewfinder, floats the items left and creates paging with a sliding effect for the items.
 
 _Developed for mbl.is_
 
 == Features ==
   * (_optional_) Indicator
-    - When set to a jQuery elemet this element will be populated with an indicator and it uses the set width of this element as it's boundaries.
+    - When set to a jQuery element this element will be populated with an indicator and it uses the set width of this element as it's boundaries.
   * Variable movement
     - When the next or previous buttons are pressed the scroller can move a set number of items or a whole "page" at once.
   * Events
@@ -18,9 +18,6 @@ _Developed for mbl.is_
 
 == Download ==
   Latest release http://mbl.is/~viktor/mblRenningur.js
-
-== Description ==
-This jQuery plugin is called on ul lists with fixed height items. The plugin creates a viewfinder, floats the items left and creates paging with a sliding effect for the items.
 
 == Example ==
     $('ul.renningur_folk').mblRenningur();
