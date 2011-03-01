@@ -16,6 +16,9 @@ or
 
     $('.myndasyrpa').mblPictureBox({ 'show_text': false });
 
+Live examples can be found here:
+  * http://mbl.is/folk/frettir/2011/02/28/kjol_kidman_likt_vid_bordduk/ click any of the photos, look out for ads.
+
 == Settings ==
 
 === show_close ===

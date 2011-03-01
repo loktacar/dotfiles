@@ -1,7 +1,6 @@
 = Wiki of Viktor =
 
-== TODO ==
-  * [X] Add !VimExit autocommand that creates html files for vimwiki
+ToDoList
 
 == Solutions ==
   Solutions I've programmed for myself and/or for work

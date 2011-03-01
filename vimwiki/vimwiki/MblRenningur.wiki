@@ -16,6 +16,9 @@ or
 
     $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '<div class="arrow bgc"></div>'});
 
+Live examples can be found here:
+  * http://mbl.is/frettir/sjonvarp/ Below the flash player are a few examples of this slider in action.
+
 == Settings ==
 
 === btn_left_text and btn_right_text ===
