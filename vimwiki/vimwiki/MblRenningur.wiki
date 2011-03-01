@@ -3,6 +3,19 @@ A slider jQuery plugin.
 
 _Developed for mbl.is_
 
+== Features ==
+  * (_optional_) Indicator
+    - When set to a jQuery elemet this element will be populated with an indicator and it uses the set width of this element as it's boundaries.
+  * Variable movement
+    - When the next or previous buttons are pressed the scroller can move a set number of items or a whole "page" at once.
+  * Events
+    - List moved, the only event as of 01.02.2011
+      * This event is called when the list has moved
+      * Takes two arguments, list and eventData.
+  * Degrades naturally
+    - The only html needed is a list (ul element).
+    - If client doesn't have javascript the list is untouched and can be made to degrade into a longer list without breaking design.
+
 == Download ==
   Latest release http://mbl.is/~viktor/mblRenningur.js
 
