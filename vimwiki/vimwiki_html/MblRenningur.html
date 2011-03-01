@@ -14,12 +14,18 @@ A slider jQuery plugin.
 <em>Developed for mbl.is</em>
 </p>
 
-<h2 id="toc_1.1">Description</h2>
+
+<h2 id="toc_1.1">Download</h2>
+<p>
+  Latest release <a href="http://mbl.is/~viktor/mblRenningur.js">http://mbl.is/~viktor/mblRenningur.js</a>
+</p>
+
+<h2 id="toc_1.2">Description</h2>
 <p>
 This jQuery plugin is called on ul lists with fixed height items. The plugin creates a viewfinder, floats the items left and creates paging with a sliding effect for the items.
 </p>
 
-<h2 id="toc_1.2">Example</h2>
+<h2 id="toc_1.3">Example</h2>
 <blockquote>
 $('ul.renningur_folk').mblRenningur();
 </blockquote>
@@ -31,9 +37,9 @@ or
 $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc"&gt;&lt;/div&gt;'});
 </blockquote>
 
-<h2 id="toc_1.3">Settings</h2>
+<h2 id="toc_1.4">Settings</h2>
 
-<h3 id="toc_1.3.1">btn_left_text and btn_right_text</h3>
+<h3 id="toc_1.4.1">btn_left_text and btn_right_text</h3>
 <p>
   <em>default</em>: previous and next respecively
 </p>
@@ -42,7 +48,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   The text that is printed inside the respective link.
 </p>
 
-<h3 id="toc_1.3.2">btn_left_class and btn_right_class</h3>
+<h3 id="toc_1.4.2">btn_left_class and btn_right_class</h3>
 <p>
   <em>default</em>: btn_left and btn_right respectively
 </p>
@@ -51,7 +57,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   The class of the right and left links.
 </p>
 
-<h3 id="toc_1.3.3">btn_disabled_class</h3>
+<h3 id="toc_1.4.3">btn_disabled_class</h3>
 <p>
   <em>default</em>: disabled
 </p>
@@ -60,7 +66,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   The class set on the right and left links when they are disabled.
 </p>
 
-<h3 id="toc_1.3.4">btn_wrap_inner</h3>
+<h3 id="toc_1.4.4">btn_wrap_inner</h3>
 <p>
   <em>default</em>: <strong>null</strong>
 </p>
@@ -69,7 +75,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   If set the link texts for right and left links is wrapped with this jQuery element.
 </p>
 
-<h3 id="toc_1.3.5">viewfinder_class</h3>
+<h3 id="toc_1.4.5">viewfinder_class</h3>
 <p>
   <em>default</em>:
 </p>
@@ -78,7 +84,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   If set this is the class of the viewfinder.
 </p>
 
-<h3 id="toc_1.3.6">viewfinder_height</h3>
+<h3 id="toc_1.4.6">viewfinder_height</h3>
 <p>
   <em>default</em>: 0
 </p>
@@ -87,7 +93,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   If set to a value &gt; 0 this will override the height given by the items.
 </p>
 
-<h3 id="toc_1.3.7">frontmost_element_class</h3>
+<h3 id="toc_1.4.7">frontmost_element_class</h3>
 <p>
   <em>default</em>: front
 </p>
@@ -96,7 +102,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   This is the class the front element in the viewfinder has.
 </p>
 
-<h3 id="toc_1.3.8">list_moved</h3>
+<h3 id="toc_1.4.8">list_moved</h3>
 <p>
   <em>default</em>: function() {}
 </p>
@@ -105,7 +111,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   This function will be called when the list moves and animation has stopped.
 </p>
 
-<h3 id="toc_1.3.9">scroll_item_count</h3>
+<h3 id="toc_1.4.9">scroll_item_count</h3>
 <p>
   <em>default</em>: page
 </p>
@@ -114,7 +120,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   The renningur will slide this number of items each time the user presses right or left link. If set to page the renningur will scroll a whole viewfinder screen at once.
 </p>
 
-<h3 id="toc_1.3.10">animation_speed</h3>
+<h3 id="toc_1.4.10">animation_speed</h3>
 <p>
   <em>default</em>: slow
 </p>
@@ -123,7 +129,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   The speed of the animation.
 </p>
 
-<h3 id="toc_1.3.11">indicator</h3>
+<h3 id="toc_1.4.11">indicator</h3>
 <p>
   <em>default</em>: <strong>null</strong>
 </p>
@@ -132,7 +138,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   If set to a jQuery element it will be formed into a indicator for the current slider. Showing where the current elements are in the whole list of them.
 </p>
 
-<h3 id="toc_1.3.12">indicator_current_class</h3>
+<h3 id="toc_1.4.12">indicator_current_class</h3>
 <p>
   <em>default</em>:
 </p>
@@ -141,7 +147,7 @@ $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '&lt;div class="arrow bgc
   If set the element that is added to the indicator element is set with this class.
 </p>
 
-<h3 id="toc_1.3.13">center_element</h3>
+<h3 id="toc_1.4.13">center_element</h3>
 <p>
   Probably a legacy option, not sure however.
 </p>

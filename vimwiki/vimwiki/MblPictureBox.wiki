@@ -3,6 +3,9 @@ This jQuery plugin can be called on links that point to an image and will upon t
 
 _Developed for mbl.is_
 
+== Download ==
+  Latest release http://mbl.is/~viktor/mblPictureBox.js
+
 == Examples ==
 
     $('.newsimg-left a, .newsimg-right a, .newsitem_main_img_big a, .news-extraimg li a').mblPictureBox({

@@ -3,6 +3,10 @@ A slider jQuery plugin.
 
 _Developed for mbl.is_
 
+
+== Download ==
+  Latest release http://mbl.is/~viktor/mblRenningur.js
+
 == Description ==
 This jQuery plugin is called on ul lists with fixed height items. The plugin creates a viewfinder, floats the items left and creates paging with a sliding effect for the items.
 

@@ -6,7 +6,7 @@
 == Solutions ==
   Solutions I've programmed for myself and/or for work
 
-  * [[mblPictureBox]] jQuery plugin for displaying larger images.
+  * MblPictureBox jQuery plugin for displaying larger images in a popup style div.
 
-  * [[mblRenningur]] jQuery plugin for sliders.
+  * MblRenningur jQuery plugin for sliders.
 
