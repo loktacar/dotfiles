@@ -14,4 +14,11 @@ Files:
         * contains all my personal customizations of vim
         * linked to ~/.vimrc
 
+Plugins:
+    - Fuzzy Finder. This plugin enables quick searching of files and buffers.
+    - l9. Library which is required by Fuzzy Finder.
+    - NERDCommenter. Allows for easy commenting etc. of code.
+    - NERDTree. Shows you a tree view of the file system.
+    - SuperTab. Autocomplete with tab.
+
 Other files are documented online.

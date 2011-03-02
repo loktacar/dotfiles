@@ -21,9 +21,7 @@ _Developed for mbl.is_
 
 == Example ==
     $('ul.renningur_folk').mblRenningur();
-
 or
-
     $('ul.renningur_folk').mblRenningur({'btn_wrap_inner': '<div class="arrow bgc"></div>'});
 
 Live examples can be found here:
@@ -47,7 +45,7 @@ Live examples can be found here:
   The class set on the right and left links when they are disabled.
 
 === btn_wrap_inner ===
-  _default_: *null*
+  _default_: null
 
   If set the link texts for right and left links is wrapped with this jQuery element.
 
@@ -82,7 +80,7 @@ Live examples can be found here:
   The speed of the animation.
 
 === indicator ===
-  _default_: *null*
+  _default_: null
 
   If set to a jQuery element it will be formed into a indicator for the current slider. Showing where the current elements are in the whole list of them.
 
@@ -92,4 +90,4 @@ Live examples can be found here:
   If set the element that is added to the indicator element is set with this class.
 
 === center_element ===
-  Probably a legacy option, not sure however.
+  Probably a legacy option, not whatever.
