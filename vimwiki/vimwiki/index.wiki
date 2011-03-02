@@ -6,6 +6,5 @@ ToDoList
   Solutions I've programmed for myself and/or for work
 
   * MblPictureBox jQuery plugin for displaying larger images in a popup style div.
-
   * MblRenningur jQuery plugin for sliders.
 
