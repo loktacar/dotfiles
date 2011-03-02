@@ -13,24 +13,43 @@ ToDoList
 
 === .vimrc ===
   * I have numbered lines in my vim. They are numbered in order in *INSERT* mode and in *NORMAL* mode they are numbered relative to the current cursor position. So that I can quickly judge the number of repetitions commands need.
-  * My statusline differs alittle from the default.
-    - Left side
+
+  * The left side of my status line has the following definition and two examples.
+
     /path/to/file[flags] typeoffile encoding fileformat
+
     ~/dotfiles/vimwiki/vimwiki/index.wiki[+] VIMWIKI utf-8 unix
+
     ~/.vimrc VIM utf-8 unix
-    - Right side
-    (line: n/lineno N%) (col.: colno) (buf.: bufno)
+
+  * The right side of my status line has the following definition and example.
+
+    (line: l/lineno L%) (col.: colno) (buf.: bufno)
+
     (line: 23/23 100%) (col.: 29) (buf.: 3)
 
-  * For plugins I've been using [http://www.vim.org/scripts/script.php?script_id=2332&rating=life_changing pathogen]. Adding and removing plugins is easy after that. All you need to do is add a new folder in the $VIMHOME/bundle/ folder. Then Pathogen loads the plugins up and you don't need to worry about weather or not you should write down what files to delete if you don't like the plugin.
-
   * I've added a few keyboard mappings
-    - My <Leader> is set to ,
     - I have mapped the Escape key to Enter in the *INSERT* and *VISUAL* modes. The reason is simply the distance the pinky has to travel. I also feel that pressing enter when you're done instead of Escape seems to make more sense. To create line breaks I either exit *INSERT* mode or I type jj, when I actually have to type jj I just have to pause a second between the j's.
     - In *VISUAL* mode I've mapped the < and > keys to modify indent, as is default, and then to re-select the previous selection. This is to make indenting more than once easier.
     - In *NORMAL* mode the Space bar has been mapped to za, toggle fold. In *VISUAL* mode however it is mapped to zf, create fold.
+    - My <Leader> is set to ,
     - <Leader>b (,b) calls the function :!FufBuffer
     - <Leader>f (,f) calls the function :!FufFile
     - <Leader><Space> (, ) calls :nohlsearch which clears search result highlighting.
 
+=== Plugins ===
+  * For plugins I've been using [http://www.vim.org/scripts/script.php?script_id=2332 pathogen]. Adding and removing plugins is easy after that. All you need to do is add a new folder in the $VIMHOME/bundle/ folder. Then Pathogen loads the plugins up and you don't need to worry about weather or not you should write down what files to delete if you don't like the plugin.
+
+  * [http://www.vim.org/scripts/script.php?script_id=1984 FuzzyFinder] is a plugin that enables fast and comprehensive search of most of the stuff you'd like to search in vim. Files, buffers, tags etc.
+    - I've mapped ,b to the buffer search and ,f to the file search.
+
+  * [http://www.vim.org/scripts/script.php?script_id=1218 NERDCommenter] enables fast commenting of blocks of code. Haven't used this plugin to it's fullest yet.
+
+  * [http://www.vim.org/scripts/script.php?script_id=1658 NERDTree] opens a window with a file tree.
+
+  * [http://www.vim.org/scripts/script.php?script_id=1643 SuperTab] *INSERT* mode completion with tab. Haven't used this plugin to it's fullest yet.
+
+  * [http://www.vim.org/scripts/script.php?script_id=1697 surround.vim] provides mappings for adding, changing and deleting surrounding parentheses, html/xml tags etc.
+
+  * [http://code.google.com/p/vimwiki/ VimWiki] provides a quick and easy way to maintain personal documentation, diary notes etc.
 
