@@ -182,9 +182,9 @@ hi SpellBad ctermbg=lightgray
 " {{{ Commands to be run on first start
 
 autocmd VimEnter * exe "NERDTree"
-autocmd VimEnter * split
-autocmd VimEnter * wincmd j
-autocmd VimEnter * exe "normal ,ww"
+"autocmd VimEnter * split
+"autocmd VimEnter * wincmd j
+"autocmd VimEnter * exe "normal ,ww"
 autocmd VimEnter * wincmd l
 
 " }}}

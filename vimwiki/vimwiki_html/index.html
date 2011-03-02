@@ -25,5 +25,68 @@
 </li>
 </ul>
 
+<h2 id="toc_1.2">VIM</h2>
+<p>
+  I've been using vim as my sole text editor for the past year. In this time I've been customizing vim and trying out many different plugins and tricks and tips that I've seen hither and dither. Right now I'm pretty satisfied with the current configuration. Here are some highlights.
+</p>
+
+<h3 id="toc_1.2.1">.vimrc</h3>
+<ul>
+<li>
+I have numbered lines in my vim. They are numbered in order in <strong>INSERT</strong> mode and in <strong>NORMAL</strong> mode they are numbered relative to the current cursor position. So that I can quickly judge the number of repetitions commands need.
+</li>
+<li>
+My statusline differs alittle from the default.
+</li>
+<ul>
+<li>
+Left side
+    /path/to/file[flags] typeoffile encoding fileformat
+    ~/dotfiles/vimwiki/vimwiki/index.wiki[+] VIMWIKI utf-8 unix
+    ~/.vimrc VIM utf-8 unix
+</li>
+<li>
+Right side
+    (line: n/lineno N%) (col.: colno) (buf.: bufno)
+    (line: 23/23 100%) (col.: 29) (buf.: 3)
+</li>
+</ul>
+</ul>
+
+<ul>
+<li>
+For plugins I've been using <a href="http://www.vim.org/scripts/script.php?script_id=2332&amp;rating=life_changing">pathogen</a>. Adding and removing plugins is easy after that. All you need to do is add a new folder in the $VIMHOME/bundle/ folder. Then Pathogen loads the plugins up and you don't need to worry about weather or not you should write down what files to delete if you don't like the plugin.
+</li>
+</ul>
+
+<ul>
+<li>
+I've added a few keyboard mappings
+</li>
+<ul>
+<li>
+My &lt;Leader&gt; is set to ,
+</li>
+<li>
+I have mapped the Escape key to Enter in the <strong>INSERT</strong> and <strong>VISUAL</strong> modes. The reason is simply the distance the pinky has to travel. I also feel that pressing enter when you're done instead of Escape seems to make more sense. To create line breaks I either exit <strong>INSERT</strong> mode or I type jj, when I actually have to type jj I just have to pause a second between the j's.
+</li>
+<li>
+In <strong>VISUAL</strong> mode I've mapped the &lt; and &gt; keys to modify indent, as is default, and then to re-select the previous selection. This is to make indenting more than once easier.
+</li>
+<li>
+In <strong>NORMAL</strong> mode the Space bar has been mapped to za, toggle fold. In <strong>VISUAL</strong> mode however it is mapped to zf, create fold.
+</li>
+<li>
+&lt;Leader&gt;b (,b) calls the function :FufBuffer
+</li>
+<li>
+&lt;Leader&gt;f (,f) calls the function :FufFile
+</li>
+<li>
+&lt;Leader&gt;&lt;Space&gt; (, ) calls :nohlsearch which clears search result highlighting.
+</li>
+</ul>
+</ul>
+
 </body>
 </html>
