@@ -11,6 +11,9 @@ ToDoList
 == VIM ==
   I've been using vim as my sole text editor for the past year. In this time I've been customizing vim and trying out many different plugins and tricks and tips that I've seen hither and dither. Right now I'm pretty satisfied with the current configuration. Here are some highlights.
 
+=== Download configuration ===
+  My vim configuration along with bash and others is available via github.com [http://github.com/loktacar/dotfiles/ here].
+
 === .vimrc ===
   * I have numbered lines in my vim. They are numbered in order in *INSERT* mode and in *NORMAL* mode they are numbered relative to the current cursor position. So that I can quickly judge the number of repetitions commands need.
 
