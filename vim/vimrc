@@ -35,13 +35,14 @@ set scrolloff=5                 " Always shows 5 lines above and below cursor
 
 set noerrorbells                " No more loud noises and distractions
 set novisualbell
-set t_vb=
-set tm=500
+
+set timeoutlen=500              " Timeout for consecutive key combinations
 
 set nohidden                    " No hidden buffers
 
 set showcmd                     " Shows what characters you've built up in the "command" buffer
-set autochdir                   " Switches the dir to where the file which was opened is
+"set autochdir                   " Switches the dir to where the file which was opened is
+" I'd like to start from ~ always
 set more                        " If there has to be displayed more info that fits on the screen
                                 " display it as ' | more' in terminal. 
 
@@ -54,8 +55,7 @@ if has("gui_running")
   set guioptions=achegirLm         " Just some gui options
   set guifont=Andale\ Mono\ 9      " GUI font
 
-  colorscheme mustang
-  " For mac OSX atleast
+  colorscheme vitamins
 else
   colorscheme koehler
 endif
@@ -100,6 +100,8 @@ if !exists("custom_autocommands_loaded")
     autocmd BufRead,BufNewFile ~/viktor_nytt/*.html set filetype=mason
     autocmd BufRead,BufNewFile *.mhtml set filetype=mako
     autocmd BufRead,BufNewFile *.mc set filetype=mako
+    " For mono F# development
+    autocmd BufRead,BufNewFile *.fs set filetype=fs
 
     autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
           \ formatoptions+=croq softtabstop=4 smartindent
@@ -109,14 +111,9 @@ if !exists("custom_autocommands_loaded")
     " Auto commands to be run upon opening/re-opening files
     autocmd BufRead,BufNewFile * set relativenumber
 
-    " Auto commands to be run upon switching modes
-
     " Turn off relative numbers when in insert mode
     autocmd InsertEnter * set number
     autocmd InsertLeave * set relativenumber
-
-    " For mono F# development
-    autocmd BufRead,BufNewFile *.fs set filetype=fs
 
     " Writes the vimwiki html files
     autocmd VimLeavePre * VimwikiAll2HTML
