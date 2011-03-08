@@ -1,4 +1,13 @@
 = TODO: do more stuff =
 
-  * [ ] Create handakrika fréttir
+  * [ ] Ex-Simnet Server
+    - [ ] ubuntu server 10.10
+    - [ ] dhcp
+    - [ ] dns
+    - [ ] incoming internet cache? needs to be smart
+    - [ ] Web
+      * [ ] apache
+      * [ ] postgresql
+      * [ ] django? & mako templates?
+      * [ ] apache serves static pages from django pages, static page cache is checked every 1or2 hours for changes (cronjob).
 
