@@ -1,5 +1,15 @@
 = TODO: do more stuff =
 
+  * [ ] Work
+    - [ ] Classified ads in django
+    - [ ] Change the default size of images in imagecollections
+    - [ ] Frontpage
+      * [ ] Fix rss feeds, they still give /mm/ links
+      * [ ] Blue underline in chrome on tv box
+      * [ ] Latest news list: add category markers
+    - [ ] Reuters video added to slider even though there are no news for them
+    - [ ] Video news in headlineboxes
+
   * [ ] Ex-Simnet Server
     - [ ] ubuntu server 10.10
     - [ ] dhcp

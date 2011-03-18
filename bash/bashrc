@@ -28,6 +28,10 @@ fi
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+# MacPorts Bash shell command completion
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in

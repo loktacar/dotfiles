@@ -16,10 +16,10 @@ compinit
 branch_name=" "
 vim_mode="ins"
 
-function zle-keymap-select {
-  vim_mode="${${KEYMAP/vicmd/ M:command}/(main|ins)/}"
-}
-zle -N zle-keymap-select
+#function zle-keymap-select {
+#  vim_mode="${${KEYMAP/vicmd/ M:command}/(main|ins)/}"
+#}
+#zle -N zle-keymap-select
 
 precmd() {
   branch_name="$(git symbolic-ref -q HEAD 2>/dev/null)"
