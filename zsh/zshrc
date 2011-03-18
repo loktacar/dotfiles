@@ -1,0 +1,38 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd notify
+unsetopt beep nomatch
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/viktor/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+branch_name=" "
+vim_mode="ins"
+
+function zle-keymap-select {
+  vim_mode="${${KEYMAP/vicmd/ M:command}/(main|ins)/}"
+}
+zle -N zle-keymap-select
+
+precmd() {
+  branch_name="$(git symbolic-ref -q HEAD 2>/dev/null)"
+
+  if [[ $branch_name != '' ]]; then
+    branch_name=" ${branch_name##refs/heads/} "
+  else
+    branch_name=" "
+  fi
+
+  zle reset-prompt
+}
+
+# Prompt configuration
+PROMPT="%~${branch_name}%# "
+RPROMPT="%n"
