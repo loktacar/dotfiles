@@ -13,13 +13,24 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-branch_name=" "
-vim_mode="ins"
+autoload -U colors && colors
 
-#function zle-keymap-select {
-#  vim_mode="${${KEYMAP/vicmd/ M:command}/(main|ins)/}"
-#}
-#zle -N zle-keymap-select
+export SHELL=/bin/zsh
+
+# Search backwards and forwards with a pattern
+bindkey -M vicmd '/' history-incremental-pattern-search-backward
+bindkey -M vicmd '?' history-incremental-pattern-search-forward
+
+branch_name=" "
+vim_mode="--INS--"
+
+function zle-keymap-select zle-keymap-init {
+  vim_mode="${${KEYMAP/vicmd/--NOM--}/(main|viins)/--INS--}"
+  RPROMPT="%{$fg[green]%}%n%{$reset_color%} %B${vim_mode}%b"
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+zle -N zle-keymap-init
 
 precmd() {
   branch_name="$(git symbolic-ref -q HEAD 2>/dev/null)"
@@ -30,9 +41,28 @@ precmd() {
     branch_name=" "
   fi
 
-  zle reset-prompt
+  PROMPT="%{$fg[yellow]%}%~%{$fg[red]%}${branch_name}%{$reset_color%}%# "
 }
 
 # Prompt configuration
-PROMPT="%~${branch_name}%# "
-RPROMPT="%n"
+RPROMPT="%{$fg[green]%}%n%{$reset_color%} %B${vim_mode}%b"
+
+alias ls='pwd && ls --color -hF'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -al'
+alias lsa='ls -a'
+
+alias sl='ls'
+alias dc='cd'
+alias cd..='cd ..'
+
+# If I'm stuck in vim mode
+alias :q='exit'
+
+alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
+
+alias whe='whereis'
+alias wha='whatis'
+
+PATH=$PATH:~/bin
