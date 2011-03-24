@@ -1,14 +1,9 @@
-#
-#   Z Shell configuration file
-#
-#   author: Viktor Alex Brynjarsson
-#
-
 # {{{ modules, options and settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 PATH=$PATH:~/bin
+PAGER=less
 
 autoload -U colors && colors
 autoload -Uz compinit && compinit
@@ -34,27 +29,32 @@ zstyle :compinstall filename '/home/viktor/.zshrc'
 # }}}
 
 # {{{ key bindings
-# Use a vim style input
+# use a vim style input
 bindkey -v
 
-# Search backwards and forwards using default vim keys (in normal mode)
+# search backwards and forwards using default vim keys (in normal mode)
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
-# If I'm not in normal mode Ctrl+r or Ctrl+s will search backwards and
+# if I'm not in normal mode Ctrl+r or Ctrl+s will search backwards and
 # forwards respectively
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^S' history-incremental-pattern-search-forward
-# Same as normal mode if I've already started searching
+# same as normal mode if I've already started searching
 bindkey -M isearch '^R' history-incremental-pattern-search-backward
 bindkey -M isearch '^S' history-incremental-pattern-search-forward
 # }}}
 
 # {{{ completion
-# Try to fix errors too
+setopt ALWAYS_TO_END # if completion returns one result, place cursor at the end
+
+# try to fix errors too
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle -e ':completion:*:approximate:*' \
         max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
+
+# menu plox
+zstyle ':completion:*:*:*:*:*' menu yes select
 
 # kill command completion
 zstyle ':completion:*:*:kill:*' menu yes select
@@ -63,10 +63,10 @@ zstyle ':completion:*:kill:*'   force-list always
 
 # {{{ prompt
 
-# Left prompt examples:
+# left prompt examples:
 #   ~/dotfiles master %
 #   ~ %
-# Right prompt examples:
+# right prompt examples:
 #   viktor --INS--
 #   viktor --NOM--
 
@@ -93,12 +93,11 @@ precmd() {
   PROMPT="%{$fg[yellow]%}%~%{$fg[red]%}${branch_name}%{$reset_color%}%# "
 }
 
-# Prompt configuration
 RPROMPT="%{$fg[green]%}%n%{$reset_color%} %B${vim_mode}%b"
 # }}}
 
 # {{{ aliases
-# Default flags and 'settings'
+# default flags and 'settings'
 alias ls='pwd && ls --color -hF'
 alias ll='ls -l'
 alias la='ls -a'
@@ -107,16 +106,20 @@ alias lsa='ls -a'
 alias less='less -r'
 alias df='df -h'
 
-# Oops
+# oops
 alias sl='ls'
 alias dc='cd'
 alias cd..='cd ..'
 
-# If I'm stuck in vim mode
+# if I'm stuck in vim mode
 alias :q='exit'
 
-# Uptime gives me too little info, here a fix
-# Example:
+# aliases pertaining to completion
+alias man='nocorrect man'
+alias mv='nocorrect mv'
+
+# uptime gives me too little info, here a fix
+# example:
 # Linux loktacar-laptop 2.6.35-22-generic #35-Ubuntu SMP Sat Oct 16 20:36:48 UTC 2010 i686 GNU/Linux
 #  Thu Mar 24 00:34:06 GMT 2011
 #  00:34:06 up 4 days,  5:12,  2 users,  load average: 0.25, 0.42, 0.53
@@ -131,7 +134,7 @@ alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 alias whe='whereis'
 alias wha='whatis'
 
-# Global aliases, can be used anywhere
+# global aliases, can be used anywhere in a line
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
