@@ -74,15 +74,15 @@ zstyle ':completion:*:kill:*'   force-list always
 #   ~/dotfiles master %
 #   ~ %
 # right prompt examples:
-#   viktor --INS--
-#   viktor --NOM--
+#   viktor@einstein --INS--
+#   viktor@einstein --NOM--
 
 branch_name=" "
 vim_mode="--INS--"
 
 function zle-keymap-select zle-keymap-init {
   vim_mode="${${KEYMAP/vicmd/--NOM--}/(main|viins)/--INS--}"
-  RPROMPT="%{$fg[green]%}%n%{$reset_color%} %B${vim_mode}%b"
+  RPROMPT="%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%} %B${vim_mode}%b"
   zle reset-prompt
 }
 zle -N zle-keymap-select
