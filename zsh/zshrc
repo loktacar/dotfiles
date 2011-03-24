@@ -8,9 +8,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-
-# Use a vim style input
-bindkey -v
+PATH=$PATH:~/bin
 
 autoload -U colors && colors
 autoload -Uz compinit && compinit
@@ -35,15 +33,21 @@ unsetopt NO_MATCH
 zstyle :compinstall filename '/home/viktor/.zshrc'
 # }}}
 
+# {{{ key bindings
+# Use a vim style input
+bindkey -v
+
 # Search backwards and forwards using default vim keys (in normal mode)
-# If I'm not in normal mode Ctrl+r or Ctrl+s will search backwards and
-# forwards respectively
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
+# If I'm not in normal mode Ctrl+r or Ctrl+s will search backwards and
+# forwards respectively
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^S' history-incremental-pattern-search-forward
+# Same as normal mode if I've already started searching
 bindkey -M isearch '^R' history-incremental-pattern-search-backward
 bindkey -M isearch '^S' history-incremental-pattern-search-forward
+# }}}
 
 # {{{ completion
 # Try to fix errors too
@@ -136,7 +140,5 @@ alias -g G="| grep"
 alias -g H="| head"
 alias -g T="| tail"
 # }}}
-
-PATH=$PATH:~/bin
 
 # vim: set fdm=marker :
