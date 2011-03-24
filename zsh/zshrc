@@ -45,7 +45,7 @@ bindkey -M isearch '^S' history-incremental-pattern-search-forward
 # }}}
 
 # {{{ completion
-setopt ALWAYS_TO_END # if completion returns one result, place cursor at the end
+setopt COMPLETE_IN_WORD
 
 # try to fix errors too
 zstyle ':completion:*' completer _complete _match _approximate
@@ -93,7 +93,7 @@ precmd() {
   PROMPT="%{$fg[yellow]%}%~%{$fg[red]%}${branch_name}%{$reset_color%}%# "
 }
 
-RPROMPT="%{$fg[green]%}%n%{$reset_color%} %B${vim_mode}%b"
+RPROMPT="%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m%{$reset_color%} %B${vim_mode}%b"
 # }}}
 
 # {{{ aliases
