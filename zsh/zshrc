@@ -45,8 +45,9 @@ bindkey -M vicmd '?' history-incremental-pattern-search-forward
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^S' history-incremental-pattern-search-forward
 # Same as normal mode if I've already started searching
-bindkey -M isearch '^R' history-incremental-pattern-search-backward
-bindkey -M isearch '^S' history-incremental-pattern-search-forward
+# DOESN'T WORK :(
+#bindkey -M isearch '^R' history-incremental-pattern-search-backward
+#bindkey -M isearch '^S' history-incremental-pattern-search-forward
 # }}}
 
 # {{{ completion
