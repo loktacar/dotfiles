@@ -1,25 +1,70 @@
-# Lines configured by zsh-newuser-install
+#
+#   Z Shell configuration file
+#
+#   author: Viktor Alex Brynjarsson
+#
+
+# {{{ modules, options and settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt appendhistory autocd notify
-unsetopt beep nomatch
-bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/viktor/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+# Use a vim style input
+bindkey -v
 
 autoload -U colors && colors
+autoload -Uz compinit && compinit
 
-export SHELL=/bin/zsh
+zmodload zsh/mathfunc
+zmodload zsh/files
 
-# Search backwards and forwards with a pattern
+setopt APPEND_HISTORY
+setopt AUTO_CD
+setopt NOTIFY
+setopt CORRECTALL
+setopt GLOBDOTS
+setopt INC_APPEND_HISTORY
+setopt AUTO_MENU
+setopt REC_EXACT
+setopt EXTENDED_GLOB
+setopt AUTO_PARAM_SLASH
+
+unsetopt BEEP
+unsetopt NO_MATCH
+
+zstyle :compinstall filename '/home/viktor/.zshrc'
+# }}}
+
+# Search backwards and forwards using default vim keys (in normal mode)
+# If I'm not in normal mode Ctrl+r or Ctrl+s will search backwards and
+# forwards respectively
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+bindkey -M viins '^S' history-incremental-pattern-search-forward
+bindkey -M isearch '^R' history-incremental-pattern-search-backward
+bindkey -M isearch '^S' history-incremental-pattern-search-forward
+
+# {{{ completion
+# Try to fix errors too
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle -e ':completion:*:approximate:*' \
+        max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
+
+# kill command completion
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
+# }}}
+
+# {{{ prompt
+
+# Left prompt examples:
+#   ~/dotfiles master %
+#   ~ %
+# Right prompt examples:
+#   viktor --INS--
+#   viktor --NOM--
 
 branch_name=" "
 vim_mode="--INS--"
@@ -46,13 +91,19 @@ precmd() {
 
 # Prompt configuration
 RPROMPT="%{$fg[green]%}%n%{$reset_color%} %B${vim_mode}%b"
+# }}}
 
+# {{{ aliases
+# Default flags and 'settings'
 alias ls='pwd && ls --color -hF'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
 alias lsa='ls -a'
+alias less='less -r'
+alias df='df -h'
 
+# Oops
 alias sl='ls'
 alias dc='cd'
 alias cd..='cd ..'
@@ -60,9 +111,32 @@ alias cd..='cd ..'
 # If I'm stuck in vim mode
 alias :q='exit'
 
+# Uptime gives me too little info, here a fix
+# Example:
+# Linux loktacar-laptop 2.6.35-22-generic #35-Ubuntu SMP Sat Oct 16 20:36:48 UTC 2010 i686 GNU/Linux
+#  Thu Mar 24 00:34:06 GMT 2011
+#  00:34:06 up 4 days,  5:12,  2 users,  load average: 0.25, 0.42, 0.53
+#
+#              total       used       free     shared    buffers     cached
+# Mem:          1974       1896         77          0         59       1178
+# -/+ buffers/cache:        658       1315
+# Swap:         7627          0       7627
 alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 
+# whe? wha? who?
 alias whe='whereis'
 alias wha='whatis'
 
+# Global aliases, can be used anywhere
+alias -g ...="../.."
+alias -g ....="../../.."
+alias -g .....="../../../.."
+alias -g L="| less"
+alias -g G="| grep"
+alias -g H="| head"
+alias -g T="| tail"
+# }}}
+
 PATH=$PATH:~/bin
+
+# vim: set fdm=marker :
