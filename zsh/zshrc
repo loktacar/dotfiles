@@ -1,3 +1,10 @@
+# vim: set fdm=marker :
+#
+# @author: Viktor Alex Brynjarsson
+#
+# My .zshrc
+#
+
 # {{{ modules, options and settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -143,5 +150,3 @@ alias -g G="| grep"
 alias -g H="| head"
 alias -g T="| tail"
 # }}}
-
-# vim: set fdm=marker :
