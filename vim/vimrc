@@ -53,9 +53,9 @@ filetype plugin indent on
 
 if has("gui_running")
   set guioptions=achegirLm         " Just some gui options
-  set guifont=Andale\ Mono\ 9      " GUI font
+  set guifont=Inconsolata\ 10      " GUI font
 
-  colorscheme vitamins
+  colorscheme molokai
 else
   colorscheme koehler
 endif
@@ -97,7 +97,7 @@ if !exists("custom_autocommands_loaded")
 
     " Specific filetype auto commands
     autocmd BufRead,BufNewFile ~/blog/*.html set filetype=mason
-    autocmd BufRead,BufNewFile ~/viktor_nytt/*.html set filetype=mason
+    autocmd BufRead,BufNewFile ~/mason/*.html set filetype=mason
     autocmd BufRead,BufNewFile *.mhtml set filetype=mako
     autocmd BufRead,BufNewFile *.mc set filetype=mako
     " For mono F# development
