@@ -40,12 +40,12 @@ zstyle :compinstall filename '/home/viktor/.zshrc'
 bindkey -v
 
 # search backwards and forwards using default vim keys (in normal mode)
-bindkey -M vicmd '/' history-incremental-pattern-search-backward
-bindkey -M vicmd '?' history-incremental-pattern-search-forward
+bindkey -M vicmd '/' history-incremental-search-backward
+bindkey -M vicmd '?' history-incremental-search-forward
 # if I'm not in normal mode Ctrl+r or Ctrl+s will search backwards and
 # forwards respectively
-bindkey -M viins '^R' history-incremental-pattern-search-backward
-bindkey -M viins '^S' history-incremental-pattern-search-forward
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M viins '^S' history-incremental-search-forward
 # same as normal mode if I've already started searching
 #bindkey -M isearch '^R' history-incremental-pattern-search-backward
 #bindkey -M isearch '^S' history-incremental-pattern-search-forward
