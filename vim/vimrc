@@ -115,9 +115,6 @@ if !exists("custom_autocommands_loaded")
     autocmd InsertEnter * set number
     autocmd InsertLeave * set relativenumber
 
-    " Writes the vimwiki html files
-    autocmd VimLeavePre * VimwikiAll2HTML
-
     let custom_autocommands_loaded = 1
 endif
 " }}}
@@ -158,7 +155,6 @@ map <C-l> <C-w>l
 
 " Fold unfold with space in normal mode
 nnoremap <silent> <Space> za
-
 " Create a fold with space in visual mode
 vnoremap <silent> <Space> zf
 
@@ -170,24 +166,19 @@ nnoremap <Leader>f :FufFile<CR>
 nnoremap <Leader><Space> :nohlsearch<CR>
 
 " Change working directory to current file
-map <leader>cd :cd %:p:h<cr>
+noremap <leader>cd :cd %:p:h<cr>
 
-map <leader>s :split<cr>
-map <leader>v :vsplit<cr>
+" Split windows with fewer keystrokes
+noremap <leader>s :split<cr>
+noremap <leader>v :vsplit<cr>
+
+" Toggle NERDTree
+noremap <leader>n :NERDTreeToggle<cr>
+
 " }}}
 
 " {{{ Various other settings
 
 hi SpellBad ctermbg=lightgray
-
-" }}}
-
-" {{{ Commands to be run on first start
-
-autocmd VimEnter * exe "NERDTree"
-"autocmd VimEnter * split
-"autocmd VimEnter * wincmd j
-"autocmd VimEnter * exe "normal ,ww"
-autocmd VimEnter * wincmd l
 
 " }}}
