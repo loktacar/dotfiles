@@ -53,7 +53,7 @@ filetype plugin indent on
 
 if has("gui_running")
   set guioptions=achegirLm         " Just some gui options
-  set guifont=Inconsolata\ 10      " GUI font
+  set guifont=Inconsolata\ 9      " GUI font
 
   colorscheme molokai
 else
@@ -168,6 +168,12 @@ nnoremap <Leader>f :FufFile<CR>
 
 " Clear search easyer
 nnoremap <Leader><Space> :nohlsearch<CR>
+
+" Change working directory to current file
+map <leader>cd :cd %:p:h<cr>
+
+map <leader>s :split<cr>
+map <leader>v :vsplit<cr>
 " }}}
 
 " {{{ Various other settings
