@@ -97,7 +97,7 @@ if !exists("custom_autocommands_loaded")
 
     " Specific filetype auto commands
     autocmd BufRead,BufNewFile ~/blog/*.html set filetype=mason
-    autocmd BufRead,BufNewFile ~/viktor_nytt/*.html set filetype=mason
+    autocmd BufRead,BufNewFile ~/mason/*.html set filetype=mason
     autocmd BufRead,BufNewFile *.mhtml set filetype=mako
     autocmd BufRead,BufNewFile *.mc set filetype=mako
     " For mono F# development
@@ -114,9 +114,6 @@ if !exists("custom_autocommands_loaded")
     " Turn off relative numbers when in insert mode
     autocmd InsertEnter * set number
     autocmd InsertLeave * set relativenumber
-
-    " Writes the vimwiki html files
-    autocmd VimLeavePre * VimwikiAll2HTML
 
     let custom_autocommands_loaded = 1
 endif
@@ -158,7 +155,6 @@ map <C-l> <C-w>l
 
 " Fold unfold with space in normal mode
 nnoremap <silent> <Space> za
-
 " Create a fold with space in visual mode
 vnoremap <silent> <Space> zf
 
@@ -168,20 +164,21 @@ nnoremap <Leader>f :FufFile<CR>
 
 " Clear search easyer
 nnoremap <Leader><Space> :nohlsearch<CR>
+
+" Change working directory to current file
+noremap <leader>cd :cd %:p:h<cr>
+
+" Split windows with fewer keystrokes
+noremap <leader>s :split<cr>
+noremap <leader>v :vsplit<cr>
+
+" Toggle NERDTree
+noremap <leader>n :NERDTreeToggle<cr>
+
 " }}}
 
 " {{{ Various other settings
 
 hi SpellBad ctermbg=lightgray
-
-" }}}
-
-" {{{ Commands to be run on first start
-
-autocmd VimEnter * exe "NERDTree"
-"autocmd VimEnter * split
-"autocmd VimEnter * wincmd j
-"autocmd VimEnter * exe "normal ,ww"
-autocmd VimEnter * wincmd l
 
 " }}}
