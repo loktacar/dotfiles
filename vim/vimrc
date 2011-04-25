@@ -53,7 +53,7 @@ filetype plugin indent on
 
 if has("gui_running")
   set guioptions=achegirLm         " Just some gui options
-  set guifont=Inconsolata\ 9      " GUI font
+  set guifont=Inconsolata 11       " GUI font
 
   colorscheme molokai
 else
