@@ -1,0 +1,73 @@
+background no
+use_xft yes
+xftfont Ubuntu:size=12
+xftalpha 0.9
+update_interval 3.0
+total_run_times 0
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size  250
+maximum_width 550
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color 808080
+default_shade_color 101319
+default_outline_color green
+alignment top_left
+gap_x 30
+gap_y 50
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+TEXT
+${font Ubuntu:size=10}$sysname $machine $kernel\
+${voffset 5}
+${font Ubuntu:size=18}${color white}$alignr$nodename\
+${voffset -5}
+${font Ubuntu:size=76}${color white}\
+${time %H}$alignr${time %M}\
+${voffset -79}\
+
+${font Ubuntu:size=14}${color}${time %Z}\
+$alignr${time %a, %e %B %G}\
+${voffset -10}
+
+${font Ubuntu:size=12}${color white}System ${hr 2}\
+${voffset 5}
+${offset 10}${color}CPU $alignr${color lightgrey}${cpu cpu0}%  \
+${cpugraph cpu0 16,70 000000 ffffff -t}
+${offset 10}${color}MEM $alignr${color lightgrey}$memperc%  \
+$alignr${memgraph cpu0 16,70 000000 ffffff -t}
+${offset 10}${color}LOAD $alignr${color lightgrey}$loadavg
+${offset 10}${color}UP $alignr${color lightgrey}$uptime
+
+${font Ubuntu:size=12}${color white}Network ${hr 2}\
+${voffset 5}
+${if_existing /sys/class/net/eth0/operstate up}\
+${offset 10}${color lightgrey}eth0 $color$alignr${addr eth0}
+${offset 20}${color}DL $alignr${color lightgrey}${downspeed eth0}  \
+${downspeedgraph eth0 16,70 000000 ffffff -t}
+${offset 20}${color}UL $alignr${color lightgrey}${upspeed eth0}  \
+${upspeedgraph eth0 16,70 000000 ffffff -t}\
+${endif}\
+${if_existing /sys/class/net/eth1/operstate up}\
+${offset 10}${color lightgrey}eth1 $color$alignr${addr eth1}
+${offset 20}${color}DL $alignr${color lightgrey}${downspeed eth1}  \
+${downspeedgraph eth1 16,70 000000 ffffff -t}
+${offset 20}${color}UL $alignr${color lightgrey}${upspeed eth1}  \
+${upspeedgraph eth1 16,70 000000 ffffff -t}\
+${endif}
+
+${font Ubuntu:size=12}${color white}Hard Disks ${hr 2}\
+${voffset 5}
+${offset 10}${color lightgrey}/  ${fs_size /}$color$alignr${fs_type /}
+${offset 20}${color}Free ${color lightgrey}$alignr${fs_free /} (${fs_free_perc /}%)
+${offset 20}${color}Used ${color lightgrey}$alignr${fs_used /} (${fs_used_perc /}%)
+${hr 2}
