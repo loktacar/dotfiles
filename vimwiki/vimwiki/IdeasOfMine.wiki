@@ -1,9 +1,0 @@
-= AI Proof of Concept =
-
-My goal is to create and intelligence that understands mathematics. Mathematics was chosen because of its rigid definition without loosing the neccessary abstraction of knowledge, which is one the of the keys to real intelligence in my belief.
-
-The hardest part is to give the intelligence the ability to abstract knowledge, and proving that these abstractions exist. One way of trying this is to expose the intelligence to as many forms of representations of mathematical truths and rules.
-
-My implementation will be centered around a Neural Network. The input is broken up into the smallest information and connected into series that are connected to other series; the series can be a number of input nodes (nodes created by input), an abstract network of series that have been created by the intelligence, or a series of output nodes (nodes that will be output).
-
-

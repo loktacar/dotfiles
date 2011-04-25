@@ -9,7 +9,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-PATH=$PATH:~/bin:/opt/local/bin
+PATH=$PATH:~/bin:/opt/local/bin:/sbin/
 PAGER=less
 
 autoload -U colors && colors

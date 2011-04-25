@@ -1,4 +1,0 @@
-= 2011-03-02 =
-  * Find a way to make line breaks in the code on mbl.is/~viktor/.
-  * [X] Add @font-face declarations for mbl.is/~viktor/
-
