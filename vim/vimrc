@@ -6,15 +6,64 @@
 "
 
 " {{{ Options
-set ts=2
-set sw=2
-set sts=2
+set nocompatible                        " No compatibility with vi
 
-set nu                          " Numbered lines
-set expandtab
-set nocp                        " No compatibility with vi
+" {{{ Statusline settings
 
-set title
+" Ex. Left side:
+"   /path/to/file[flags] typeoffile encoding fileformat
+"
+" Ex. Right side:
+"   (line: 1/lineno 0%) (col.: colno) (buf.: bufno)
+if has("statusline")
+    set laststatus=1
+
+    set statusline=%F               " Full path to the current file
+    set statusline+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
+    set statusline+=%Y\             " Type of file in buffer
+    set statusline+=%{&fenc==\"\"?&enc:&fenc}\ 
+                                    " File encoding
+    set statusline+=%{&ff}\         " File format
+
+    set statusline+=%=\             " Split left and right
+
+    set statusline+=(\line:\ \%l\/%L\ %p%%)\ 
+                                    " Line number, total line count, and
+                                    " percentage of current line and total
+
+    set statusline+=(\col.:\ %v)\   " Column number
+    set statusline+=(\buf.:\ %n)    " Buffer number
+    set statusline+=%<              " Truncate status line (Show beginning)
+endif
+" }}}
+
+" {{{ Title settings
+" Configured like statusline is
+if has("title")
+    set title
+    set titlestring=%F               " Full path to the current file
+    set titlestring+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
+    set titlestring+=%Y\             " Type of file in buffer
+    set titlestring+=%{&fenc==\"\"?&enc:&fenc}\ 
+                                    " File encoding
+    set titlestring+=%{&ff}\         " File format
+
+    set titlestring+=%=\             " Split left and right
+
+    set titlestring+=(\line:\ \%l\/%L\ %p%%)\ 
+                                    " Line number, total line count, and
+                                    " percentage of current line and total
+
+    set titlestring+=(\col.:\ %v)\   " Column number
+    set titlestring+=(\buf.:\ %n)    " Buffer number
+    set titlestring+=%<              " Truncate status line (Show beginning)
+endif
+" }}}
+
+set tabstop=2                           " Number of spaces that a <Tab> in file counts for.
+set shiftwidth=2                        " Number of spaces to use for each step of (auto)indent.
+set softtabstop=2                       " Number of spaces taht a <Tab> counts for while performing edition operations.
+set expandtab                           " Insert mode: Use spaces instead of <Tab> to insert.
 
 set hlsearch                    " Highlights search results
 set incsearch                   " Incremental search, searches as you type
@@ -25,7 +74,7 @@ set noswapfile                  " No swap or backup files
 set modeline                    " Reads last or first five lines for file specific vim settings
 
 set list                        " Show erronius whitespace characters
-set listchars=tab:\ \ ,trail:.,extends:µ,precedes:µ,nbsp:.
+set listchars=tab:\ \ ,trail:.,extends:#,precedes:#,nbsp:.
 
 set encoding=utf-8
 set wildmenu                    " Filename completion for command mode
@@ -41,52 +90,26 @@ set timeoutlen=500              " Timeout for consecutive key combinations
 set nohidden                    " No hidden buffers
 
 set showcmd                     " Shows what characters you've built up in the "command" buffer
-"set autochdir                   " Switches the dir to where the file which was opened is
-" I'd like to start from ~ always
 set more                        " If there has to be displayed more info that fits on the screen
                                 " display it as ' | more' in terminal. 
 
-set lazyredraw                  " doesn't draw whole window when executing macros etc.
+set nolazyredraw                  " Doesn't draw whole window when executing macros etc.
 
 syntax enable
 filetype plugin indent on
 
 if has("gui_running")
   set guioptions=achegirLm         " Just some gui options
-  set guifont=Inconsolata 11       " GUI font
+  if has("win32")
+    set guifont=Inconsolata:h9:cDEFAULT
+  else
+    set guifont=Inconsolata\ 9       " GUI font
+  endif
 
   colorscheme molokai
 else
   colorscheme koehler
 endif
-
-" }}}
-
-" {{{ Statusline settings
-"
-" Ex. Left side:
-"   /path/to/file[flags] typeoffile encoding fileformat
-"
-" Ex. Right side:
-"   (line: 1/lineno 0%) (col.: colno) (buf.: bufno)
-set laststatus=2
-
-set statusline=%F               " Full path to the current file
-set statusline+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
-set statusline+=%Y\             " Type of file in buffer
-set statusline+=%{&fenc==\"\"?&enc:&fenc}\ 
-                                " File encoding
-set statusline+=%{&ff}\         " File format
-
-set statusline+=%=\             " Split left and right
-
-set statusline+=(\line:\ \%l\/%L\ %p%%)\ 
-                                " Line number, total line count, and
-                                " percentage of current line and total
-
-set statusline+=(\col.:\ %v)\   " Column number
-set statusline+=(\buf.:\ %n)    " Buffer number
-set statusline+=%<              " Truncate status line (Show beginning)
 
 " }}}
 
@@ -153,7 +176,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Fold unfold with space in normal mode
+" Fold/unfold with space in normal mode
 nnoremap <silent> <Space> za
 " Create a fold with space in visual mode
 vnoremap <silent> <Space> zf
@@ -179,6 +202,6 @@ noremap <leader>n :NERDTreeToggle<cr>
 
 " {{{ Various other settings
 
-hi SpellBad ctermbg=lightgray
+highlight SpellBad ctermbg=lightgray
 
-" }}}
+" }}

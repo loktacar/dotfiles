@@ -1,4 +1,4 @@
-background no
+background yes
 use_xft yes
 xftfont Ubuntu:size=12
 xftalpha 0.9
@@ -9,16 +9,17 @@ own_window_type desktop
 own_window_transparent yes
 own_window_hints undecorated,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size  250
-maximum_width 550
+minimum_size 250
+maximum_width 250
 draw_shades yes
 draw_outline no
 draw_borders no
 draw_graph_borders yes
-default_color 808080
-default_shade_color 101319
-default_outline_color green
-alignment top_left
+border_width 1
+default_color f0f0f0
+default_shade_color adadad
+default_outline_color 000000
+alignment top_right
 gap_x 30
 gap_y 50
 no_buffers yes
@@ -26,48 +27,72 @@ uppercase no
 cpu_avg_samples 2
 override_utf8_locale no
 
-TEXT
-${font Ubuntu:size=10}$sysname $machine $kernel\
-${voffset 5}
-${font Ubuntu:size=18}${color white}$alignr$nodename\
-${voffset -5}
-${font Ubuntu:size=76}${color white}\
-${time %H}$alignr${time %M}\
-${voffset -79}\
+# Color templates
+template0 ${color 131313}
+template1 ${color 232323}
+template2 ${color ffffff}
 
-${font Ubuntu:size=14}${color}${time %Z}\
+color0 131313
+color1 232323
+color2 ffffff
+
+TEXT
+${font Ubuntu:size=10}${offset 10}$template1$sysname $machine $kernel\
+${voffset 5}
+${font Ubuntu:size=18}$template1$alignr$nodename\
+${voffset -5}
+${font Ubuntu:size=76}$template0${shadecolor dddddd}\
+${time %H}$alignr${time %M}\
+${shadecolor adadad}${voffset -79}\
+
+${font Ubuntu:size=14}${offset 10}$template1${time %Z}\
 $alignr${time %a, %e %B %G}\
 ${voffset -10}
 
-${font Ubuntu:size=12}${color white}System ${hr 2}\
+${font Ubuntu:size=12}$template0System ${hr 2}\
 ${voffset 5}
-${offset 10}${color}CPU $alignr${color lightgrey}${cpu cpu0}%  \
-${cpugraph cpu0 16,70 000000 ffffff -t}
-${offset 10}${color}MEM $alignr${color lightgrey}$memperc%  \
-$alignr${memgraph cpu0 16,70 000000 ffffff -t}
-${offset 10}${color}LOAD $alignr${color lightgrey}$loadavg
-${offset 10}${color}UP $alignr${color lightgrey}$uptime
+${offset 10}$template1CPU $alignr  \
+${cpugraph cpu0 20,20 000000 252525 -t} \
+${cpugraph cpu1 20,20 000000 252525 -t} \
+${cpugraph cpu2 20,20 000000 252525 -t} \
+${cpugraph cpu3 20,20 000000 252525 -t} \
+${cpugraph cpu4 20,20 000000 252525 -t} \
+${cpugraph cpu5 20,20 000000 252525 -t} \
+${cpugraph cpu6 20,20 000000 252525 -t} \
+${cpugraph cpu7 20,20 000000 252525 -t}
+${offset 10}$template1MEM ${memperc}% $alignr \
+$alignr${memgraph 20,100 000000 252525 -t} 
+${offset 10}$template1LOAD $alignr $loadavg
+${voffset 0}
+${offset 10}$template1UP $alignr $uptime
 
-${font Ubuntu:size=12}${color white}Network ${hr 2}\
+${font Ubuntu:size=12}$template0Network ${hr 2}\
 ${voffset 5}
-${if_existing /sys/class/net/eth0/operstate up}\
-${offset 10}${color lightgrey}eth0 $color$alignr${addr eth0}
-${offset 20}${color}DL $alignr${color lightgrey}${downspeed eth0}  \
-${downspeedgraph eth0 16,70 000000 ffffff -t}
-${offset 20}${color}UL $alignr${color lightgrey}${upspeed eth0}  \
-${upspeedgraph eth0 16,70 000000 ffffff -t}\
-${endif}\
-${if_existing /sys/class/net/eth1/operstate up}\
-${offset 10}${color lightgrey}eth1 $color$alignr${addr eth1}
-${offset 20}${color}DL $alignr${color lightgrey}${downspeed eth1}  \
-${downspeedgraph eth1 16,70 000000 ffffff -t}
-${offset 20}${color}UL $alignr${color lightgrey}${upspeed eth1}  \
-${upspeedgraph eth1 16,70 000000 ffffff -t}\
+${if_existing /sys/class/net/p6p1/operstate up}\
+${offset 10}$template1p6p1 $alignr ${addr p6p1}
+${voffset 0}
+${offset 10}$template1DL ${downspeed p6p1} $alignr \
+${downspeedgraph p6p1 20,100 000000 252525 -t} 
+${offset 10}$template1UL ${upspeed p6p1} $alignr \
+${upspeedgraph p6p1 20,100 000000 252525 -t} \
 ${endif}
 
-${font Ubuntu:size=12}${color white}Hard Disks ${hr 2}\
+${font Ubuntu:size=12}$template0Hard Disks ${hr 2}\
 ${voffset 5}
-${offset 10}${color lightgrey}/  ${fs_size /}$color$alignr${fs_type /}
-${offset 20}${color}Free ${color lightgrey}$alignr${fs_free /} (${fs_free_perc /}%)
-${offset 20}${color}Used ${color lightgrey}$alignr${fs_used /} (${fs_used_perc /}%)
+${offset 10}$template1/ $alignr ${fs_size /}
+${offset 10}$template1Free $alignr ${fs_free /} (${fs_free_perc /}%)
+${offset 10}$template1Used $alignr ${fs_used /} (${fs_used_perc /}%)
+${voffset 0}
+${offset 10}$template1/media/One $alignr ${fs_size /media/One}
+${offset 10}$template1Free $alignr ${fs_free /media/One} (${fs_free_perc /media/One}%)
+${offset 10}$template1Used $alignr ${fs_used /media/One} (${fs_used_perc /media/One}%)
+${voffset 0}
+${offset 10}$template1/media/Zero $alignr ${fs_size /media/Zero}
+${offset 10}$template1Free $alignr ${fs_free /media/Zero} (${fs_free_perc /media/Zero}%)
+${offset 10}$template1Used $alignr ${fs_used /media/Zero} (${fs_used_perc /media/Zero}%)
+${hr 2}
+
+${font Ubuntu:size=12}$template0Torrents ${hr 2}\
+${voffset 5}
+${execpi 1 ~/bin/transmission_list}
 ${hr 2}
