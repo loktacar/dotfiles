@@ -1,207 +1,191 @@
 " vim: set fdm=marker:
 "
 " @author: Viktor Alex Brynjarsson
-"
 " My .vimrc
-"
 
-" {{{ Options
-set nocompatible                        " No compatibility with vi
+" First things first
+" Use pathogen (vim plugin bundler)
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
 
-" {{{ Statusline settings
-
-" Ex. Left side:
-"   /path/to/file[flags] typeoffile encoding fileformat
-"
-" Ex. Right side:
-"   (line: 1/lineno 0%) (col.: colno) (buf.: bufno)
-if has("statusline")
-    set laststatus=1
-
-    set statusline=%F               " Full path to the current file
-    set statusline+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
-    set statusline+=%Y\             " Type of file in buffer
-    set statusline+=%{&fenc==\"\"?&enc:&fenc}\ 
-                                    " File encoding
-    set statusline+=%{&ff}\         " File format
-
-    set statusline+=%=\             " Split left and right
-
-    set statusline+=(\line:\ \%l\/%L\ %p%%)\ 
-                                    " Line number, total line count, and
-                                    " percentage of current line and total
-
-    set statusline+=(\col.:\ %v)\   " Column number
-    set statusline+=(\buf.:\ %n)    " Buffer number
-    set statusline+=%<              " Truncate status line (Show beginning)
-endif
-" }}}
-
-" {{{ Title settings
-" Configured like statusline is
-if has("title")
-    set title
-    set titlestring=%F               " Full path to the current file
-    set titlestring+=%m%r%w\         " Modified flag, read-only flag, and preview window flag
-    set titlestring+=%Y\             " Type of file in buffer
-    set titlestring+=%{&fenc==\"\"?&enc:&fenc}\ 
-                                    " File encoding
-    set titlestring+=%{&ff}\         " File format
-
-    set titlestring+=%=\             " Split left and right
-
-    set titlestring+=(\line:\ \%l\/%L\ %p%%)\ 
-                                    " Line number, total line count, and
-                                    " percentage of current line and total
-
-    set titlestring+=(\col.:\ %v)\   " Column number
-    set titlestring+=(\buf.:\ %n)    " Buffer number
-    set titlestring+=%<              " Truncate status line (Show beginning)
-endif
-" }}}
-
-set tabstop=2                           " Number of spaces that a <Tab> in file counts for.
-set shiftwidth=2                        " Number of spaces to use for each step of (auto)indent.
-set softtabstop=2                       " Number of spaces taht a <Tab> counts for while performing edition operations.
-set expandtab                           " Insert mode: Use spaces instead of <Tab> to insert.
-
-set hlsearch                    " Highlights search results
-set incsearch                   " Incremental search, searches as you type
-
-set nobackup
-set noswapfile                  " No swap or backup files
-
-set modeline                    " Reads last or first five lines for file specific vim settings
-
-set list                        " Show erronius whitespace characters
-set listchars=tab:\ \ ,trail:.,extends:#,precedes:#,nbsp:.
-
-set encoding=utf-8
-set wildmenu                    " Filename completion for command mode
-set wildmode=list:longest
-set relativenumber              " Shows the relative line numbers for the file specified when running vim
-set scrolloff=5                 " Always shows 5 lines above and below cursor
-
-set noerrorbells                " No more loud noises and distractions
-set novisualbell
-
-set timeoutlen=500              " Timeout for consecutive key combinations
-
-set nohidden                    " No hidden buffers
-
-set showcmd                     " Shows what characters you've built up in the "command" buffer
-set more                        " If there has to be displayed more info that fits on the screen
-                                " display it as ' | more' in terminal. 
-
-set nolazyredraw                  " Doesn't draw whole window when executing macros etc.
-
+" Syntax highlighting
 syntax enable
+" Load filetype plugins and indentation
 filetype plugin indent on
+
+" {{{ UI Configuration
 
 if has("gui_running")
-  set guioptions=achegirLm         " Just some gui options
+  " Font option depends on platform
   if has("win32")
-    set guifont=Inconsolata:h9:cDEFAULT
+    set guifont=Andale\ Mono:h10:cDEFAULT
   else
-    set guifont=Inconsolata\ 9       " GUI font
+    set guifont=Andale\ Mono\ 10
   endif
 
-  colorscheme molokai
+  " set guioptions
+  set guioptions=a "Autoselect
+  set guioptions+=c "Console dialog instead of popup
+  set guioptions+=h "Limit horizontal scrollbar to cursor line length
+  set guioptions+=e "Add gui tab pages when needed
+  set guioptions+=g "Gray non-active menu items
+  set guioptions+=i "Use the Vim icon
+  set guioptions+=r "Right hand scrollbar always present
+  set guioptions+=L "Left hand scrollbar when needed
+  set guioptions+=m "Menu bar is present
+
+  " colorscheme
+  colorscheme smyck
+
+  " Use anti-aliasing
+  set antialias
+
+  " Set Window length
+  set lines=50
 else
-  colorscheme koehler
+  colorscheme default
 endif
 
+" Status line
+set laststatus=2
+set statusline=%F  " Full path to the current file
+set statusline+=%m%r%w\  " Modified, read-only, and preview flags
+set statusline+=%Y\  " Type of file
+set statusline+=%{&fenc==\"\"?&enc:&fenc}\  " File encoding
+set statusline+=%{&ff}\  " File format
+set statusline+=%=\  " Split left and right
+set statusline+=(\line:\ \%l/\%L\ %p%%)\  " Current, total and percentage lines
+set statusline+=(\col.:\ %v)\  " Column number
+set statusline+=(\buf.:\ %n)  " Buffer number
+
 " }}}
 
-" {{{ Auto commands, to be run on various occasions
+" {{{ Keyboard Configuration
 
-" This is run so that re-sourcing .vimrc won't double the autocmd's
-if !exists("custom_autocommands_loaded")
-
-    " Specific filetype auto commands
-    autocmd BufRead,BufNewFile ~/blog/*.html set filetype=mason
-    autocmd BufRead,BufNewFile ~/mason/*.html set filetype=mason
-    autocmd BufRead,BufNewFile *.mhtml set filetype=mako
-    autocmd BufRead,BufNewFile *.mc set filetype=mako
-    " For mono F# development
-    autocmd BufRead,BufNewFile *.fs set filetype=fs
-
-    autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
-          \ formatoptions+=croq softtabstop=4 smartindent
-          \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-    " Auto commands to be run upon opening/re-opening files
-    autocmd BufRead,BufNewFile * set relativenumber
-
-    " Turn off relative numbers when in insert mode
-    autocmd InsertEnter * set number
-    autocmd InsertLeave * set relativenumber
-
-    let custom_autocommands_loaded = 1
-endif
-" }}}
-
-" {{{ Plugin settings
-filetype off
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
-
-" Options for Supertab
-let g:SuperTabCrMapping=0          " Doesn't set <CR> in insert mode
-
-let NERDTreeChDirMode=2            " Current root node is working directory
-let NERDChristmasTree=1
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-            \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
-let NERDTreeHighlightCursorline=1
-" }}}
-
-" {{{ Keyboard mappings
-" The button that is used as <Leader>
-let mapleader = ","
-
-" Changes the ESC key to ENTER
+" Change ESC to ENTER
 inoremap <CR> <ESC>`^
-inoremap jj <C-J>
 vnoremap <CR> <ESC>
+" jj is now ENTER in insert mode
+inoremap jj <C-J>
 
-" reselect visual block after in/dedent so we can in/dedent more
+" reselect visual block after indend
 vnoremap < <gv
 vnoremap > >gv
 
-" Easier window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" Easy split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Fold/unfold with space in normal mode
+" Make Y behave like other Capitals (C, D, etc.)
+noremap Y y$
+
+" Map Q to repeat the last recorded macro
+noremap Q @@
+
+" Use space to toggle folds in normal mode"
 nnoremap <silent> <Space> za
-" Create a fold with space in visual mode
-vnoremap <silent> <Space> zf
+" Create a fold using space in visual mode
+vnoremap <silent> <Space> zf"
 
-" Getting some use out of FuzzyFinder
-nnoremap <Leader>b :FufBuffer<CR>
-nnoremap <Leader>f :FufFile<CR>
+" Search results in center screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
 
-" Clear search easyer
+" Change :W to :w in command line
+cnoreabbrev W w
+
+" The button which will be refered to as <Leader> from here on out
+let mapleader = ","
+
+" Clear search results
 nnoremap <Leader><Space> :nohlsearch<CR>
 
-" Change working directory to current file
-noremap <leader>cd :cd %:p:h<cr>
+" Select all
+noremap <Leader>a ggVG
 
-" Split windows with fewer keystrokes
-noremap <leader>s :split<cr>
-noremap <leader>v :vsplit<cr>
+" Open last buffer
+noremap <Leader><Leader> <C-^>
 
-" Toggle NERDTree
-noremap <leader>n :NERDTreeToggle<cr>
+" Do the splits
+noremap <Leader>s :split<CR>
+noremap <Leader>v :vsplit<CR>
+
+" change directory to current file dir
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" }}}
+
+" {{{ Options
+
+" No backup, no swap
+set nobackup
+set noswapfile
+
+" Custom invisibles
+set list
+set listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
+
+" Show line numbers
+set relativenumber
+
+" "Scrolling"
+set scrolloff=5
+
+" Splitting habits
+set splitright splitbelow
+
+" Do tabbing correctly
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+" Tab settings for specific filetypes are described in TabSettings
+
+" Sjarrappa youuu
+set noerrorbells
+set visualbell
+set t_vb=
+
+" Show me what I'll do
+set showcmd
+
+" }}}
+
+" {{{ Autocommands
+
+" Reload .vimrc file when file is written
+augroup AutoReloadVimRC
+  au!
+  au BufWritePost $MYVIMRC so $MYVIMRC
+  au BufWritePost ~/dotfiles/vim/vimrc so $MYVIMRC
+augroup END
+
+" Static line numbers in insert mode
+augroup LinuNumberToggle
+  au!
+  au InsertEnter * set number
+  au InsertLeave * set relativenumber
+augroup END
+
+augroup TabSettings
+  au!
+  autocmd Filetype xml,html,python setlocal tabstop=4
+  autocmd Filetype xml,html,python setlocal shiftwidth=4
+  autocmd Filetype xml,html,python setlocal softtabstop=4
+augroup END
 
 " }}}
 
-" {{{ Various other settings
+" {{{ Plugin Configuration
 
-highlight SpellBad ctermbg=lightgray
+nnoremap <Leader>b :FufBuffer<CR>
+nnoremap <Leader>f :FufFile<CR>
 
-" }}
+" }}}

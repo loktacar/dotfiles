@@ -1,5 +1,5 @@
-This project contains all of my personal configuration files for applications
-that I use.
+This project contains all of my personal configuration files for
+applications that I use.
 
 Usage/Installation:
     - This project is cloned from github and the various config files
@@ -15,8 +15,8 @@ Usage/Installation:
             ~/.bashrc -> ~/dotfiles/bash/bashrc
          etc.
 
-Within each subdirectory should be a README file describing that particular 
-section.
+Within each subdirectory should be a README file describing that
+particular section.
 
 For development purposes it can be better to have a seperate user 
 and/or configuration folder that is used for development since editing,
