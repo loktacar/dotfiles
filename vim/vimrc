@@ -48,8 +48,7 @@ endif
 
 " Status line
 set laststatus=2
-set statusline=%F  " Full path to the current file
-set statusline+=%m%r%w\  " Modified, read-only, and preview flags
+set statusline=%f%m%r%w\  " Modified, read-only, and preview flags
 set statusline+=%Y\  " Type of file
 set statusline+=%{&fenc==\"\"?&enc:&fenc}\  " File encoding
 set statusline+=%{&ff}\  " File format
@@ -150,7 +149,7 @@ set softtabstop=2
 
 " Sjarrappa youuu
 set noerrorbells
-set visualbell
+set novisualbell
 set t_vb=
 
 " Show me what I'll do

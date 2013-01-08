@@ -10,3 +10,6 @@
 [submodule "vim/vim/bundle/FuzzyFinder"]
 	path = vim/vim/bundle/FuzzyFinder
 	url = git@github.com:vim-scripts/FuzzyFinder.git
+[submodule "vim/vim/bundle/fugitive"]
+	path = vim/vim/bundle/fugitive
+	url = git@github.com:tpope/vim-fugitive.git

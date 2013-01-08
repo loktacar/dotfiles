@@ -3,9 +3,6 @@
 	pager = less -Rc
 	excludesfile = ~/.gitignore
 
-[color]
-	ui = always
-
 [user]
 	name = Viktor Alex
 	email = viktora@mbl.is
