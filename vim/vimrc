@@ -175,9 +175,12 @@ augroup END
 
 augroup TabSettings
   au!
-  autocmd Filetype xml,html,python setlocal tabstop=4
-  autocmd Filetype xml,html,python setlocal shiftwidth=4
-  autocmd Filetype xml,html,python setlocal softtabstop=4
+  autocmd Filetype python setlocal tabstop=4
+  autocmd Filetype python setlocal shiftwidth=4
+  autocmd Filetype python setlocal softtabstop=4
+  autocmd Filetype xml,html,xhtml setlocal tabstop=2
+  autocmd Filetype xml,html,xhtml setlocal shiftwidth=2
+  autocmd Filetype xml,html,xhtml setlocal softtabstop=2
 augroup END
 
 " }}}
