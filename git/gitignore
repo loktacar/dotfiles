@@ -5,3 +5,4 @@
 *.nfs*
 *.fuse*
 *.pyc
+*.pyo

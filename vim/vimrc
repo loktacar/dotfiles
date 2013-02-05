@@ -7,6 +7,7 @@
 " Use pathogen (vim plugin bundler)
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
+call pathogen#helptags()
 
 " Syntax highlighting
 syntax enable
@@ -39,11 +40,8 @@ if has("gui_running")
 
   " Use anti-aliasing
   set antialias
-
-  " Set Window length
-  set lines=50
 else
-  colorscheme default
+  colorscheme desert
 endif
 
 " Status line
@@ -67,7 +65,7 @@ vnoremap <CR> <ESC>
 " jj is now ENTER in insert mode
 inoremap jj <C-J>
 
-" reselect visual block after indend
+" reselect visual block after indent
 vnoremap < <gv
 vnoremap > >gv
 
@@ -97,7 +95,7 @@ nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
 
 " Change :W to :w in command line
-cnoreabbrev W w
+cnoreabbrev W t
 
 " The button which will be refered to as <Leader> from here on out
 let mapleader = ","
@@ -189,5 +187,7 @@ augroup END
 
 nnoremap <Leader>b :FufBuffer<CR>
 nnoremap <Leader>f :FufFile<CR>
+
+let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|pyo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 " }}}
