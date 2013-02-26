@@ -66,6 +66,8 @@ zstyle ':completion:*:*:*:*:*' menu yes select
 # kill command completion
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
+
+
 # }}}
 
 # {{{ prompt

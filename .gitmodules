@@ -22,3 +22,6 @@
 [submodule "vim/vim/bundle/othree-html5-syntax"]
 	path = vim/vim/bundle/othree-html5-syntax
 	url = git@github.com:othree/html5-syntax.vim.git
+[submodule "vim/vim/bundle/better-css-syntax-for-vim"]
+	path = vim/vim/bundle/better-css-syntax-for-vim
+	url = git@github.com:vim-scripts/Better-CSS-Syntax-for-Vim.git

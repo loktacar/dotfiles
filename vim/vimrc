@@ -81,18 +81,10 @@ noremap Y y$
 " Map Q to repeat the last recorded macro
 noremap Q @@
 
-" Use space to toggle folds in normal mode"
+" Use space to toggle folds in normal mode
 nnoremap <silent> <Space> za
 " Create a fold using space in visual mode
 vnoremap <silent> <Space> zf"
-
-" Search results in center screen
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-nnoremap <silent> g# g#zz
 
 " Change :W to :w in command line
 cnoreabbrev W t
@@ -130,7 +122,8 @@ set listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 
 " Show line numbers
-set relativenumber
+"set relativenumber
+set number
 
 " "Scrolling"
 set scrolloff=5
@@ -165,11 +158,11 @@ augroup AutoReloadVimRC
 augroup END
 
 " Static line numbers in insert mode
-augroup LinuNumberToggle
-  au!
-  au InsertEnter * set number
-  au InsertLeave * set relativenumber
-augroup END
+"augroup LinuNumberToggle
+"  au!
+"  au InsertEnter * set number
+"  au InsertLeave * set relativenumber
+"augroup END
 
 augroup TabSettings
   au!
