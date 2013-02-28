@@ -35,14 +35,12 @@ if has("gui_running")
   set guioptions+=L "Left hand scrollbar when needed
   set guioptions+=m "Menu bar is present
 
-  " colorscheme
-  colorscheme smyck
-
   " Use anti-aliasing
   set antialias
-else
-  colorscheme desert
-endif
+end
+
+" colorscheme (works in both gvim and vim)
+colorscheme Monokai
 
 " Status line
 set laststatus=2
@@ -122,8 +120,7 @@ set listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 
 " Show line numbers
-"set relativenumber
-set number
+set relativenumber
 
 " "Scrolling"
 set scrolloff=5
@@ -158,11 +155,11 @@ augroup AutoReloadVimRC
 augroup END
 
 " Static line numbers in insert mode
-"augroup LinuNumberToggle
-"  au!
-"  au InsertEnter * set number
-"  au InsertLeave * set relativenumber
-"augroup END
+augroup LinuNumberToggle
+  au!
+  au InsertEnter * set number
+  au InsertLeave * set relativenumber
+augroup END
 
 augroup TabSettings
   au!
