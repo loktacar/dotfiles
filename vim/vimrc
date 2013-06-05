@@ -39,6 +39,11 @@ if has("gui_running")
   set antialias
 end
 
+" Using putty I get the wrong t_Co value
+if &term == "xterm"
+  set t_Co=256
+endif
+
 " colorscheme (works in both gvim and vim)
 colorscheme Monokai
 

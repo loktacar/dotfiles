@@ -19,6 +19,3 @@
 [submodule "vim/vim/bundle/monokai-colorscheme"]
 	path = vim/vim/bundle/monokai-colorscheme
 	url = git@github.com:sickill/vim-monokai.git
-[submodule "vim/vim/bundle/gitgutter"]
-	path = vim/vim/bundle/gitgutter
-	url = git@github.com:airblade/vim-gitgutter.git
