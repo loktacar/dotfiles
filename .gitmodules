@@ -19,3 +19,6 @@
 [submodule "vim/vim/bundle/monokai-colorscheme"]
 	path = vim/vim/bundle/monokai-colorscheme
 	url = git@github.com:sickill/vim-monokai.git
+[submodule "vim/vim/bundle/shougo-unite"]
+	path = vim/vim/bundle/shougo-unite
+	url = https://github.com/Shougo/unite.vim.git

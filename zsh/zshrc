@@ -142,6 +142,9 @@ alias mv='nocorrect mv'
 # Swap:         7627          0       7627
 alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 
+# tmux
+alias tmux='tmux -2'
+
 # whe? wha? who?
 alias whe='whereis'
 alias wha='whatis'

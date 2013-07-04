@@ -40,7 +40,9 @@ if has("gui_running")
 end
 
 " Using putty I get the wrong t_Co value
-if &term == "xterm"
+if (&term == "xterm")
+  set t_Co=256
+elseif (&term == "screen-bce")
   set t_Co=256
 endif
 
@@ -180,8 +182,11 @@ augroup END
 
 " {{{ Plugin Configuration
 
-nnoremap <Leader>b :FufBuffer<CR>
-nnoremap <Leader>f :FufFile<CR>
+"nnoremap <Leader>b :FufBuffer<CR>
+"nnoremap <Leader>f :FufFile<CR>
+
+nnoremap <Leader>b :Unite -start-insert buffer<CR>
+nnoremap <Leader>f :Unite -start-insert file<CR>
 
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|pyo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
