@@ -110,8 +110,11 @@ noremap <Leader><Leader> <C-^>
 noremap <Leader>s :split<CR>
 noremap <Leader>v :vsplit<CR>
 
-" change directory to current file dir
+" Change directory to current file dir
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Toggle paste mode
+set pastetoggle=<Leader>p
 
 " }}}
 
