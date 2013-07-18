@@ -127,8 +127,8 @@ set noswapfile
 " Custom invisibles
 set list
 set listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
-
+set showbreak=↲
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Show line numbers
 set relativenumber
 
@@ -192,5 +192,9 @@ nnoremap <Leader>b :Unite -start-insert buffer<CR>
 nnoremap <Leader>f :Unite -start-insert file<CR>
 
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|pyo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+
+"let g:airline_left_sep = ''
+"let g:airline_right_sep = ''
+let g:airline_powerline_fonts = 1
 
 " }}}

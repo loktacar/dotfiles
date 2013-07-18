@@ -22,3 +22,6 @@
 [submodule "vim/vim/bundle/shougo-unite"]
 	path = vim/vim/bundle/shougo-unite
 	url = https://github.com/Shougo/unite.vim.git
+[submodule "vim/vim/bundle/bling-airline"]
+	path = vim/vim/bundle/bling-airline
+	url = git@github.com:bling/vim-airline.git
