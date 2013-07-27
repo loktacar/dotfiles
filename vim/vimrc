@@ -128,7 +128,7 @@ set noswapfile
 set list
 set listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮
 set showbreak=↲
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Show line numbers
 set relativenumber
 
@@ -189,6 +189,7 @@ augroup END
 "nnoremap <Leader>f :FufFile<CR>
 
 nnoremap <Leader>b :Unite -start-insert buffer<CR>
+"nnoremap <Leader>f :Unite -start-insert file_rec<CR>
 nnoremap <Leader>f :Unite -start-insert file<CR>
 
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|pyo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
