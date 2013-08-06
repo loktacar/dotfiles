@@ -21,7 +21,7 @@ if has("gui_running")
   if has("win32")
     set guifont=Andale\ Mono:h10:cDEFAULT
   else
-    set guifont=Andale\ Mono\ 10
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
   endif
 
   " set guioptions
@@ -116,6 +116,9 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 " Toggle paste mode
 set pastetoggle=<Leader>p
 
+" Disable wierd Alt+Spacebar Character
+inoremap <A-Space> <Space>
+
 " }}}
 
 " {{{ Options
@@ -190,6 +193,7 @@ augroup END
 
 nnoremap <Leader>b :Unite -start-insert buffer<CR>
 nnoremap <Leader>f :Unite -start-insert file<CR>
+nnoremap <Leader>d :Unite -start-insert file_rec/async<CR>
 
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|pyo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 

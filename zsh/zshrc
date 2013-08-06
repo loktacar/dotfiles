@@ -158,3 +158,9 @@ alias -g G="| grep"
 alias -g H="| head"
 alias -g T="| tail"
 # }}}
+
+# {{{ VirtualenvWrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+# }}}
+
