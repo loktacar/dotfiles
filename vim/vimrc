@@ -191,6 +191,8 @@ augroup END
 "nnoremap <Leader>b :FufBuffer<CR>
 "nnoremap <Leader>f :FufFile<CR>
 
+nnoremap <Leader>8 :call Flake8()<CR>
+
 nnoremap <Leader>b :Unite -start-insert buffer<CR>
 nnoremap <Leader>f :Unite -start-insert file<CR>
 nnoremap <Leader>d :Unite -start-insert file_rec/async<CR>

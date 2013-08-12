@@ -28,3 +28,15 @@
 [submodule "vim/vim/bundle/shugo-vimproc"]
 	path = vim/vim/bundle/shugo-vimproc
 	url = git@github.com:Shougo/vimproc.vim.git
+[submodule "vim/vim/bundle/tmux-navigator"]
+	path = vim/vim/bundle/tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git
+[submodule "vim/vim/bundle/nvie-flake8"]
+	path = vim/vim/bundle/nvie-flake8
+	url = git@github.com:nvie/vim-flake8.git
+[submodule "vim/vim/bundle/exu-pgsql"]
+	path = vim/vim/bundle/exu-pgsql
+	url = git@github.com:exu/pgsql.vim.git
+[submodule "vim/vim/bundle/nanotech-jellybeans"]
+	path = vim/vim/bundle/nanotech-jellybeans
+	url = git@github.com:nanotech/jellybeans.vim.git
