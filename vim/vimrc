@@ -131,7 +131,7 @@ set noswapfile
 set list
 set listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮
 set showbreak=↲
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Show line numbers
 set relativenumber
 
@@ -194,6 +194,7 @@ augroup END
 nnoremap <Leader>8 :call Flake8()<CR>
 
 nnoremap <Leader>b :Unite -start-insert buffer<CR>
+"nnoremap <Leader>f :Unite -start-insert file_rec<CR>
 nnoremap <Leader>f :Unite -start-insert file<CR>
 nnoremap <Leader>d :Unite -start-insert file_rec/async<CR>
 

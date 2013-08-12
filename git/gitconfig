@@ -6,7 +6,7 @@
 
 [user]
   name = Viktor Alex
-  email = loktacar@gmail.com
+  email = viktoralex@365.is
 
 [merge]
   tool = vimdiff
@@ -20,6 +20,6 @@
   dis = diff --color-words --staged
   pu = pull --ff-only
   up = pull --rebase # like svn does
-  lo = log --decorate --abbrev-commit --stat
+  lo = log --color=auto --decorate --abbrev-commit --stat
   staged = diff --cached
   tree = log --graph --pretty=oneline --abbrev-commit --decorate
