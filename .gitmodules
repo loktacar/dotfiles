@@ -1,12 +1,6 @@
 [submodule "vim/vim/bundle/pathogen"]
 	path = vim/vim/bundle/pathogen
 	url = git@github.com:tpope/vim-pathogen.git
-[submodule "vim/vim/bundle/L9"]
-	path = vim/vim/bundle/L9
-	url = git@github.com:vim-scripts/L9.git
-[submodule "vim/vim/bundle/FuzzyFinder"]
-	path = vim/vim/bundle/FuzzyFinder
-	url = git@github.com:vim-scripts/FuzzyFinder.git
 [submodule "vim/vim/bundle/fugitive"]
 	path = vim/vim/bundle/fugitive
 	url = git@github.com:tpope/vim-fugitive.git
