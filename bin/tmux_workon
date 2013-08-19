@@ -1,0 +1,67 @@
+#!/bin/zsh
+
+tmux start-server
+
+PROJNAME=${@[$#]}
+OPENPOSTGRE=""
+ISPYTHON=false
+
+VIMWINDOW="edit"
+POSTGREWINDOW="postgres"
+
+while getopts ':P:p' opt "$@"; do
+  case $opt in
+    P)
+      OPENPOSTGRE=$OPTARG
+      ;;
+    p)
+      ISPYTHON=true
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+#echo $PROJNAME
+#echo $OPENPOSTGRE
+#echo $ISPYTHON
+
+if [[ $PROJNAME == $OPENPOSTGRE || $PROJNAME == "p" || $PROJNAME == "P" || $PROJNAME == "" ]]; then
+  echo "-p for python workon"
+  echo "-P [dbname] for db window"
+  echo "Then gief project folder name under ~/Projects/"
+fi
+
+
+if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
+
+  tmux new-session -d -s $PROJNAME -n $VIMWINDOW
+
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd ~/Projects/'$PROJNAME C-m
+
+  if $ISPYTHON; then
+    tmux send-keys -t $PROJNAME:$VIMWINDOW 'workon '$PROJNAME C-m
+  fi
+
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'clear' C-m
+  tmux split-window -h -t $PROJNAME:$VIMWINDOW
+  tmux resize-pane -L 50
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd ~/Projects/'$PROJNAME C-m
+  if $ISPYTHON; then
+    tmux send-keys -t $PROJNAME:$VIMWINDOW 'workon '$PROJNAME C-m
+  fi
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'clear' C-m
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'vim' C-m
+
+  if [[ ! -z "$OPENPOSTGRE" ]]; then
+    tmux new-window -t $PROJNAME -n $POSTGREWINDOW
+    tmux send-keys -t $PROJNAME:$POSTGREWINDOW 'clear' C-m
+    tmux send-keys -t $PROJNAME:$POSTGREWINDOW 'psql '$OPENPOSTGRE' postgres' C-m
+  fi
+
+  tmux select-window -t $PROJNAME:$VIMWINDOW
+fi
+
+tmux attach -t $PROJNAME
