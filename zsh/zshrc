@@ -150,7 +150,9 @@ alias -g T="| tail"
 # {{{ virtualenvwrapper
 
 export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+if [[ -r /usr/bin/virtualenvwrapper.sh ]]; then
+  source /usr/bin/virtualenvwrapper.sh
+fi
 
 # }}}
 
