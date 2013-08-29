@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/viktoralex/.zsh'
-let g:netrw_dirhist_2='/home/viktoralex/.dotfiles/.git/modules'
-let g:netrw_dirhist_3='/home/viktoralex/.dotfiles/.git/modules/vim'
-let g:netrw_dirhist_4='/home/viktoralex/.dotfiles/.git/modules/vim/vim'
-let g:netrw_dirhist_5='/home/viktoralex/.dotfiles/.git/modules/vim/vim/bundle'

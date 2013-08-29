@@ -157,7 +157,14 @@ source /usr/bin/virtualenvwrapper.sh
 # {{{ exports
 
 # add bin folder in home to path
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.bin
 
 # }}}
 
+# {{{ Local machine settings
+
+if [[ -r ~/.localzshrc ]]; then
+  source ~/.localzshrc
+fi
+
+# }}}
