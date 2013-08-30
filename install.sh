@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PREVDIR="$( pwd )"
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [[ -d "$DIR" ]]; then
@@ -8,6 +10,14 @@ else
   echo "$DIR does not exist"
   exit 1
 fi
+
+# Update submodules
+echo -n "Updating git submodules... "
+cd $DIR
+git submodule init
+git submodule update
+echo "done."
+
 
 # Find subfolders of $DIR
 for location in "$DIR"/*; do
@@ -20,3 +30,5 @@ for location in "$DIR"/*; do
     fi
   fi
 done
+
+cd $PREVDIR
