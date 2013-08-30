@@ -49,3 +49,6 @@
 [submodule "vim/vim/bundle/python-pep8-indent"]
 	path = vim/vim/bundle/python-pep8-indent
 	url = git@github.com:hynek/vim-python-pep8-indent.git
+[submodule "zsh/oh-my-zsh"]
+	path = zsh/oh-my-zsh
+	url = git@github.com:robbyrussell/oh-my-zsh.git
