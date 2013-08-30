@@ -1,16 +1,16 @@
 #!/bin/bash
 
-eval dotfiles="~/.dotfiles"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [[ -d "$dotfiles" ]]; then
-  echo "Running $dotfiles/*/install.sh"
+if [[ -d "$DIR" ]]; then
+  echo "Running $DIR/*/install.sh"
 else
-  echo "$dotfiles does not exist"
+  echo "$DIR does not exist"
   exit 1
 fi
 
-# Find subfolders of $dotfiles
-for location in "$dotfiles"/*; do
+# Find subfolders of $DIR
+for location in "$DIR"/*; do
   # Check if directory
   if [[ -d "$location" ]]; then
     # Check if install.sh is file and is executable
