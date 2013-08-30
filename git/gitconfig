@@ -25,4 +25,4 @@
   tree = log --graph --pretty=oneline --abbrev-commit --decorate
 
 [push]
-  default = simple
+  default = current
