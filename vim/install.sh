@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -n "Installing vim... "
+echo -n "Installing vim config... "
 
 rm -f ~/.vim
 ln -s $1/vim ~/.vim

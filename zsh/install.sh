@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -n "Installing zsh... "
+echo -n "Installing zsh config... "
 
 rm -f ~/.zshrc
 ln -s $1/zshrc ~/.zshrc

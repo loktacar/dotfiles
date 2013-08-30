@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -n "Installing bash... "
+echo -n "Installing bash config... "
 
 rm -f ~/.bashrc
 ln -s $1/bashrc ~/.bashrc

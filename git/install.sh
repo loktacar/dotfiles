@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -n "Installing git... "
+echo -n "Installing git config... "
 
 rm -f ~/.gitignore
 ln -s $1/gitignore ~/.gitignore
