@@ -10,7 +10,7 @@
 
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="flazz"
-plugins=(git django fabric pip yum vi-mode)
+plugins=(git git-remote-branch django fabric pip yum vi-mode colored-man mvn)
 
 source $ZSH/oh-my-zsh.sh
 
