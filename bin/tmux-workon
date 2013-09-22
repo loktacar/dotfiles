@@ -5,11 +5,14 @@ tmux start-server
 PROJNAME=${@[$#]}
 OPENPOSTGRE=""
 ISPYTHON=false
+DOUBLEWIDE=true
 
 VIMWINDOW="edit"
 POSTGREWINDOW="postgres"
 
-while getopts ':P:p' opt "$@"; do
+TMUXVER=`tmux -V`
+
+while getopts ':P:p:d:s' opt "$@"; do
   case $opt in
     P)
       OPENPOSTGRE=$OPTARG
@@ -17,16 +20,18 @@ while getopts ':P:p' opt "$@"; do
     p)
       ISPYTHON=true
       ;;
+    d)
+      DOUBLEWIDE=true
+      ;;
+    s)
+      DOUBLEWIDE=false
+      ;;
     :)
       echo "Option -$OPTARG requires an argument." >&2
       exit 1
       ;;
   esac
 done
-
-#echo $PROJNAME
-#echo $OPENPOSTGRE
-#echo $ISPYTHON
 
 if [[ $PROJNAME == $OPENPOSTGRE || $PROJNAME == "p" || $PROJNAME == "P" || $PROJNAME == "" ]]; then
   echo "-p for python workon"
@@ -47,7 +52,30 @@ if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
 
   tmux send-keys -t $PROJNAME:$VIMWINDOW 'clear' C-m
   tmux split-window -h -t $PROJNAME:$VIMWINDOW
-  tmux resize-pane -L 50
+
+  # Test tmux version and resize
+  if [[ $TMUXVER == "tmux 1.8" ]]; then
+    if $DOUBLEWIDE ; then
+      # Double wide
+      tmux resize-pane -x 169
+    else
+      # Single wide
+      tmux resize-pane -x 84
+    fi
+  else
+    tmux resize-pane -R 10000 # Sets size to 2
+
+    if $DOUBLEWIDE ; then
+      # Double wide
+      tmux resize-pane -L 167
+    else
+      # Single wide
+      tmux resize-pane -L 82
+    fi
+  fi
+  # tmux resize-pane -L 50
+
+
   tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd ~/Projects/'$PROJNAME C-m
   if $ISPYTHON; then
     tmux send-keys -t $PROJNAME:$VIMWINDOW 'workon '$PROJNAME C-m
