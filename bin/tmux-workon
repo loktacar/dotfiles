@@ -64,4 +64,4 @@ if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
   tmux select-window -t $PROJNAME:$VIMWINDOW
 fi
 
-tmux attach -t $PROJNAME
+tmux -2 attach -t $PROJNAME
