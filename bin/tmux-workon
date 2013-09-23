@@ -10,6 +10,10 @@ DOUBLEWIDE=true
 VIMWINDOW="edit"
 POSTGREWINDOW="postgres"
 
+if [ -z "$PROJECTFOLDER" ]; then
+  PROJFOLDER='~/projects'
+fi
+
 TMUXVER=`tmux -V`
 
 while getopts ':P:p:d:s' opt "$@"; do
@@ -33,18 +37,19 @@ while getopts ':P:p:d:s' opt "$@"; do
   esac
 done
 
-if [[ $PROJNAME == $OPENPOSTGRE || $PROJNAME == "p" || $PROJNAME == "P" || $PROJNAME == "" ]]; then
+if [[ $PROJNAME == "p" || $PROJNAME == "P" || $PROJNAME == "" ]]; then
   echo "-p for python workon"
   echo "-P [dbname] for db window"
-  echo "Then gief project folder name under ~/Projects/"
+  echo "Then gief project folder name under $PROJFOLDER/"
 fi
 
 
 if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
 
   tmux new-session -d -s $PROJNAME -n $VIMWINDOW
+  tmux set-option -g allow-rename off
 
-  tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd ~/Projects/'$PROJNAME C-m
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd '"$PROJFOLDER"'/'$PROJNAME C-m
 
   if $ISPYTHON; then
     tmux send-keys -t $PROJNAME:$VIMWINDOW 'workon '$PROJNAME C-m
@@ -52,6 +57,8 @@ if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
 
   tmux send-keys -t $PROJNAME:$VIMWINDOW 'clear' C-m
   tmux split-window -h -t $PROJNAME:$VIMWINDOW
+
+  tmux select-pane -l
 
   # Test tmux version and resize
   if [[ $TMUXVER == "tmux 1.8" ]]; then
@@ -63,28 +70,30 @@ if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
       tmux resize-pane -x 84
     fi
   else
-    tmux resize-pane -R 10000 # Sets size to 2
+    tmux resize-pane -L 10000 # Sets size to 2
 
     if $DOUBLEWIDE ; then
       # Double wide
-      tmux resize-pane -L 167
+      tmux resize-pane -R 167
     else
       # Single wide
-      tmux resize-pane -L 82
+      tmux resize-pane -R 82
     fi
   fi
-  # tmux resize-pane -L 50
 
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'vim' C-m
 
-  tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd ~/Projects/'$PROJNAME C-m
+  tmux select-pane -l
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd '"$PROJFOLDER"'/'$PROJNAME C-m
+
   if $ISPYTHON; then
     tmux send-keys -t $PROJNAME:$VIMWINDOW 'workon '$PROJNAME C-m
   fi
   tmux send-keys -t $PROJNAME:$VIMWINDOW 'clear' C-m
-  tmux send-keys -t $PROJNAME:$VIMWINDOW 'vim' C-m
 
   if [[ ! -z "$OPENPOSTGRE" ]]; then
     tmux new-window -t $PROJNAME -n $POSTGREWINDOW
+    tmux set-option -g allow-rename off
     tmux send-keys -t $PROJNAME:$POSTGREWINDOW 'clear' C-m
     tmux send-keys -t $PROJNAME:$POSTGREWINDOW 'psql '$OPENPOSTGRE' postgres' C-m
   fi
