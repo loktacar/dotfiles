@@ -52,3 +52,12 @@
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh.git
+[submodule "vim/vim/bundle/glench-jinja2-syntax"]
+	path = vim/vim/bundle/glench-jinja2-syntax
+	url = git@github.com:Glench/Vim-Jinja2-Syntax.git
+[submodule "vim/vim/bundle/groenewege-less"]
+	path = vim/vim/bundle/groenewege-less
+	url = git@github.com:groenewege/vim-less.git
+[submodule "vim/vim/bundle/tpope-surround"]
+	path = vim/vim/bundle/tpope-surround
+	url = git@github.com:tpope/vim-surround.git

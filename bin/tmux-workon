@@ -16,7 +16,7 @@ fi
 
 TMUXVER=`tmux -V`
 
-while getopts ':P:p:d:s' opt "$@"; do
+while getopts P:pds opt "$@"; do
   case $opt in
     P)
       OPENPOSTGRE=$OPTARG
