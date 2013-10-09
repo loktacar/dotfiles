@@ -61,3 +61,6 @@
 [submodule "vim/vim/bundle/tpope-surround"]
 	path = vim/vim/bundle/tpope-surround
 	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/vim/bundle/tpope-repeat"]
+	path = vim/vim/bundle/tpope-repeat
+	url = git@github.com:tpope/vim-repeat.git
