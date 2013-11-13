@@ -135,6 +135,11 @@ alias -g T="| tail"
 # {{{ virtualenvwrapper
 
 export WORKON_HOME=~/.virtualenvs
+# Ubuntu
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+# Fedora
 if [[ -r /usr/bin/virtualenvwrapper.sh ]]; then
   source /usr/bin/virtualenvwrapper.sh
 fi
@@ -155,3 +160,4 @@ if [[ -r ~/.localzshrc ]]; then
 fi
 
 # }}}
+#
