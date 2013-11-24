@@ -64,3 +64,9 @@
 [submodule "vim/vim/bundle/tpope-repeat"]
 	path = vim/vim/bundle/tpope-repeat
 	url = git@github.com:tpope/vim-repeat.git
+[submodule "vim/vim/bundle/maxst-flatcolor"]
+	path = vim/vim/bundle/maxst-flatcolor
+	url = https://github.com/MaxSt/FlatColor.git
+[submodule "vim/vim/bundle/ujihisa-unite-colo"]
+	path = vim/vim/bundle/ujihisa-unite-colo
+	url = https://github.com/ujihisa/unite-colorscheme.git
