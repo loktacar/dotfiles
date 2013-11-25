@@ -47,7 +47,7 @@ elseif (&term == "screen-bce")
 endif
 
 " colorscheme (works in both gvim and vim)
-colorscheme jellybeans
+colorscheme flatcolor
 
 " Status line
 set laststatus=2
