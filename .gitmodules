@@ -70,6 +70,3 @@
 [submodule "vim/vim/bundle/ujihisa-unite-colo"]
 	path = vim/vim/bundle/ujihisa-unite-colo
 	url = https://github.com/ujihisa/unite-colorscheme.git
-[submodule "vim/vim/bundle/elzr-json"]
-	path = vim/vim/bundle/elzr-json
-	url = https://github.com/elzr/vim-json.git
