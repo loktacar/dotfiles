@@ -1,72 +1,69 @@
 [submodule "vim/vim/bundle/pathogen"]
-	path = vim/vim/bundle/pathogen
-	url = git@github.com:tpope/vim-pathogen.git
+  path = vim/vim/bundle/pathogen
+  url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim/vim/bundle/fugitive"]
-	path = vim/vim/bundle/fugitive
-	url = git@github.com:tpope/vim-fugitive.git
+  path = vim/vim/bundle/fugitive
+  url = https://github.com/tpope/vim-fugitive.git
 [submodule "zsh/zsh/rupa-z"]
-	path = zsh/zsh/rupa-z
-	url = https://github.com/rupa/z.git
+  path = zsh/zsh/rupa-z
+  url = https://github.com/rupa/z.git
 [submodule "vim/vim/bundle/othree-html5-syntax"]
-	path = vim/vim/bundle/othree-html5-syntax
-	url = git@github.com:othree/html5-syntax.vim.git
+  path = vim/vim/bundle/othree-html5-syntax
+  url = https://github.com/othree/html5-syntax.vim.git
 [submodule "vim/vim/bundle/monokai-colorscheme"]
-	path = vim/vim/bundle/monokai-colorscheme
-	url = git@github.com:sickill/vim-monokai.git
+  path = vim/vim/bundle/monokai-colorscheme
+  url = https://github.com/sickill/vim-monokai.git
 [submodule "vim/vim/bundle/shougo-unite"]
-	path = vim/vim/bundle/shougo-unite
-	url = https://github.com/Shougo/unite.vim.git
+  path = vim/vim/bundle/shougo-unite
+  url = https://github.com/Shougo/unite.vim.git
 [submodule "vim/vim/bundle/bling-airline"]
-	path = vim/vim/bundle/bling-airline
-	url = git@github.com:bling/vim-airline.git
+  path = vim/vim/bundle/bling-airline
+  url = https://github.com/bling/vim-airline.git
 [submodule "vim/vim/bundle/shugo-vimproc"]
-	path = vim/vim/bundle/shugo-vimproc
-	url = git@github.com:Shougo/vimproc.vim.git
+  path = vim/vim/bundle/shugo-vimproc
+  url = https://github.com/Shougo/vimproc.vim.git
 [submodule "vim/vim/bundle/tmux-navigator"]
-	path = vim/vim/bundle/tmux-navigator
-	url = git@github.com:christoomey/vim-tmux-navigator.git
+  path = vim/vim/bundle/tmux-navigator
+  url = https://github.com/christoomey/vim-tmux-navigator.git
 [submodule "vim/vim/bundle/nvie-flake8"]
-	path = vim/vim/bundle/nvie-flake8
-	url = git@github.com:nvie/vim-flake8.git
+  path = vim/vim/bundle/nvie-flake8
+  url = https://github.com/nvie/vim-flake8.git
 [submodule "vim/vim/bundle/exu-pgsql"]
-	path = vim/vim/bundle/exu-pgsql
-	url = git@github.com:exu/pgsql.vim.git
+  path = vim/vim/bundle/exu-pgsql
+  url = https://github.com/exu/pgsql.vim.git
 [submodule "vim/vim/bundle/nanotech-jellybeans"]
-	path = vim/vim/bundle/nanotech-jellybeans
-	url = git@github.com:nanotech/jellybeans.vim.git
+  path = vim/vim/bundle/nanotech-jellybeans
+  url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "vim/vim/bundle/distinguished"]
-	path = vim/vim/bundle/distinguished
-	url = git@github.com:Lokaltog/vim-distinguished.git
+  path = vim/vim/bundle/distinguished
+  url = https://github.com/Lokaltog/vim-distinguished.git
 [submodule "vim/vim/bundle/github-colo"]
-	path = vim/vim/bundle/github-colo
-	url = git@github.com:endel/vim-github-colorscheme.git
+  path = vim/vim/bundle/github-colo
+  url = https://github.com/endel/vim-github-colorscheme.git
 [submodule "vim/vim/bundle/railscasts-colo"]
-	path = vim/vim/bundle/railscasts-colo
-	url = git@github.com:jpo/vim-railscasts-theme.git
+  path = vim/vim/bundle/railscasts-colo
+  url = https://github.com/jpo/vim-railscasts-theme.git
 [submodule "vim/vim/bundle/python-syntax"]
-	path = vim/vim/bundle/python-syntax
-	url = git@github.com:hdima/python-syntax.git
+  path = vim/vim/bundle/python-syntax
+  url = https://github.com/hdima/python-syntax.git
 [submodule "vim/vim/bundle/python-pep8-indent"]
-	path = vim/vim/bundle/python-pep8-indent
-	url = git@github.com:hynek/vim-python-pep8-indent.git
+  path = vim/vim/bundle/python-pep8-indent
+  url = https://github.com/hynek/vim-python-pep8-indent.git
 [submodule "zsh/oh-my-zsh"]
-	path = zsh/oh-my-zsh
-	url = git@github.com:robbyrussell/oh-my-zsh.git
+  path = zsh/oh-my-zsh
+  url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/vim/bundle/glench-jinja2-syntax"]
-	path = vim/vim/bundle/glench-jinja2-syntax
-	url = git@github.com:Glench/Vim-Jinja2-Syntax.git
+  path = vim/vim/bundle/glench-jinja2-syntax
+  url = https://github.com/Glench/Vim-Jinja2-Syntax.git
 [submodule "vim/vim/bundle/groenewege-less"]
-	path = vim/vim/bundle/groenewege-less
-	url = git@github.com:groenewege/vim-less.git
+  path = vim/vim/bundle/groenewege-less
+  url = https://github.com/groenewege/vim-less.git
 [submodule "vim/vim/bundle/tpope-surround"]
-	path = vim/vim/bundle/tpope-surround
-	url = git@github.com:tpope/vim-surround.git
+  path = vim/vim/bundle/tpope-surround
+  url = https://github.com/tpope/vim-surround.git
 [submodule "vim/vim/bundle/tpope-repeat"]
-	path = vim/vim/bundle/tpope-repeat
-	url = git@github.com:tpope/vim-repeat.git
+  path = vim/vim/bundle/tpope-repeat
+  url = https://github.com/tpope/vim-repeat.git
 [submodule "vim/vim/bundle/maxst-flatcolor"]
-	path = vim/vim/bundle/maxst-flatcolor
-	url = https://github.com/MaxSt/FlatColor.git
-[submodule "vim/vim/bundle/ujihisa-unite-colo"]
-	path = vim/vim/bundle/ujihisa-unite-colo
-	url = https://github.com/ujihisa/unite-colorscheme.git
+  path = vim/vim/bundle/maxst-flatcolor
+  url = https://github.com/MaxSt/FlatColor.git
