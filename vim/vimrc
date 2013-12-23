@@ -21,7 +21,7 @@ if has("gui_running")
   if has("win32")
     set guifont=Andale\ Mono:h10:cDEFAULT
   else
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
   endif
 
   " set guioptions
@@ -51,14 +51,6 @@ colorscheme flatcolor
 
 " Status line
 set laststatus=2
-set statusline=%f%m%r%w\  " Modified, read-only, and preview flags
-set statusline+=%Y\  " Type of file
-set statusline+=%{&fenc==\"\"?&enc:&fenc}\  " File encoding
-set statusline+=%{&ff}\  " File format
-set statusline+=%=\  " Split left and right
-set statusline+=(\line:\ \%l/\%L\ %p%%)\  " Current, total and percentage lines
-set statusline+=(\col.:\ %v)\  " Column number
-set statusline+=(\buf.:\ %n)  " Buffer number
 
 " }}}
 
@@ -133,6 +125,7 @@ set listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮
 set showbreak=↲
 
 " Show line numbers
+set number
 set relativenumber
 
 " "Scrolling"
@@ -163,20 +156,7 @@ set hlsearch
 
 " {{{ Autocommands
 
-" Reload .vimrc file when file is written
-augroup AutoReloadVimRC
-  au!
-  au BufWritePost $MYVIMRC so $MYVIMRC
-  au BufWritePost ~/dotfiles/vim/vimrc so $MYVIMRC
-augroup END
-
 " Static line numbers in insert mode
-augroup LinuNumberToggle
-  au!
-  au InsertEnter * set number
-  au InsertLeave * set relativenumber
-augroup END
-
 augroup TabSettings
   au!
   autocmd Filetype python setlocal tabstop=4
@@ -191,20 +171,30 @@ augroup END
 
 " {{{ Plugin Configuration
 
-"nnoremap <Leader>b :FufBuffer<CR>
-"nnoremap <Leader>f :FufFile<CR>
-
 nnoremap <Leader>8 :call Flake8()<CR>
 
-nnoremap <Leader>b :Unite -start-insert buffer<CR>
-"nnoremap <Leader>f :Unite -start-insert file_rec<CR>
-nnoremap <Leader>f :Unite -start-insert file<CR>
-nnoremap <Leader>d :Unite -start-insert file_rec/async<CR>
+""" Unite
 
-let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|pyo)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+" do fuzzy matching
+call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
 
-"let g:airline_left_sep = ''
-"let g:airline_right_sep = ''
+" allow searching of yank history
+let g:unite_source_history_yank_enable = 1
+
+" don't split, show auto preview, start in insert mode
+nnoremap <Leader>b :Unite -no-split -auto-preview -start-insert buffer<CR>
+nnoremap <Leader>f :Unite -no-split -auto-preview -start-insert file<CR>
+nnoremap <Leader>d :Unite -no-split -auto-preview -start-insert file_rec/async:!<CR>
+nnoremap <Leader>y :Unite -buffer-name=yank history/yank<CR>
+
+" Up and down with C-[jk] in insert mode in Unite
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
+
+""" Powerline
 let g:airline_powerline_fonts = 1
 
 " }}}

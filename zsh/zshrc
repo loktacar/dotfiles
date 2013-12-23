@@ -51,6 +51,15 @@ bindkey -M viins '^S' history-incremental-search-forward
 # same as normal mode if I've already started searching
 #bindkey -M isearch '^R' history-incremental-pattern-search-backward
 #bindkey -M isearch '^S' history-incremental-pattern-search-forward
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+#[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" history-beginning-search-backward
+#[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" history-beginning-search-forward
 # }}}
 
 # {{{ completion
