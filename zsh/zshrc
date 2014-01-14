@@ -75,8 +75,8 @@ bindkey "^[[B" down-line-or-beginning-search
 #zstyle ':completion:*:*:*:*:*' menu yes select
 
 # kill command completion
-#zstyle ':completion:*:*:kill:*' menu yes select
-#zstyle ':completion:*:kill:*'   force-list always
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
 
 # use /etc/hosts and known_hosts for hostname completion
 [ -r /etc/ssh/ssh_known_hosts ] && _global_ssh_hosts=(${${${${(f)"$(</etc/ssh/ssh_known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _global_ssh_hosts=()
@@ -140,6 +140,13 @@ alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 
 # tmux
 alias tmux='tmux -2'
+alias ta='tmux attach-session -t'
+alias tl='tmux list-sessions'
+alias tc='tmux new-session -s'
+
+# tmux script
+alias tw='tmux-workon'
+alias twp='tmux-workon -pP'
 
 # whe? wha? who?
 alias whe='whereis'

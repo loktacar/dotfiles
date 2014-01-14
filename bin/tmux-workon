@@ -46,9 +46,11 @@ fi
 
 if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
 
+  # Create sessions
   tmux new-session -d -s $PROJNAME -n $VIMWINDOW
   tmux set-option -g allow-rename off
 
+  # Run commands on shell pane
   tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd '"$PROJFOLDER"'/'$PROJNAME C-m
 
   if $ISPYTHON; then
@@ -56,6 +58,7 @@ if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
   fi
 
   tmux send-keys -t $PROJNAME:$VIMWINDOW 'clear' C-m
+
   tmux split-window -h -t $PROJNAME:$VIMWINDOW
 
   tmux select-pane -l
