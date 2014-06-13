@@ -1,0 +1,1 @@
+unsetopt global_rcs
