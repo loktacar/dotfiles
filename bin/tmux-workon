@@ -6,6 +6,7 @@ PROJNAME=${@[$#]}
 OPENPOSTGRE=""
 ISPYTHON=false
 DOUBLEWIDE=true
+RUBYTESTS=false
 
 VIMWINDOW="edit"
 POSTGREWINDOW="postgres"

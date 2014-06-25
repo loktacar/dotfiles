@@ -5,9 +5,51 @@
 
 " First things first
 " Use pathogen (vim plugin bundler)
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+"runtime bundle/pathogen/autoload/pathogen.vim
+"call pathogen#infect()
+"call pathogen#helptags()
+
+"Get Vundle up and running
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+
+" Misc Plugins
+Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+
+
+" Language specific
+Plugin 'groenewege/vim-less'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-markdown'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'exu/pgsql.vim'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'vim-ruby/vim-ruby'
+
+" Python
+Plugin 'nvie/vim-flake8'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'hdima/python-syntax'
+
+" Unite
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'ujihisa/unite-colorscheme'
+
+" Colorschemes
+"Plugin 'Lokaltog/vim-distinguished'
+Plugin 'MaxSt/FlatColor'
+Plugin 'tomasr/molokai'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'sjl/badwolf'
+
+call vundle#end()
 
 " Syntax highlighting
 syntax enable
@@ -182,9 +224,9 @@ call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_f
 let g:unite_source_history_yank_enable = 1
 
 " don't split, show auto preview, start in insert mode
-nnoremap <Leader>b :Unite -no-split -auto-preview -start-insert buffer<CR>
-nnoremap <Leader>f :Unite -no-split -auto-preview -start-insert file<CR>
-nnoremap <Leader>d :Unite -no-split -auto-preview -start-insert file_rec/async:!<CR>
+nnoremap <Leader>b :Unite -no-split buffer<CR>
+nnoremap <Leader>f :Unite -no-split file<CR>
+nnoremap <Leader>d :Unite -no-split file_rec/async:!<CR>
 nnoremap <Leader>y :Unite -buffer-name=yank history/yank<CR>
 
 " Up and down with C-[jk] in insert mode in Unite
