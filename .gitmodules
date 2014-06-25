@@ -76,6 +76,3 @@
 [submodule "vim/vim/bundle/vim-golang"]
 	path = vim/vim/bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang.git
-[submodule "vim/vim/sjl-badwolf"]
-	path = vim/vim/sjl-badwolf
-	url = https://github.com/sjl/badwolf.git
