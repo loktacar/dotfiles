@@ -17,19 +17,6 @@ fi
 
 TMUXVER=`tmux -V`
 
-#while getopts P:pds opt "$@"; do
-#  case $opt in
-#    r) ISRAILS=true ;;
-#    P) OPENPOSTGRE=$OPTARG ;;
-#    p) ISPYTHON=true ;;
-#    d) DOUBLEWIDE=true ;;
-#    s) DOUBLEWIDE=false ;;
-#    :)
-#      echo "Option -$OPTARG requires an argument." >&2
-#      exit 1
-#      ;;
-#  esac
-#done
 set -- $(getopt rPpds: "$@")
 while [ $# -gt 0 ]
 do
