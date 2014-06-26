@@ -1,13 +1,9 @@
-" vim: set fdm=marker:
+" vim: fdm=marker:
 "
 " @author: Viktor Alex Brynjarsson
 " My .vimrc
 
-" First things first
-" Use pathogen (vim plugin bundler)
-"runtime bundle/pathogen/autoload/pathogen.vim
-"call pathogen#infect()
-"call pathogen#helptags()
+" {{{ Vundle (plugin management)
 
 "Get Vundle up and running
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -50,6 +46,8 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'sjl/badwolf'
 
 call vundle#end()
+
+" }}}
 
 " Syntax highlighting
 syntax enable
@@ -157,6 +155,8 @@ inoremap <A-Space> <Space>
 
 " {{{ Options
 
+set nocompatible
+
 " No backup, no swap
 set nobackup
 set noswapfile
@@ -218,7 +218,13 @@ nnoremap <Leader>8 :call Flake8()<CR>
 """ Unite
 
 " do fuzzy matching
-call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
+"call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ ], '\|'))
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
 " allow searching of yank history
 let g:unite_source_history_yank_enable = 1
@@ -236,7 +242,7 @@ function! s:unite_settings()
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
 
-""" Powerline
+""" Airline
 let g:airline_powerline_fonts = 1
 
 " }}}

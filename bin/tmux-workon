@@ -5,8 +5,8 @@ tmux start-server
 PROJNAME=${@[$#]}
 OPENPOSTGRE=""
 ISPYTHON=false
+ISRAILS=false
 DOUBLEWIDE=true
-RUBYTESTS=false
 
 VIMWINDOW="edit"
 POSTGREWINDOW="postgres"
@@ -17,25 +17,33 @@ fi
 
 TMUXVER=`tmux -V`
 
-while getopts P:pds opt "$@"; do
-  case $opt in
-    P)
-      OPENPOSTGRE=$OPTARG
-      ;;
-    p)
-      ISPYTHON=true
-      ;;
-    d)
-      DOUBLEWIDE=true
-      ;;
-    s)
-      DOUBLEWIDE=false
-      ;;
-    :)
-      echo "Option -$OPTARG requires an argument." >&2
-      exit 1
-      ;;
+#while getopts P:pds opt "$@"; do
+#  case $opt in
+#    r) ISRAILS=true ;;
+#    P) OPENPOSTGRE=$OPTARG ;;
+#    p) ISPYTHON=true ;;
+#    d) DOUBLEWIDE=true ;;
+#    s) DOUBLEWIDE=false ;;
+#    :)
+#      echo "Option -$OPTARG requires an argument." >&2
+#      exit 1
+#      ;;
+#  esac
+#done
+set -- $(getopt rPpds: "$@")
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    (-r) ISRAILS=true ;;
+    (-P) OPENPOSTGRE=$2; shift ;;
+    (-p) ISPYTHON=true ;;
+    (-d) DOUBLEWIDE=true ;;
+    (-s) DOUBLEWIDE=false ;;
+    (--) shift; break;;
+    (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
+    (*) break ;;
   esac
+  shift
 done
 
 if [[ $PROJNAME == "p" || $PROJNAME == "P" || $PROJNAME == "" ]]; then
@@ -58,9 +66,21 @@ if ! $(tmux has-session -t $PROJNAME 2> /dev/null); then
     tmux send-keys -t $PROJNAME:$VIMWINDOW 'workon '$PROJNAME C-m
   fi
 
+  if $ISRAILS; then
+    tmux split-window -t $PROJNAME:$VIMWINDOW
+    tmux resize-pane -y 10 -t $PROJNAME:$VIMWINDOW
+    tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd '"$PROJFOLDER"'/'$PROJNAME C-m
+    tmux send-keys -t $PROJNAME:$VIMWINDOW 'bundle exec guard' C-m
+    tmux split-window -h -t $PROJNAME:$VIMWINDOW
+    tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd '"$PROJFOLDER"'/'$PROJNAME C-m
+    tmux send-keys -t $PROJNAME:$VIMWINDOW 'tailf -n 100 log/development.log' C-m
+    tmux select-pane -t 0
+  fi
+
   tmux send-keys -t $PROJNAME:$VIMWINDOW 'clear' C-m
 
   tmux split-window -h -t $PROJNAME:$VIMWINDOW
+  tmux send-keys -t $PROJNAME:$VIMWINDOW 'cd '"$PROJFOLDER"'/'$PROJNAME C-m
 
   tmux select-pane -l
 
