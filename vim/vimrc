@@ -18,7 +18,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 
-
 " Language specific
 Plugin 'groenewege/vim-less'
 Plugin 'tpope/vim-rails'
@@ -27,6 +26,7 @@ Plugin 'jnwhiteh/vim-golang'
 Plugin 'exu/pgsql.vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'slim-template/vim-slim'
 
 " Python
 Plugin 'nvie/vim-flake8'
@@ -208,6 +208,9 @@ augroup TabSettings
   autocmd Filetype xml,html,xhtml setlocal shiftwidth=2
   autocmd Filetype xml,html,xhtml setlocal softtabstop=2
 augroup END
+
+" Stupid slim template syntax not turning on the syntax in *.slim files
+autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
 
 " }}}
 
