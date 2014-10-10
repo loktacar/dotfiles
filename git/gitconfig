@@ -27,6 +27,7 @@
   staged = diff --cached
   pu = pull --ff-only
   tree = log --graph --pretty=oneline --abbrev-commit --decorate
+  g = grep -n
 
 [push]
   default = current

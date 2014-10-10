@@ -17,6 +17,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-speeddating'
 
 " Language specific
 Plugin 'groenewege/vim-less'
@@ -61,7 +62,7 @@ if has("gui_running")
   if has("win32")
     set guifont=Andale\ Mono:h10:cDEFAULT
   else
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    set guifont=Envy\ Code\ R\ for\ Powerline\ 12
   endif
 
   " set guioptions
@@ -105,6 +106,10 @@ inoremap jj <C-J>
 " reselect visual block after indent
 vnoremap < <gv
 vnoremap > >gv
+
+" when moving between searches, center the selected line
+nnoremap n nzz
+nnoremap N Nzz
 
 " Easy split navigation
 nnoremap <C-h> <C-w>h
@@ -222,7 +227,7 @@ nnoremap <Leader>8 :call Flake8()<CR>
 
 " do fuzzy matching
 "call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
       \ '\.git/',
       \ ], '\|'))
