@@ -9,9 +9,9 @@ rm -f ~/.vimrc
 ln -s $1/vimrc ~/.vimrc
 
 # Make shougo-vimproc
-if [ -f $1/vim/bundle/shugo-vimproc/Makefile ];
+if [ -f $1/vim/bundle/vimproc.vim/Makefile ];
 then
-  cd $1/vim/bundle/shugo-vimproc
+  cd $1/vim/bundle/vimproc.vim
   make > /dev/null
 fi
 
