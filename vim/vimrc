@@ -40,11 +40,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'ujihisa/unite-colorscheme'
 
 " Colorschemes
-"Plugin 'Lokaltog/vim-distinguished'
 Plugin 'MaxSt/FlatColor'
-Plugin 'tomasr/molokai'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'sjl/badwolf'
 
 call vundle#end()
 
