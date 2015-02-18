@@ -18,6 +18,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-speeddating'
+Plugin 'nelstrom/vim-visual-star-search'
 
 " Language specific
 Plugin 'groenewege/vim-less'
@@ -30,17 +31,19 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'slim-template/vim-slim'
 
 " Python
-Plugin 'nvie/vim-flake8'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'hdima/python-syntax'
 
 " Unite
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'ujihisa/unite-colorscheme'
 
 " Colorschemes
-Plugin 'MaxSt/FlatColor'
+Plugin 'sickill/vim-monokai'
+Plugin 'gosukiwi/vim-atom-dark'
+
+" Salesforce
+Plugin 'neowit/vim-force.com'
 
 call vundle#end()
 
@@ -58,7 +61,7 @@ if has("gui_running")
   if has("win32")
     set guifont=Andale\ Mono:h10:cDEFAULT
   else
-    set guifont=Envy\ Code\ R\ for\ Powerline\ 12
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
   endif
 
   " set guioptions
@@ -84,7 +87,7 @@ elseif (&term == "screen-bce")
 endif
 
 " colorscheme (works in both gvim and vim)
-colorscheme flatcolor
+colorscheme atom-dark-256
 
 " Status line
 set laststatus=2
@@ -125,7 +128,7 @@ nnoremap <silent> <Space> za
 vnoremap <silent> <Space> zf"
 
 " Change :W to :w in command line
-cnoreabbrev W t
+cnoreabbrev W w
 
 " The button which will be refered to as <Leader> from here on out
 let mapleader = ","
@@ -151,6 +154,9 @@ set pastetoggle=<Leader>p
 
 " Disable wierd Alt+Spacebar Character
 inoremap <A-Space> <Space>
+
+" Run python unit tests (only in python files)
+autocmd Filetype python nnoremap <Leader>t :w<CR>:!py.test %<CR>
 
 " }}}
 
@@ -189,7 +195,7 @@ set noerrorbells
 set novisualbell
 set t_vb=
 
-" Show me what I'll do
+" Show me what I'm doing
 set showcmd
 
 " Highlight search results
@@ -208,6 +214,11 @@ augroup TabSettings
   autocmd Filetype xml,html,xhtml setlocal tabstop=2
   autocmd Filetype xml,html,xhtml setlocal shiftwidth=2
   autocmd Filetype xml,html,xhtml setlocal softtabstop=2
+  autocmd filetype apexcode setlocal tabstop=4
+  autocmd filetype apexcode setlocal shiftwidth=4
+  autocmd filetype apexcode setlocal softtabstop=4
+  autocmd filetype apexcode setlocal noexpandtab
+  autocmd filetype apexcode setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
 augroup END
 
 " Stupid slim template syntax not turning on the syntax in *.slim files
@@ -217,36 +228,31 @@ autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
 
 " {{{ Plugin Configuration
 
-nnoremap <Leader>8 :call Flake8()<CR>
-
 """ Unite
-
-" do fuzzy matching
-"call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
-call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.git/',
-      \ ], '\|'))
+call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'ignore_pattern', '\(\.git\/\|-meta\.xml\)')
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_source_rec_async_command= 'ag --follow --nocolor --nogroup --hidden -g ""'
 
 " allow searching of yank history
 let g:unite_source_history_yank_enable = 1
 
-" don't split, show auto preview, start in insert mode
-nnoremap <Leader>b :Unite -no-split buffer<CR>
-nnoremap <Leader>f :Unite -no-split file<CR>
-nnoremap <Leader>d :Unite -no-split file_rec/async:!<CR>
+nnoremap <Leader>b :Unite -no-split -smartcase buffer<CR>
+nnoremap <Leader>f :Unite -no-split -smartcase file<CR>
+nnoremap <Leader>d :Unite -no-split -smartcase file_rec/async:!<CR>
 nnoremap <Leader>y :Unite -buffer-name=yank history/yank<CR>
-
-" Up and down with C-[jk] in insert mode in Unite
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
 
 """ Airline
 let g:airline_powerline_fonts = 1
+
+""" Vim-force
+let g:apex_workspace_path = "/home/viktoralex/vim-force"
+let g:apex_backup_folder = "/home/viktoralex/vim-force/backup"
+let g:apex_temp_folder = "/home/viktoralex/vim-force/temp"
+let g:apex_properties_folder = "/home/viktoralex/vim-force/properties"
+let g:apex_tooling_force_dot_com_path = "/home/viktoralex/vim-force/tooling-force/tooling-force.com.jar"
+runtime ftdetect/vim-force.com.vim
+
+let g:apex_API_version = "31.0"
 
 " }}}
