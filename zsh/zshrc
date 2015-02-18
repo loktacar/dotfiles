@@ -153,6 +153,9 @@ alias twp='tmux-workon -pP'
 alias whe='whereis'
 alias wha='whatis'
 
+# always colors in grep unless I say so
+alias grep='grep --colour=always'
+
 # global aliases, can be used anywhere in a line
 alias -g ...="../.."
 alias -g ....="../../.."
