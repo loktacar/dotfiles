@@ -7,19 +7,16 @@
 #
 
 # {{{ oh-my-zsh
-
 ZSH=$HOME/.oh-my-zsh
-#ZSH_THEME="flazz"
-plugins=(git git-remote-branch django fabric pip yum vi-mode colored-man mvn)
+plugins=(git django fabric pip yum vi-mode colored-man)
 
 source $ZSH/oh-my-zsh.sh
-
 # }}}
 
 # {{{ modules, options and settings
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
 PATH=$PATH:~/bin:/opt/local/bin:/sbin/
 PAGER=less
 
@@ -31,10 +28,11 @@ setopt NOTIFY
 setopt AUTO_MENU
 setopt REC_EXACT
 setopt EXTENDED_GLOB
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 
 unsetopt BEEP
 unsetopt NO_MATCH
-
 # }}}
 
 # {{{ key bindings
@@ -48,9 +46,6 @@ bindkey -M vicmd '?' history-incremental-search-forward
 # forwards respectively
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^S' history-incremental-search-forward
-# same as normal mode if I've already started searching
-#bindkey -M isearch '^R' history-incremental-pattern-search-backward
-#bindkey -M isearch '^S' history-incremental-pattern-search-forward
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -58,47 +53,14 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
-#[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" history-beginning-search-backward
-#[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" history-beginning-search-forward
-# }}}
-
-# {{{ completion
-#setopt COMPLETE_IN_WORD
-
-# try to fix errors too
-#zstyle ':completion:*' completer _complete _match _approximate
-#zstyle ':completion:*:match:*' original only
-#zstyle -e ':completion:*:approximate:*' \
-#        max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
-
-# menu plox
-#zstyle ':completion:*:*:*:*:*' menu yes select
-
-# kill command completion
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*'   force-list always
-
-# use /etc/hosts and known_hosts for hostname completion
-#[ -r /etc/ssh/ssh_known_hosts ] && _global_ssh_hosts=(${${${${(f)"$(</etc/ssh/ssh_known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _global_ssh_hosts=()
-#[ -r ~/.ssh/known_hosts ] && _ssh_hosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _ssh_hosts=()
-#[ -r ~/.ssh/config ] && _ssh_config=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p')) || _ssh_config=()
-#[ -r /etc/hosts ] && : ${(A)_etc_hosts:=${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}##[:blank:]#[^[:blank:]]#}}} || _etc_hosts=()
-#hosts=(
-#  "$_ssh_config[@]"
-#  "$_global_ssh_hosts[@]"
-#  "$_ssh_hosts[@]"
-#  "$_etc_hosts[@]"
-#  "$HOST"
-#  localhost
-#)
-#zstyle ':completion:*:hosts' hosts $hosts
-zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
 # }}}
 
 # {{{ prompt
 
-PROMPT='%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~%{$fg[red]%} $(git_prompt_info) %{$reset_color%}
+# vi mode indicator
+MODE_INDICATOR="--NORMAL--"
+
+PROMPT='%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$fg[red]%}$(git_prompt_info) %{$fg[cyan]%}$(vi_mode_prompt_info) %{$reset_color%}
 %{$reset_color%} α '
 RPS1='ω'
 
@@ -126,18 +88,6 @@ alias :q='exit'
 # aliases pertaining to completion
 alias man='nocorrect man'
 alias mv='nocorrect mv'
-
-# uptime gives me too little info, here a fix
-# example:
-# Linux loktacar-laptop 2.6.35-22-generic #35-Ubuntu SMP Sat Oct 16 20:36:48 UTC 2010 i686 GNU/Linux
-#  Thu Mar 24 00:34:06 GMT 2011
-#  00:34:06 up 4 days,  5:12,  2 users,  load average: 0.25, 0.42, 0.53
-#
-#              total       used       free     shared    buffers     cached
-# Mem:          1974       1896         77          0         59       1178
-# -/+ buffers/cache:        658       1315
-# Swap:         7627          0       7627
-alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 
 # tmux
 alias tmux='tmux -2'
@@ -191,6 +141,18 @@ if [[ -r $HOME/projects ]]; then
   export CDPATH=$CDPATH:$HOME/projects
 fi
 
+# Ruby Environment thingamijigger
+if [[ -r $HOME/.rbenv ]]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
+
+case "$TERM" in
+       xterm*) export TERM=xterm-256color
+esac
+
+export EDITOR='vim'
 # }}}
 
 # {{{ Local machine settings
@@ -200,17 +162,3 @@ if [[ -r $HOME/.localzshrc ]]; then
 fi
 
 # }}}
-#
-
-case "$TERM" in
-       xterm*) export TERM=xterm-256color
-esac
-
-# Ruby Environment thingamijigger
-if [[ -r $HOME/.rbenv ]]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-fi
-
-export EDITOR='vim'
