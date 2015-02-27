@@ -11,7 +11,7 @@ ln -s $1/vimrc ~/.vimrc
 # Install Vundle.vim
 # only installed if the directory doesn't exist, it's updated via BundleUpdate (see next command)
 if [ ! -d $1/vim/bundle/Vundle.vim ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git $1/vim/bundle/Vundle.vim > /dev/null
+  git clone --quiet https://github.com/gmarik/Vundle.vim.git $1/vim/bundle/Vundle.vim
 fi
 
 # Install and or update Vundle plugins

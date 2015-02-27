@@ -5,7 +5,7 @@ echo -n "Installing zsh config... "
 # Install oh-my-zsh
 # only installed if the directory doesn't exist, it's updated automatically
 if [ ! -d $1/oh-my-zsh ]; then
-  git clone https://github.com/robbyrussell/oh-my-zsh.git $1/oh-my-zsh > /dev/null
+  git clone --quiet https://github.com/robbyrussell/oh-my-zsh.git $1/oh-my-zsh
 fi
 
 rm -f ~/.zshrc
