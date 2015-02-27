@@ -158,6 +158,9 @@ inoremap <A-Space> <Space>
 " Run python unit tests (only in python files)
 autocmd Filetype python nnoremap <Leader>t :w<CR>:!py.test %<CR>
 
+" Run markdown on file and open in browser
+nnoremap <Leader>md :!markdown % > %.html && sensible-browser %.html<CR><CR>
+
 " }}}
 
 " {{{ Options
