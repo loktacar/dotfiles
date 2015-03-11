@@ -11,14 +11,6 @@ else
   exit 1
 fi
 
-# Update submodules
-echo -n "Updating git submodules... "
-cd $DIR
-git submodule init
-git submodule update
-echo "done."
-
-
 # Find subfolders of $DIR
 for location in "$DIR"/*; do
   # Check if directory
