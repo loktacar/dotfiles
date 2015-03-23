@@ -95,10 +95,6 @@ alias ta='tmux attach-session -t'
 alias tl='tmux list-sessions'
 alias tc='tmux new-session -s'
 
-# tmux script
-alias tw='tmux-workon'
-alias twp='tmux-workon -pP'
-
 # whe? wha? who?
 alias whe='whereis'
 alias wha='whatis'
