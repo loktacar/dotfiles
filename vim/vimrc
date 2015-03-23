@@ -131,7 +131,7 @@ vnoremap <silent> <Space> zf"
 " Change :W to :w in command line
 cnoreabbrev W w
 
-" The button which will be refered to as <Leader> from here on out
+" The button which will be referred to as <Leader> from here on out
 let mapleader = ","
 
 " Clear search results
@@ -153,7 +153,7 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 " Toggle paste mode
 set pastetoggle=<Leader>p
 
-" Disable wierd Alt+Spacebar Character
+" Disable weird Alt+Spacebar Character
 inoremap <A-Space> <Space>
 
 " Run python unit tests (only in python files)
@@ -183,9 +183,6 @@ set relativenumber
 
 " "Scrolling"
 set scrolloff=5
-
-" Splitting habits
-set splitright splitbelow
 
 " Do tabbing correctly
 set expandtab
