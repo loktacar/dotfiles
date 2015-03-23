@@ -11,3 +11,4 @@ To install simply clone the project onto your filesystem and run `install.sh`.
 
 ## TODO
 * I need to add options to the install script to specify what components I want installed.
+* Add an option to skip/force installation/update of vundle plugins in vim.
