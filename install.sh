@@ -41,8 +41,8 @@ for location in "$DIR"/*; do
   if [[ -d "$location" ]]; then
     # Check if install.sh is file and is executable
     if [[ -f "$location"/install.sh && -x "$location"/install.sh ]]; then
-      # execute install.sh with location and ARGUMENTS as arguments
-      "$location"/install.sh "$location" $ARGUMENTS
+      # execute install.sh with ARGUMENTS and location as arguments
+      "$location"/install.sh $ARGUMENTS "$location"
     fi
   fi
 done
