@@ -29,6 +29,7 @@ Plugin 'exu/pgsql.vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'slim-template/vim-slim'
+Plugin 'fatih/vim-go'
 
 " Python
 Plugin 'hynek/vim-python-pep8-indent'
