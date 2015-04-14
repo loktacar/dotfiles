@@ -131,6 +131,11 @@ vnoremap <silent> <Space> zf"
 " Change :W to :w in command line
 cnoreabbrev W w
 
+" Jump to the end of the yanked, put'ed text
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
 " The button which will be referred to as <Leader> from here on out
 let mapleader = ","
 
