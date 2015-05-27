@@ -1,2 +1,16 @@
-\timing
+\set QUIET on
+
+\timing on
+
 \pset pager off
+\x auto
+
+\pset null '❌ '
+
+\pset linestyle unicode
+\pset border 2
+
+\set PROMPT1 '%n@%m/%/%x%R%# '
+\set PROMPT2 '%n@%m/%/%x%R%# '
+
+\set QUIET off
