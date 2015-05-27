@@ -238,6 +238,7 @@ autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
 " {{{ Plugin Configuration
 
 """ Unite
+silent! call unite#custom#profile('default', 'context', {'no_split':1, 'resize':0})
 silent! call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'ignore_pattern', '\(\.git\/\|-meta\.xml\)')
 silent! call unite#filters#matcher_default#use(['matcher_fuzzy'])
 silent! call unite#filters#sorter_default#use(['sorter_rank'])
@@ -246,9 +247,9 @@ let g:unite_source_rec_async_command= 'ag --follow --nocolor --nogroup --hidden 
 " allow searching of yank history
 let g:unite_source_history_yank_enable = 1
 
-nnoremap <Leader>b :Unite -no-split -smartcase buffer<CR>
-nnoremap <Leader>f :Unite -no-split -smartcase file<CR>
-nnoremap <Leader>d :Unite -no-split -smartcase file_rec/async:!<CR>
+nnoremap <Leader>b :Unite -no-split -no-auto-resize -smartcase buffer<CR>
+nnoremap <Leader>f :Unite -no-split -no-auto-resize -smartcase file<CR>
+nnoremap <Leader>d :Unite -no-split -no-auto-resize -smartcase file_rec/async:!<CR>
 nnoremap <Leader>y :Unite -buffer-name=yank history/yank<CR>
 
 """ Airline
