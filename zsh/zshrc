@@ -74,8 +74,10 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
 alias lsa='ls -a'
-alias less='less -r'
 alias df='df -h'
+alias less='less -r'
+alias lessf='less -n +F' # Works like tail
+alias lessg='less +G' # Go to bottom
 
 # oops
 alias sl='ls'
