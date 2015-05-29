@@ -170,6 +170,14 @@ autocmd Filetype python nnoremap <Leader>t :w<CR>:!py.test %<CR>
 " Run markdown on file and open in browser
 nnoremap <Leader>md :!markdown % > %.html && sensible-browser %.html<CR><CR>
 
+" Neovim specific
+if has("nvim")
+
+  " In terminal mode use ESC to get back to normal mode
+  tnoremap <ESC> <C-\><C-n>
+
+endif
+
 " }}}
 
 " {{{ Options
