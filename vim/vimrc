@@ -3,52 +3,37 @@
 " @author: Viktor Alex Brynjarsson
 " My .vimrc
 
-" {{{ Vundle (plugin management)
+" {{{ Plug.vim (plugin management)
 
-"Get Vundle up and running
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-" Misc Plugins
-Plugin 'bling/vim-airline'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-speeddating'
-Plugin 'nelstrom/vim-visual-star-search'
-
-Plugin 'junegunn/goyo.vim'
+" General plugins
+Plug 'bling/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Language specific
-Plugin 'groenewege/vim-less'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-markdown'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'exu/pgsql.vim'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'slim-template/vim-slim'
-Plugin 'fatih/vim-go'
-
-" Python
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'hdima/python-syntax'
+Plug 'groenewege/vim-less'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-markdown'
+Plug 'jnwhiteh/vim-golang'
+Plug 'exu/pgsql.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'vim-ruby/vim-ruby'
+Plug 'slim-template/vim-slim'
+Plug 'fatih/vim-go'
+Plug 'hdima/python-syntax'
 
 " Unite
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/unite.vim'
 
-" Colorschemes
-Plugin 'sickill/vim-monokai'
-Plugin 'gosukiwi/vim-atom-dark'
+" Coloschemes
+Plug 'gosukiwi/vim-atom-dark'
 
 " Salesforce
-Plugin 'neowit/vim-force.com'
+Plug 'neowit/vim-force.com'
 
-call vundle#end()
+call plug#end()
 
 " }}}
 
@@ -92,6 +77,8 @@ endif
 " colorscheme (works in both gvim and vim)
 " only set if exists
 silent! colorscheme atom-dark-256
+" for seoul256 only
+"let g:seoul256_background = 234
 
 " Status line
 set laststatus=2
@@ -217,6 +204,7 @@ set showcmd
 
 " Highlight search results
 set hlsearch
+set incsearch
 
 " }}}
 
@@ -228,9 +216,6 @@ augroup TabSettings
   autocmd Filetype python setlocal tabstop=4
   autocmd Filetype python setlocal shiftwidth=4
   autocmd Filetype python setlocal softtabstop=4
-  autocmd Filetype xml,html,xhtml setlocal tabstop=2
-  autocmd Filetype xml,html,xhtml setlocal shiftwidth=2
-  autocmd Filetype xml,html,xhtml setlocal softtabstop=2
   autocmd filetype apexcode setlocal tabstop=4
   autocmd filetype apexcode setlocal shiftwidth=4
   autocmd filetype apexcode setlocal softtabstop=4
