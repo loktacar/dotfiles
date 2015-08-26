@@ -1,3 +1,4 @@
 *.netrwhist
-vim/vim/*
 zsh/oh-my-zsh
+vim/vim/*
+!vim/vim/.keep
