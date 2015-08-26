@@ -104,6 +104,9 @@ alias fsi='mono ~/FSharp2.0/bin/fsi.exe'
 alias fsc='mono ~/FSharp2.0/bin/fsc.exe --warnaserror'
 
 PATH=$PATH:/home/viktor/bin
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+if [[ -r $HOME/.rbenv ]]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
