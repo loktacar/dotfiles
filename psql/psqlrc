@@ -2,7 +2,7 @@
 
 \timing on
 
-\pset pager off
+\pset pager on
 \x auto
 
 \pset null '❌ '
