@@ -131,6 +131,12 @@ fi
 
 # {{{ exports
 
+case "$TERM" in
+       xterm*) export TERM=xterm-256color
+esac
+
+export EDITOR='vim'
+
 # add bin folder in home to path
 export PATH=$PATH:$HOME/.bin
 
@@ -146,11 +152,12 @@ if [[ -r $HOME/.rbenv ]]; then
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
 
-case "$TERM" in
-       xterm*) export TERM=xterm-256color
-esac
+# Only add heroku to path if heroku path exists
+if [[ -r /usr/local/heroku ]]; then
+  ### Added by the Heroku Toolbelt
+  export PATH="/usr/local/heroku/bin:$PATH"
+fi
 
-export EDITOR='vim'
 # }}}
 
 # {{{ Local machine settings
