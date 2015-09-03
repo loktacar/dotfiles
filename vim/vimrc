@@ -114,9 +114,9 @@ noremap Y y$
 noremap Q @@
 
 " Use space to toggle folds in normal mode
-nnoremap <silent> <Space> za
+nnoremap <silent> , za
 " Create a fold using space in visual mode
-vnoremap <silent> <Space> zf"
+vnoremap <silent> , zf"
 
 " Change :W to :w in command line
 cnoreabbrev W w
@@ -127,16 +127,13 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " The button which will be referred to as <Leader> from here on out
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " Clear search results
-nnoremap <Leader><Space> :nohlsearch<CR>
+nnoremap <Leader><Leader> :nohlsearch<CR>
 
 " Select all
 noremap <Leader>a ggVG
-
-" Open last buffer
-noremap <Leader><Leader> <C-^>
 
 " Do the splits
 noremap <Leader>s :split<CR>
@@ -145,6 +142,16 @@ noremap <Leader>v :vsplit<CR>
 
 " Change directory to current file dir
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Clipboard yank, delete and put with leader
+nnoremap <Leader>y "+y
+nnoremap <Leader>Y "+Y
+
+nnoremap <Leader>d "+d
+nnoremap <Leader>D "+D
+
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
 
 " Toggle paste mode
 set pastetoggle=<Leader>p
@@ -242,9 +249,9 @@ let g:unite_source_rec_async_command= 'ag --follow --nocolor --nogroup --hidden 
 let g:unite_source_history_yank_enable = 1
 
 nnoremap <Leader>b :Unite -no-split -no-auto-resize -smartcase buffer<CR>
-nnoremap <Leader>f :Unite -no-split -no-auto-resize -smartcase file<CR>
-nnoremap <Leader>d :Unite -no-split -no-auto-resize -smartcase file_rec/async:!<CR>
-nnoremap <Leader>y :Unite -buffer-name=yank history/yank<CR>
+nnoremap <Leader>t :Unite -no-split -no-auto-resize -smartcase file<CR>
+nnoremap <Leader>f :Unite -no-split -no-auto-resize -smartcase file_rec/async:!<CR>
+"nnoremap <Leader>y :Unite -buffer-name=yank history/yank<CR>
 
 """ Airline
 let g:airline_powerline_fonts = 1
