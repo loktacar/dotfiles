@@ -22,6 +22,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'slim-template/vim-slim'
 Plug 'fatih/vim-go'
 Plug 'hdima/python-syntax'
+Plug 'elzr/vim-json'
 
 " Unite
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -282,4 +283,7 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+""" vim-json
+let g:vim_json_syntax_conceal = 0
 " }}}
