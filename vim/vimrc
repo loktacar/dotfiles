@@ -164,7 +164,7 @@ inoremap <A-Space> <Space>
 autocmd Filetype python nnoremap <Leader>t :w<CR>:!py.test %<CR>
 
 " Run markdown on file and open in browser
-nnoremap <Leader>md :!markdown % > %.html && sensible-browser %.html<CR><CR>
+autocmd Filetype markdown nnoremap <Leader>m :!markdown % > %.html && sensible-browser %.html<CR><CR>
 
 " Neovim specific
 if has("nvim")
