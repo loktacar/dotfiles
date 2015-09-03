@@ -15,7 +15,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'jnwhiteh/vim-golang'
 Plug 'exu/pgsql.vim', { 'for': 'pgsql' }
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja2'}
 Plug 'vim-ruby/vim-ruby'
