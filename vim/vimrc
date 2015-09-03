@@ -12,17 +12,17 @@ Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Language specific
-Plug 'groenewege/vim-less'
+Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'jnwhiteh/vim-golang'
-Plug 'exu/pgsql.vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'exu/pgsql.vim', { 'for': 'pgsql' }
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja2'}
 Plug 'vim-ruby/vim-ruby'
-Plug 'slim-template/vim-slim'
-Plug 'fatih/vim-go'
-Plug 'hdima/python-syntax'
-Plug 'elzr/vim-json'
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'elzr/vim-json', { 'for': 'json' }
 
 " Unite
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
