@@ -5,8 +5,6 @@
 \pset pager on
 \x auto
 
-\pset null '❌ '
-
 \pset linestyle unicode
 \pset border 2
 
