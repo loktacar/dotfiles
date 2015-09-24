@@ -154,7 +154,7 @@ nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 
 " Toggle paste mode
-set pastetoggle=<Leader>p
+"set pastetoggle=<Leader>p
 
 " Disable weird Alt+Spacebar Character
 inoremap <A-Space> <Space>
