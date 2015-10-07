@@ -162,6 +162,8 @@ inoremap <A-Space> <Space>
 " Run python unit tests (only in python files)
 autocmd Filetype python nnoremap <Leader>t :w<CR>:!py.test %<CR>
 
+" run pdflatex
+autocmd Filetype tex nnoremap <Leader>m :!pdflatex -shell-escape %<CR>
 " Run markdown on file and open in browser
 autocmd Filetype markdown nnoremap <Leader>m :!markdown % > %.html && sensible-browser %.html<CR><CR>
 
