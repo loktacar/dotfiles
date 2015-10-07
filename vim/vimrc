@@ -216,6 +216,9 @@ set showcmd
 set hlsearch
 set incsearch
 
+" I don't like the mouse
+set mouse=
+
 " }}}
 
 " {{{ Autocommands
