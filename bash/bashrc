@@ -110,3 +110,5 @@ if [[ -r $HOME/.rbenv ]]; then
   eval "$(rbenv init -)"
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
