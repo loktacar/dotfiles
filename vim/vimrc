@@ -254,23 +254,6 @@ runtime ftdetect/vim-force.com.vim
 
 let g:apex_API_version = "31.0"
 
-""" For Goyo.vim
-nnoremap <Leader>g :Goyo<CR>
-let g:goyo_width = 84 " 80 + 4 because of line numbering
-
-function! s:goyo_enter()
-  silent !tmux set status off
-  set number
-  set relativenumber
-endfunction
-
-function! s:goyo_leave()
-  silent !tmux set status on
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 """ vim-json
 let g:vim_json_syntax_conceal = 0
 " }}}
