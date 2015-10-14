@@ -23,9 +23,12 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+
 " Unite
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/unite.vim'
+"Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+"Plug 'Shougo/unite.vim'
 
 " Coloschemes
 Plug 'gosukiwi/vim-atom-dark'
@@ -159,11 +162,9 @@ nnoremap <Leader>P "+P
 " Disable weird Alt+Spacebar Character
 inoremap <A-Space> <Space>
 
-" Run python unit tests (only in python files)
-autocmd Filetype python nnoremap <Leader>t :w<CR>:!py.test %<CR>
-
 " run pdflatex
 autocmd Filetype tex nnoremap <Leader>m :!pdflatex -shell-escape %<CR>
+"
 " Run markdown on file and open in browser
 autocmd Filetype markdown nnoremap <Leader>m :!markdown % > %.html && sensible-browser %.html<CR><CR>
 
@@ -243,20 +244,8 @@ autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
 
 " {{{ Plugin Configuration
 
-""" Unite
-silent! call unite#custom#profile('default', 'context', {'no_split':1, 'resize':0})
-silent! call unite#custom#profile('files', 'filters', ['sorter_rank'])
-silent! call unite#custom#source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'ignore_pattern', '\(\.git\/\|-meta\.xml\)')
-silent! call unite#filters#matcher_default#use(['matcher_fuzzy'])
-let g:unite_source_rec_async_command= 'ag --follow --nocolor --nogroup --hidden -g ""'
-
-" allow searching of yank history
-let g:unite_source_history_yank_enable = 1
-
-nnoremap <Leader>b :Unite -no-split -no-auto-resize -smartcase buffer<CR>
-nnoremap <Leader>t :Unite -no-split -no-auto-resize -smartcase file<CR>
-nnoremap <Leader>f :Unite -no-split -no-auto-resize -smartcase file_rec/async:!<CR>
-"nnoremap <Leader>y :Unite -buffer-name=yank history/yank<CR>
+""" FZF
+nnoremap <Leader>f :FZF<CR>
 
 """ Airline
 let g:airline_powerline_fonts = 1
@@ -270,23 +259,6 @@ let g:apex_tooling_force_dot_com_path = "/home/viktoralex/vim-force/tooling-forc
 runtime ftdetect/vim-force.com.vim
 
 let g:apex_API_version = "31.0"
-
-""" For Goyo.vim
-nnoremap <Leader>g :Goyo<CR>
-let g:goyo_width = 84 " 80 + 4 because of line numbering
-
-function! s:goyo_enter()
-  silent !tmux set status off
-  set number
-  set relativenumber
-endfunction
-
-function! s:goyo_leave()
-  silent !tmux set status on
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 """ vim-json
 let g:vim_json_syntax_conceal = 0

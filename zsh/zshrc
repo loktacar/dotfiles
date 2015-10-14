@@ -167,3 +167,5 @@ if [[ -r $HOME/.localzshrc ]]; then
 fi
 
 # }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
