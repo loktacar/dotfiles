@@ -162,9 +162,6 @@ nnoremap <Leader>P "+P
 " Disable weird Alt+Spacebar Character
 inoremap <A-Space> <Space>
 
-" Run python unit tests (only in python files)
-autocmd Filetype python nnoremap <Leader>t :w<CR>:!py.test %<CR>
-
 " Run markdown on file and open in browser
 autocmd Filetype markdown nnoremap <Leader>m :!markdown % > %.html && sensible-browser %.html<CR><CR>
 
