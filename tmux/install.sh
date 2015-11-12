@@ -4,7 +4,7 @@ echo -n "Installing tmux config... "
 
 location="${@: -1}"
 
-rm -f ~/.tmux.conf
+rm ~/.tmux.conf
 ln -s $location/tmux.conf ~/.tmux.conf
 
 echo "done."

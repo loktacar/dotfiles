@@ -19,10 +19,10 @@ while [[ $# > 1 ]]; do
   shift
 done
 
-rm -f ~/.vim
+rm ~/.vim
 ln -s $location/vim ~/.vim
 
-rm -f ~/.vimrc
+rm ~/.vimrc
 ln -s $location/vimrc ~/.vimrc
 
 rm -f ~/.config/nvim
