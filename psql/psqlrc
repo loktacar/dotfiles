@@ -3,7 +3,7 @@
 \timing on
 
 \pset pager on
-\x auto
+\x off
 
 \pset linestyle unicode
 \pset border 2
