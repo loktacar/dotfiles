@@ -25,6 +25,9 @@ ln -s $location/vim ~/.vim
 rm -f ~/.vimrc
 ln -s $location/vimrc ~/.vimrc
 
+rm -f ~/.config/nvim
+ln -s $location/vim ~/.config/nvim
+
 # Install plug.vim plugin manager
 # only installed if the directory doesn't exist, it's updated via BundleUpdate (see next command)
 if [ ! -d $location/autoload/plug.vim ]; then
