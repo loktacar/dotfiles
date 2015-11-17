@@ -4,3 +4,5 @@
 # Supress greeting
 function fish_greeting
 end
+
+set -x GOPATH ~/projects/go
