@@ -19,13 +19,13 @@ while [[ $# > 1 ]]; do
   shift
 done
 
-rm ~/.vim
+rm ~/.vim 2> /dev/null
 ln -s $location/vim ~/.vim
 
-rm ~/.vimrc
+rm ~/.vimrc 2> /dev/null
 ln -s $location/vimrc ~/.vimrc
 
-rm -f ~/.config/nvim
+rm -f ~/.config/nvim 2> /dev/null
 ln -s $location/vim ~/.config/nvim
 
 # Install plug.vim plugin manager

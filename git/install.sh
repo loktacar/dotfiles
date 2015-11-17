@@ -4,10 +4,10 @@ echo -n "Installing git config... "
 
 location="${@: -1}"
 
-rm ~/.gitignore
+rm ~/.gitignore 2> /dev/null
 ln -s $location/gitignore ~/.gitignore
 
-rm ~/.gitconfig
+rm ~/.gitconfig 2> /dev/null
 ln -s $location/gitconfig ~/.gitconfig
 
 echo "done."

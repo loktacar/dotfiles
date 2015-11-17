@@ -10,13 +10,13 @@ if [ ! -d $location/oh-my-zsh ]; then
   git clone --quiet https://github.com/robbyrussell/oh-my-zsh.git $location/oh-my-zsh
 fi
 
-rm ~/.zshrc
+rm ~/.zshrc 2> /dev/null
 ln -s $location/zshrc ~/.zshrc
 
-rm ~/.zprofile
+rm ~/.zprofile 2> /dev/null
 ln -s $location/zprofile ~/.zprofile
 
-rm ~/.oh-my-zsh
+rm ~/.oh-my-zsh 2> /dev/null
 ln -s $location/oh-my-zsh ~/.oh-my-zsh
 
 echo "done."

@@ -4,7 +4,7 @@ echo -n "Installing psql config... "
 
 location="${@: -1}"
 
-rm ~/.psqlrc
+rm ~/.psqlrc 2> /dev/null
 ln -s $location/psqlrc ~/.psqlrc
 
 echo "done."
