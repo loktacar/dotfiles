@@ -1,0 +1,2 @@
+$pdf_previewer = "evince %S";
+$pdf_update_command = "";
