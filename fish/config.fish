@@ -4,3 +4,10 @@
 # Supress greeting
 function fish_greeting
 end
+
+# Ruby environment things
+if test -d $HOME/.rbenv
+  set -gx PATH $HOME/.rbenv/bin $PATH
+  set -gx PATH $HOME/.rbenv/shims $PATH
+  . (rbenv init -)
+end
