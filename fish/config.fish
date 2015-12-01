@@ -11,3 +11,5 @@ if test -d $HOME/.rbenv
   set -gx PATH $HOME/.rbenv/shims $PATH
   . (rbenv init -)
 end
+
+set -x GOPATH ~/projects/go

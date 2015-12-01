@@ -235,6 +235,7 @@ augroup TabSettings
   autocmd filetype apexcode setlocal softtabstop=4
   autocmd filetype apexcode setlocal noexpandtab
   autocmd filetype apexcode setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
+  autocmd filetype go setlocal set listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
 augroup END
 
 " Stupid slim template syntax not turning on the syntax in *.slim files
