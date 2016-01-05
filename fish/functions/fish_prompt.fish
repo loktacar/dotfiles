@@ -73,5 +73,24 @@ function fish_prompt --description 'Write out the prompt'
 		set -g __fish_prompt_host (set_color $fish_color_host)
 	end
 
-	echo -n -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" "$delim" ' '
+	echo -n -s "$__fish_prompt_user"
+  echo -n -s "$USER"
+  echo -n -s "$__fish_prompt_normal"
+  echo -n -s @
+  echo -n -s "$__fish_prompt_host"
+  echo -n -s "$__fish_prompt_hostname"
+  echo -n -s "$__fish_prompt_normal"
+  echo -n -s ' '
+  echo -n -s "$__fish_prompt_cwd"
+  echo -n -s (prompt_pwd)
+
+  if set -q VIRTUAL_ENV
+    echo -n -s ' ' (set_color blue) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal)
+  end
+
+  echo -n -s (set_color red) (__fish_git_prompt) (set_color normal)
+  echo -n -s "$__fish_prompt_normal"
+  echo -n -s "$prompt_status"
+  echo -n -s "$delim"
+  echo -n -s ' '
 end

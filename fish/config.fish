@@ -13,3 +13,5 @@ if test -d $HOME/.rbenv
 end
 
 set -x GOPATH ~/projects/go
+
+eval (python -m virtualfish)
