@@ -5,6 +5,8 @@
 function fish_greeting
 end
 
+set -gx PATH $HOME/.bin $PATH
+
 # Ruby environment things
 if test -d $HOME/.rbenv
   set -gx PATH $HOME/.rbenv/bin $PATH
