@@ -13,11 +13,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Language specific
 Plug 'groenewege/vim-less', { 'for': 'less' }
-Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'exu/pgsql.vim', { 'for': 'pgsql' }
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja2'}
-Plug 'vim-ruby/vim-ruby'
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -26,12 +24,12 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-" Unite
-"Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-"Plug 'Shougo/unite.vim'
+" Completions
+Plug 'Shougo/deoplete.nvim'
 
 " Coloschemes
 Plug 'gosukiwi/vim-atom-dark'
+Plug 'trevorrjohn/vim-obsidian'
 
 " Salesforce
 Plug 'neowit/vim-force.com'
@@ -52,7 +50,8 @@ if has("gui_running")
   if has("win32")
     set guifont=Andale\ Mono:h10:cDEFAULT
   else
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    "set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    set guifont=Envy\ Code\ R\ for\ Powerline\ 12
   endif
 
   " set guioptions
@@ -80,8 +79,6 @@ endif
 " colorscheme (works in both gvim and vim)
 " only set if exists
 silent! colorscheme atom-dark-256
-" for seoul256 only
-"let g:seoul256_background = 234
 
 " Status line
 set laststatus=2
@@ -235,7 +232,11 @@ augroup TabSettings
   autocmd filetype apexcode setlocal softtabstop=4
   autocmd filetype apexcode setlocal noexpandtab
   autocmd filetype apexcode setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-  autocmd filetype go setlocal set listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
+  autocmd filetype go setlocal tabstop=4
+  autocmd filetype go setlocal shiftwidth=4
+  autocmd filetype go setlocal softtabstop=4
+  autocmd filetype go setlocal noexpandtab
+  autocmd filetype go setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
 augroup END
 
 " Stupid slim template syntax not turning on the syntax in *.slim files
@@ -247,6 +248,9 @@ autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
 
 """ FZF
 nnoremap <Leader>f :FZF<CR>
+
+""" Deoplete - completion
+let g:deoplete#enable_at_startup = 1
 
 """ Airline
 let g:airline_powerline_fonts = 1
