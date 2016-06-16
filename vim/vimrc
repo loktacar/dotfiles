@@ -50,8 +50,8 @@ if has("gui_running")
   if has("win32")
     set guifont=Andale\ Mono:h10:cDEFAULT
   else
-    "set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
-    set guifont=Envy\ Code\ R\ for\ Powerline\ 12
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
+    "set guifont=Envy\ Code\ R\ for\ Powerline\ 12
   endif
 
   " set guioptions
@@ -96,6 +96,10 @@ inoremap jj <C-J>
 " reselect visual block after indent
 vnoremap < <gv
 vnoremap > >gv
+
+" one tap indent
+nnoremap <A-<> <<
+nnoremap <A->> >>
 
 " when moving between searches, center the selected line
 nnoremap n nzz
