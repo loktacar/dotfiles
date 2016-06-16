@@ -15,6 +15,7 @@ if test -d $HOME/.rbenv
 end
 
 set -x GOPATH ~/projects/go
+set -gx PATH ~/projects/go/bin $PATH
 set -x CHARGER_CONFIG ~/projects/charger/mr.developer.cfg
 set -x USAGE_SERVICES_CONFIG ~/projects/usage-services/mr.developer.cfg
 set -x MEDIATOR_CONFIG ~/projects/mediator/mr.developer.cfg
