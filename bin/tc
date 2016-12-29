@@ -1,0 +1,16 @@
+#!/bin/bash
+
+args=$*
+
+# If there is no name for the session to be created use name of the current
+# directory
+if [ -z "$args" ]; then
+  # Get's the working directory and deletes from the beginning of the string
+  # until the last / (get's the "deepest" directory name)
+  args=${PWD##*/}
+
+  # Remove periods from the directory name
+  args=${args//.}
+fi
+
+tmux new-session -s $args
