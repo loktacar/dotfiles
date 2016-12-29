@@ -103,8 +103,6 @@ alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 alias fsi='mono ~/FSharp2.0/bin/fsi.exe'
 alias fsc='mono ~/FSharp2.0/bin/fsc.exe --warnaserror'
 
-PATH=$PATH:/home/viktor/bin
-
 if [[ -r $HOME/.rbenv ]]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
@@ -120,3 +118,9 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export PATH=$HOME/.bin:$PATH
+
+if [[ -f $HOME/.bashrc.local ]]; then
+  source $HOME/.bashrc.local
+fi
