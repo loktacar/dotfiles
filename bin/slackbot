@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import argparse
+import os
+import requests
+import sys
+from urllib import urlencode
+
+TOKEN_ENVIRONMENT_VARIABLE = 'SLACKBOT_TOKEN'
+
+parser = argparse.ArgumentParser(description='Send messages as slackbot')
+parser.add_argument('message', metavar='MSG', help='the message you would like to send')
+parser.add_argument('-d', '--destination', metavar='DEST', help='The channel/person destination, including # or @')
+parser.add_argument('-c', '--channel',  metavar='CHAN', help='The destination channel')
+parser.add_argument('-u', '--user', metavar='USER', help='The destination user')
+
+args = parser.parse_args()
+
+TOKEN = os.environ.get(TOKEN_ENVIRONMENT_VARIABLE)
+if not TOKEN:
+    print('Slackbot token not set, please set the %s environment variable.' % TOKEN_ENVIRONMENT_VARIABLE)
+    sys.exit(1)
+
+was_sent = False
+
+if args.destination:
+    get_params = {'token': TOKEN, 'channel': args.destination}
+    resp = requests.post('https://365midlar.slack.com/services/hooks/slackbot?%s' % urlencode(get_params),
+            data=args.message)
+    print('Slackbot to destination "%s" response: %s' % (args.destination, resp.text))
+    was_sent = True
+if args.channel:
+    get_params = {'token': TOKEN, 'channel': '#' + args.channel}
+    resp = requests.post('https://365midlar.slack.com/services/hooks/slackbot?%s' % urlencode(get_params),
+            data=args.message)
+    print('Slackbot to channel "%s" response: %s' % (args.channel, resp.text))
+    was_sent = True
+if args.user:
+    get_params = {'token': TOKEN, 'channel': '@' + args.user}
+    resp = requests.post('https://365midlar.slack.com/services/hooks/slackbot?%s' % urlencode(get_params),
+            data=args.message)
+    print('Slackbot to user "%s" response: %s' % (args.user, resp.text))
+    was_sent = True
+
+if not was_sent:
+    print('No message sent, no destination.')
+    sys.exit(1)
