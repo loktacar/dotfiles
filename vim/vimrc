@@ -257,6 +257,12 @@ augroup SlimSettings
   autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
 augroup END
 
+" Ruby can't handle relativenumber
+augroup RubySettings
+  au!
+  autocmd filetype ruby set norelativenumber
+augroup END
+
 " }}}
 
 " {{{ Plugin Configuration
