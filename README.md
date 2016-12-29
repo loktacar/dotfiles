@@ -19,6 +19,3 @@ To install simply clone the project onto your filesystem and run `install.sh`.
 ```
 ./install.sh --skip-vim-plugins
 ```
-
-## TODO
-- No ideas...
