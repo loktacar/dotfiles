@@ -252,7 +252,10 @@ augroup TabSettings
 augroup END
 
 " Stupid slim template syntax not turning on the syntax in *.slim files
-autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
+augroup SlimSettings
+  au!
+  autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
+augroup END
 
 " }}}
 
