@@ -17,12 +17,17 @@
   st = status
   lg = log --color=auto --graph --decorate
   lo = log --color=auto --decorate --abbrev-commit --stat
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   le = log --oneline --decorate
   br = branch -a -v
+  d = diff --color
+  dc = diff --color --cached
+  ds = diff --color --staged
   di = diff --color-words
+  dic = diff --color-words --cached
   dis = diff --color-words --staged
   staged = diff --cached
   pu = pull --ff-only
