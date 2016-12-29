@@ -23,6 +23,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Completions
 Plug 'Shougo/deoplete.nvim'
@@ -251,7 +252,11 @@ autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
 " {{{ Plugin Configuration
 
 """ FZF
-nnoremap <Leader>f :FZF<CR>
+"nnoremap <Leader>f :FZF<CR>
+
+""" CtrlP
+let g:ctrlp_user_command = ['.git', 'cd %s; git ls-files -co --exclude-standard']
+let g:ctrlp_map = '<Leader>f'
 
 """ Deoplete - completion
 let g:deoplete#enable_at_startup = 1
