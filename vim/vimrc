@@ -168,6 +168,9 @@ nnoremap <Leader>P "+P
 " Toggle paste mode
 "set pastetoggle=<Leader>p
 
+" Open directory browser in folder of current file in current buffer
+nnoremap <Leader>e :Explore<CR>
+
 " Disable weird Alt+Spacebar Character
 inoremap <A-Space> <Space>
 
