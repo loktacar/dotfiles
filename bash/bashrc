@@ -38,12 +38,12 @@ case "$TERM" in
 xterm-color)
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-    PS1="\e[0;32m\u \e[0;31m\$(__git_ps1 '%s') \e[0;34m\W \e[m\$ "
+    PS1="\e[0;32m\u@\h \e[0;31m\$(__git_ps1 '%s') \e[0;34m\W \e[m\$ "
     ;;
 *)
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-    PS1="\u\$(__git_ps1 ' %s') \W \$ "
+    PS1="\u@\h\$(__git_ps1 ' %s') \W \$ "
     ;;
 esac
 
