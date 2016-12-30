@@ -111,7 +111,10 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-eval $(thefuck --alias)
+# Check if thefuck is available
+if hash thefuck 2> /dev/null; then
+  eval $(thefuck --alias)
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
