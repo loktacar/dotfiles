@@ -124,3 +124,19 @@ export PATH=$HOME/.bin:$PATH
 if [[ -f $HOME/.bashrc.local ]]; then
   source $HOME/.bashrc.local
 fi
+
+# Virtualenvwrapper setup
+if  [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+  export WORKON_HOME=$HOME/.virtualenvs
+  export PROJECT_HOME=$HOME/projects
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+# 365 python projects
+export CHARGER_CONFIG=$HOME/projects/charger/mr.developer.cfg
+export MEDIATOR_CONFIG=$HOME/projects/mediator/mr.developer.cfg
+export USAGE_SERVICES_CONFIG=$HOME/projects/usage-services/mr.developer.cfg
+
+# Go projects
+export GOPATH=$HOME/projects/go
+export PATH=$GOPATH/bin:$PATH
