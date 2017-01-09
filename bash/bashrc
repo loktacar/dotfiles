@@ -109,8 +109,6 @@ if [[ -r $HOME/.rbenv ]]; then
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # Check if thefuck is available
 if hash thefuck 2> /dev/null; then
   eval $(thefuck --alias)
