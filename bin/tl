@@ -1,2 +1,2 @@
 #!/bin/bash
-tmux list-sessions $*
+tmux -2 list-sessions $*

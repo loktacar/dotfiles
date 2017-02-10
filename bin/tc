@@ -13,4 +13,4 @@ if [ -z "$args" ]; then
   args=${args//.}
 fi
 
-tmux new-session -s $args
+tmux -2 new-session -s $args
