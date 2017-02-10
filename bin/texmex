@@ -1,0 +1,9 @@
+#!/bin/bash
+
+latexmk -shell-escape -pdf -pvc $*
+
+latexmk -c
+
+if [[ -d "_minted-notes" ]]; then
+  rm -rf _minted-notes
+fi

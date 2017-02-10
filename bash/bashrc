@@ -103,13 +103,14 @@ alias uptime='uname -a && echo " "`date`"" && uptime && echo && free -m'
 alias fsi='mono ~/FSharp2.0/bin/fsi.exe'
 alias fsc='mono ~/FSharp2.0/bin/fsc.exe --warnaserror'
 
+# Tmux colour fix
+alias tmux="tmux -2"
+
 if [[ -r $HOME/.rbenv ]]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Check if thefuck is available
 if hash thefuck 2> /dev/null; then
