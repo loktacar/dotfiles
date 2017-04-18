@@ -105,10 +105,6 @@ inoremap jj <C-J>
 vnoremap < <gv
 vnoremap > >gv
 
-" one tap indent
-nnoremap <A-<> <<
-nnoremap <A->> >>
-
 " when moving between searches, center the selected line
 nnoremap n nzz
 nnoremap N Nzz
@@ -122,30 +118,20 @@ nnoremap <C-l> <C-w>l
 " Make Y behave like other Capitals (C, D, etc.)
 noremap Y y$
 
-" Map Q to repeat the last recorded macro
-noremap Q @@
-
-" Use space to toggle folds in normal mode
+" Use comma to toggle folds in normal mode
 nnoremap <silent> , za
-" Create a fold using space in visual mode
+" Create a fold using comma in visual mode
 vnoremap <silent> , zf"
 
-" Change :W to :w in command line
+" Fix typos when saving
 cnoreabbrev W w
-
-" Jump to the end of the yanked, put'ed text
-vnoremap <silent> y y`]
-vnoremap <silent> p p`]
-nnoremap <silent> p p`]
+cnoreabbrev Wq wq
 
 " The button which will be referred to as <Leader> from here on out
 let mapleader = "\<Space>"
 
 " Clear search results
 nnoremap <Leader><Leader> :nohlsearch<CR>
-
-" Select all
-noremap <Leader>a ggVG
 
 " Do the splits
 noremap <Leader>s :split<CR>
@@ -164,9 +150,6 @@ nnoremap <Leader>D "+D
 
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
-
-" Toggle paste mode
-"set pastetoggle=<Leader>p
 
 " Open directory browser in folder of current file in current buffer
 nnoremap <Leader>e :Explore<CR>
