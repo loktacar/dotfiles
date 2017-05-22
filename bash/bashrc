@@ -141,3 +141,6 @@ export USAGE_SERVICES_CONFIG=$HOME/projects/usage-services/mr.developer.cfg
 # Go projects
 export GOPATH=$HOME/projects/go
 export PATH=$GOPATH/bin:$PATH
+
+# Rust stuff (https://rustup.rs/)
+export PATH=$HOME/.cargo/bin:$PATH
