@@ -9,36 +9,31 @@ call plug#begin('~/.vim/plugged')
 
 " General plugins
 Plug 'bling/vim-airline'
+Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-vinegar'
+
+" Fuzzy finder
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Coloschemes
+Plug 'tomasr/molokai'
 
 " Language specific
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'exu/pgsql.vim', { 'for': 'pgsql' }
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja2'}
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja'}
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'elzr/vim-json', { 'for': 'json' }
-
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'ctrlpvim/ctrlp.vim'
-
-" Completions
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-
-" Coloschemes
-Plug 'tomasr/molokai'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Salesforce
 Plug 'neowit/vim-force.com'
-
-
-Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -259,9 +254,6 @@ augroup END
 """ CtrlP
 let g:ctrlp_user_command = ['.git', 'cd %s; git ls-files -co --exclude-standard']
 let g:ctrlp_map = '<Leader>f'
-
-""" Deoplete - completion
-let g:deoplete#enable_at_startup = 1
 
 """ Airline
 let g:airline_powerline_fonts = 1
