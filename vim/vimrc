@@ -210,6 +210,16 @@ set incsearch
 " I don't like the mouse
 set mouse=
 
+" Shitty fuzzy finder (use :find with * to search)
+set path+=**
+
+" Autocompletion in command mode
+set wildmenu
+set wildmode=full
+
+" Create ctags with a simple command
+command! MakeTags !ctags -R .
+
 " }}}
 
 " {{{ Autocommands
