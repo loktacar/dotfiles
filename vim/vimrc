@@ -134,7 +134,7 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Clipboard yank, delete and put with leader
 nnoremap <Leader>y "+y
-nnoremap <Leader>Y "+Y
+nnoremap <Leader>Y "+y$
 
 nnoremap <Leader>d "+d
 nnoremap <Leader>D "+D
