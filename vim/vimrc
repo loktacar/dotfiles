@@ -8,7 +8,7 @@
 call plug#begin('~/.vim/plugged')
 
 " General plugins
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
@@ -23,15 +23,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomasr/molokai'
 
 " Language specific
-Plug 'groenewege/vim-less', { 'for': 'less' }
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'exu/pgsql.vim', { 'for': 'pgsql' }
+Plug 'sheerun/vim-polyglot'
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja'}
-Plug 'slim-template/vim-slim', { 'for': 'slim' }
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Salesforce
 Plug 'neowit/vim-force.com'
