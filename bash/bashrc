@@ -144,3 +144,6 @@ export PATH=$GOPATH/bin:$PATH
 
 # Rust stuff (https://rustup.rs/)
 export PATH=$HOME/.cargo/bin:$PATH
+
+# dotnet stuff
+#export PATH=$HOME/.dotnet/:$PATH
