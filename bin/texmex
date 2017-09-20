@@ -1,9 +1,12 @@
 #!/bin/bash
 
-latexmk -shell-escape -pdf -pvc $*
+latexmk -shell-escape -pdf -pvc $1
 
 latexmk -c
 
-if [[ -d "_minted-notes" ]]; then
-  rm -rf _minted-notes
+# get filename without extension
+filename="${1%.*}"
+
+if [[ -d "_minted-$filename" ]]; then
+  rm -rf "_minted-$filename"
 fi
