@@ -1,0 +1,19 @@
+#!/usr/bin/expect
+
+# Requirements:
+# - lastpass-cli
+# - expect
+
+set lastpass_name [lindex $argv 0];
+set hostname [exec lpass show --field=Hostname "$lastpass_name"];
+set port [exec lpass show --field=Port "$lastpass_name"];
+set database [exec lpass show --field=Database "$lastpass_name"];
+set username [exec lpass show --username "$lastpass_name"];
+set password [exec lpass show --password "$lastpass_name"];
+
+spawn psql -h "$hostname" -p "$port" -U "$username" "$database"
+
+expect "Password for user $username:"
+send "$password\r";
+
+interact
