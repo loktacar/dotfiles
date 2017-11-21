@@ -4,7 +4,20 @@
 # - lastpass-cli
 # - expect
 
+if {[llength $argv] != 1} {
+  puts "Usage: lpsql lastpass-name"
+  puts "Connects to a postgres databse via psql using lastpass authentication"
+  exit 1
+}
+
 set lastpass_name [lindex $argv 0];
+
+if {$lastpass_name == "-h" || $lastpass_name == "--help"} {
+  puts "Usage: lpsql lastpass-name"
+  puts "Connects to a postgres databse via psql using lastpass authentication"
+  exit 0
+}
+
 set hostname [exec lpass show --field=Hostname "$lastpass_name"];
 set port [exec lpass show --field=Port "$lastpass_name"];
 set database [exec lpass show --field=Database "$lastpass_name"];
