@@ -245,6 +245,11 @@ augroup TabSettings
   autocmd filetype cs setlocal softtabstop=4
   autocmd filetype cs setlocal noexpandtab
   autocmd filetype cs setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
+  autocmd filetype javascript setlocal tabstop=4
+  autocmd filetype javascript setlocal shiftwidth=4
+  autocmd filetype javascript setlocal softtabstop=4
+  autocmd filetype javascript setlocal expandtab
+  autocmd filetype javascript setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
 augroup END
 
 " Stupid slim template syntax not turning on the syntax in *.slim files
