@@ -6,4 +6,4 @@
 *.fuse*
 *.pyc
 *.pyo
-tags
+/tags
