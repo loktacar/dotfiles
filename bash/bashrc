@@ -147,3 +147,4 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 # dotnet stuff
 #export PATH=$HOME/.dotnet/:$PATH
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
