@@ -22,6 +22,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " Coloschemes
 Plug 'tomasr/molokai'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 " Language specific
 Plug 'sheerun/vim-polyglot'
@@ -74,9 +75,10 @@ endif
 
 " colorscheme (works in both gvim and vim)
 " only set if exists
-let g:molokai_original=1
-let g:rehash256=1
-silent! colorscheme molokai
+"let g:molokai_original=1
+"let g:rehash256=1
+"silent! colorscheme molokai
+silent! colorscheme onehalflight
 
 " Status line
 set laststatus=2
