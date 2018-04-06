@@ -150,10 +150,10 @@ nnoremap <Leader>e :Explore<CR>
 inoremap <A-Space> <Space>
 
 " run pdflatex
-autocmd Filetype tex nnoremap <Leader>m :!pdflatex -shell-escape %<CR>
+autocmd filetype tex nnoremap <Leader>m :!pdflatex -shell-escape %<CR>
 "
 " Run markdown on file and open in browser
-autocmd Filetype markdown nnoremap <Leader>m :!markdown % > %.html && sensible-browser %.html<CR><CR>
+autocmd filetype markdown nnoremap <Leader>m :!markdown % > %.html && sensible-browser %.html<CR><CR>
 
 " Neovim specific
 if has("nvim")
@@ -224,9 +224,9 @@ command! MakeTags !ctags -R .
 " Static line numbers in insert mode
 augroup TabSettings
   au!
-  autocmd Filetype python setlocal tabstop=4
-  autocmd Filetype python setlocal shiftwidth=4
-  autocmd Filetype python setlocal softtabstop=4
+  autocmd filetype python setlocal tabstop=4
+  autocmd filetype python setlocal shiftwidth=4
+  autocmd filetype python setlocal softtabstop=4
   autocmd filetype apexcode setlocal tabstop=4
   autocmd filetype apexcode setlocal shiftwidth=4
   autocmd filetype apexcode setlocal softtabstop=4
