@@ -272,7 +272,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s; git ls-files -co --exclude-standard'
 let g:ctrlp_map = '<Leader>f'
 
 """ Airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_section_z = airline#section#create_right(['%l','%L','%c'])
 
 """ Vim-force
