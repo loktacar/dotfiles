@@ -6,7 +6,7 @@
 
 [user]
   name = Viktor Alex
-  email = viktoralex@365.is
+  email = viktoralex@vodafone.is
 
 [merge]
   tool = vimdiff
