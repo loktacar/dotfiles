@@ -23,6 +23,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Coloschemes
 Plug 'tomasr/molokai'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'patstockwell/vim-monokai-tasty'
 
 " Language specific
 Plug 'sheerun/vim-polyglot'
@@ -77,8 +78,9 @@ endif
 " only set if exists
 "let g:molokai_original=1
 "let g:rehash256=1
-"silent! colorscheme molokai
-silent! colorscheme onehalflight
+let g:vim_monokai_tasty_italic = 1
+silent! colorscheme vim-monokai-tasty
+"silent! colorscheme onehalflight
 
 " Status line
 set laststatus=2
