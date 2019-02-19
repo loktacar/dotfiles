@@ -216,6 +216,9 @@ set path+=**
 set wildmenu
 set wildmode=full
 
+" Show what I'm search/replacing
+set inccommand=split
+
 " Create ctags with a simple command
 command! MakeTags !ctags -R .
 
