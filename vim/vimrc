@@ -24,6 +24,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomasr/molokai'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'arcticicestudio/nord-vim'
 
 " Language specific
 Plug 'sheerun/vim-polyglot'
@@ -79,9 +80,21 @@ endif
 " only set if exists
 "let g:molokai_original=1
 "let g:rehash256=1
-let g:vim_monokai_tasty_italic = 1
-silent! colorscheme vim-monokai-tasty
+"let g:vim_monokai_tasty_italic = 1
+"silent! colorscheme vim-monokai-tasty
 "silent! colorscheme onehalflight
+
+" nord specific
+let g:nord_underline = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_cursor_line_number_background = 1
+set cursorline
+silent! colorscheme nord
+
+" italics (still nord specific)
+set t_ZH=[3m
+set t_ZR=[23m
 
 " Status line
 set laststatus=2
