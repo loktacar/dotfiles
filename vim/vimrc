@@ -228,7 +228,7 @@ set path+=**
 
 " Autocompletion in command mode
 set wildmenu
-set wildmode=full
+set wildmode=list:longest
 
 " Show what I'm search/replacing
 set inccommand=split
