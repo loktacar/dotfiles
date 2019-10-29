@@ -3,6 +3,9 @@
 " @author: Viktor Alex Brynjarsson
 " My .vimrc
 
+" This must be defined before the ALE plugin is loaded
+let g:ale_completion_enabled = 1
+
 " {{{ Plug.vim (plugin management)
 
 call plug#begin('~/.vim/plugged')
@@ -29,7 +32,8 @@ Plug 'arcticicestudio/nord-vim'
 " Language specific
 Plug 'sheerun/vim-polyglot'
 Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
-Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
+"Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Salesforce
 Plug 'neowit/vim-force.com'
@@ -80,17 +84,17 @@ endif
 " only set if exists
 "let g:molokai_original=1
 "let g:rehash256=1
-"let g:vim_monokai_tasty_italic = 1
-"silent! colorscheme vim-monokai-tasty
+let g:vim_monokai_tasty_italic = 1
+silent! colorscheme vim-monokai-tasty
 "silent! colorscheme onehalflight
 
 " nord specific
-let g:nord_underline = 1
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_cursor_line_number_background = 1
-set cursorline
-silent! colorscheme nord
+"let g:nord_underline = 1
+"let g:nord_italic = 1
+"let g:nord_italic_comments = 1
+"let g:nord_cursor_line_number_background = 1
+"set cursorline
+"silent! colorscheme nord
 
 " italics (still nord specific)
 set t_ZH=[3m
@@ -164,6 +168,10 @@ nnoremap <Leader>e :Explore<CR>
 
 " Disable weird Alt+Spacebar Character
 inoremap <A-Space> <Space>
+
+" Next/previous ALE warning or error
+nnoremap <Leader>n :ALENext<CR>
+nnoremap <Leader>p :ALEPrevious<CR>
 
 " run pdflatex
 autocmd filetype tex nnoremap <Leader>m :!pdflatex -shell-escape %<CR>
@@ -241,37 +249,38 @@ command! MakeTags !ctags -R .
 " {{{ Autocommands
 
 " Static line numbers in insert mode
-augroup TabSettings
-  au!
-  autocmd filetype python setlocal tabstop=4
-  autocmd filetype python setlocal shiftwidth=4
-  autocmd filetype python setlocal softtabstop=4
-  autocmd filetype apexcode setlocal tabstop=4
-  autocmd filetype apexcode setlocal shiftwidth=4
-  autocmd filetype apexcode setlocal softtabstop=4
-  autocmd filetype apexcode setlocal noexpandtab
-  autocmd filetype apexcode setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-  autocmd filetype go setlocal tabstop=4
-  autocmd filetype go setlocal shiftwidth=4
-  autocmd filetype go setlocal softtabstop=4
-  autocmd filetype go setlocal noexpandtab
-  autocmd filetype go setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-  autocmd filetype java setlocal tabstop=4
-  autocmd filetype java setlocal shiftwidth=4
-  autocmd filetype java setlocal softtabstop=4
-  autocmd filetype java setlocal noexpandtab
-  autocmd filetype java setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-  autocmd filetype cs setlocal tabstop=4
-  autocmd filetype cs setlocal shiftwidth=4
-  autocmd filetype cs setlocal softtabstop=4
-  autocmd filetype cs setlocal noexpandtab
-  autocmd filetype cs setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-  autocmd filetype javascript setlocal tabstop=4
-  autocmd filetype javascript setlocal shiftwidth=4
-  autocmd filetype javascript setlocal softtabstop=4
-  autocmd filetype javascript setlocal expandtab
-  autocmd filetype javascript setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-augroup END
+" Temporarily disabling to see if sheerun/vim-polyglot works
+"augroup TabSettings
+"  au!
+"  autocmd filetype python setlocal tabstop=4
+"  autocmd filetype python setlocal shiftwidth=4
+"  autocmd filetype python setlocal softtabstop=4
+"  autocmd filetype apexcode setlocal tabstop=4
+"  autocmd filetype apexcode setlocal shiftwidth=4
+"  autocmd filetype apexcode setlocal softtabstop=4
+"  autocmd filetype apexcode setlocal noexpandtab
+"  autocmd filetype apexcode setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
+"  autocmd filetype go setlocal tabstop=4
+"  autocmd filetype go setlocal shiftwidth=4
+"  autocmd filetype go setlocal softtabstop=4
+"  autocmd filetype go setlocal noexpandtab
+"  autocmd filetype go setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
+"  autocmd filetype java setlocal tabstop=4
+"  autocmd filetype java setlocal shiftwidth=4
+"  autocmd filetype java setlocal softtabstop=4
+"  autocmd filetype java setlocal noexpandtab
+"  autocmd filetype java setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
+"  autocmd filetype cs setlocal tabstop=4
+"  autocmd filetype cs setlocal shiftwidth=4
+"  autocmd filetype cs setlocal softtabstop=4
+"  autocmd filetype cs setlocal noexpandtab
+"  autocmd filetype cs setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
+"  autocmd filetype javascript setlocal tabstop=4
+"  autocmd filetype javascript setlocal shiftwidth=4
+"  autocmd filetype javascript setlocal softtabstop=4
+"  autocmd filetype javascript setlocal expandtab
+"  autocmd filetype javascript setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
+"augroup END
 
 " Stupid slim template syntax not turning on the syntax in *.slim files
 augroup SlimSettings
@@ -309,12 +318,20 @@ let g:vim_json_syntax_conceal = 0
 
 """ ale
 let g:airline#extensions#ale#enabled = 1
-let g:ale_lint_on_text_changed = 'insert'
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+"let g:ale_lint_on_enter = 1
 let g:ale_linters = { 'cs': ['OmniSharp'] }
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_pylint_auto_pipenv = 1
 let g:ale_python_flake8_auto_pipenv = 1
+
+""" COC
+let g:coc_global_extensions=[ 'coc-omnisharp' ]
+inoremap <silent><expr> <c-space> coc#refresh()
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
+autocmd User CocJumpPlaceholder call
+        \ CocActionAsync('showSignatureHelp')
 
 " }}}
 
