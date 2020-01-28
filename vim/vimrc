@@ -16,7 +16,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'
 
@@ -24,19 +24,16 @@ Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Coloschemes
-Plug 'tomasr/molokai'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'patstockwell/vim-monokai-tasty'
-Plug 'arcticicestudio/nord-vim'
+"Plug 'tomasr/molokai'
+"Plug 'sonph/onehalf', {'rtp': 'vim/'}
+"Plug 'arcticicestudio/nord-vim'
 
 " Language specific
 Plug 'sheerun/vim-polyglot'
 Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
 "Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Salesforce
-Plug 'neowit/vim-force.com'
 
 call plug#end()
 
@@ -302,16 +299,6 @@ let g:ctrlp_map = '<Leader>f'
 """ Airline
 let g:airline_powerline_fonts = 0
 let g:airline_section_z = airline#section#create_right(['%l','%L','%c'])
-
-""" Vim-force
-let g:apex_workspace_path = "/home/viktoralex/vim-force"
-let g:apex_backup_folder = "/home/viktoralex/vim-force/backup"
-let g:apex_temp_folder = "/home/viktoralex/vim-force/temp"
-let g:apex_properties_folder = "/home/viktoralex/vim-force/properties"
-let g:apex_tooling_force_dot_com_path = "/home/viktoralex/vim-force/tooling-force/tooling-force.com.jar"
-runtime ftdetect/vim-force.com.vim
-
-let g:apex_API_version = "31.0"
 
 """ vim-json
 let g:vim_json_syntax_conceal = 0
