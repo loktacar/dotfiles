@@ -208,9 +208,6 @@ command! MakeTags !ctags -R .
 
 " {{{ Plugin Configuration
 
-""" FZF
-"nnoremap <Leader>f :FZF<CR>
-
 """ CtrlP
 let g:ctrlp_user_command = ['.git', 'cd %s; git ls-files -co --exclude-standard']
 let g:ctrlp_map = '<Leader>f'
