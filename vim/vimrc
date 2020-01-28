@@ -111,6 +111,8 @@ vnoremap <silent> , zf"
 " Fix typos when saving
 cnoreabbrev W w
 cnoreabbrev Wq wq
+cnoreabbrev WQall wqall
+cnoreabbrev Wqall wqall
 
 " The button which will be referred to as <Leader> from here on out
 let mapleader = "\<Space>"
