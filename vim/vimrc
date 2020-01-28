@@ -204,46 +204,6 @@ command! MakeTags !ctags -R .
 
 " {{{ Autocommands
 
-" Static line numbers in insert mode
-" Temporarily disabling to see if sheerun/vim-polyglot works
-"augroup TabSettings
-"  au!
-"  autocmd filetype python setlocal tabstop=4
-"  autocmd filetype python setlocal shiftwidth=4
-"  autocmd filetype python setlocal softtabstop=4
-"  autocmd filetype apexcode setlocal tabstop=4
-"  autocmd filetype apexcode setlocal shiftwidth=4
-"  autocmd filetype apexcode setlocal softtabstop=4
-"  autocmd filetype apexcode setlocal noexpandtab
-"  autocmd filetype apexcode setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-"  autocmd filetype go setlocal tabstop=4
-"  autocmd filetype go setlocal shiftwidth=4
-"  autocmd filetype go setlocal softtabstop=4
-"  autocmd filetype go setlocal noexpandtab
-"  autocmd filetype go setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-"  autocmd filetype java setlocal tabstop=4
-"  autocmd filetype java setlocal shiftwidth=4
-"  autocmd filetype java setlocal softtabstop=4
-"  autocmd filetype java setlocal noexpandtab
-"  autocmd filetype java setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-"  autocmd filetype cs setlocal tabstop=4
-"  autocmd filetype cs setlocal shiftwidth=4
-"  autocmd filetype cs setlocal softtabstop=4
-"  autocmd filetype cs setlocal noexpandtab
-"  autocmd filetype cs setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-"  autocmd filetype javascript setlocal tabstop=4
-"  autocmd filetype javascript setlocal shiftwidth=4
-"  autocmd filetype javascript setlocal softtabstop=4
-"  autocmd filetype javascript setlocal expandtab
-"  autocmd filetype javascript setlocal listchars=tab:\ \ ,trail:⋅,extends:❯,precedes:❮
-"augroup END
-
-" Stupid slim template syntax not turning on the syntax in *.slim files
-augroup SlimSettings
-  au!
-  autocmd BufRead,BufNewFile,BufEnter *.slim set filetype=slim
-augroup END
-
 " }}}
 
 " {{{ Plugin Configuration
