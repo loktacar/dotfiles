@@ -135,12 +135,6 @@ inoremap <A-Space> <Space>
 nnoremap <Leader>n :ALENextWrap<CR>
 nnoremap <Leader>p :ALEPreviousWrap<CR>
 
-" run pdflatex
-autocmd filetype tex nnoremap <Leader>m :!pdflatex -shell-escape %<CR>
-"
-" Run markdown on file and open in browser
-autocmd filetype markdown nnoremap <Leader>m :!markdown % > %.html && sensible-browser %.html<CR><CR>
-
 " Neovim specific
 if has("nvim")
 
