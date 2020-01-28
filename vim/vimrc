@@ -128,19 +128,6 @@ noremap <Leader>v :vsplit<CR>
 " Change directory to current file dir
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" Clipboard yank, delete and put with leader
-nnoremap <Leader>y "+y
-nnoremap <Leader>Y "+y$
-
-nnoremap <Leader>d "+d
-nnoremap <Leader>D "+D
-
-nnoremap <Leader>p "+p
-nnoremap <Leader>P "+P
-
-" Open directory browser in folder of current file in current buffer
-nnoremap <Leader>e :Explore<CR>
-
 " Disable weird Alt+Spacebar Character
 inoremap <A-Space> <Space>
 
