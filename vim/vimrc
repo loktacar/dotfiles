@@ -46,30 +46,6 @@ filetype plugin indent on
 
 " {{{ UI Configuration
 
-if has("gui_running")
-  " Font option depends on platform
-  if has("win32")
-    set guifont=Andale\ Mono:h10:cDEFAULT
-  else
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
-    "set guifont=Envy\ Code\ R\ for\ Powerline\ 12
-  endif
-
-  " set guioptions
-  set guioptions=a "Autoselect
-  set guioptions+=c "Console dialog instead of popup
-  set guioptions+=h "Limit horizontal scrollbar to cursor line length
-  set guioptions+=e "Add gui tab pages when needed
-  set guioptions+=g "Gray non-active menu items
-  set guioptions+=i "Use the Vim icon
-  set guioptions+=r "Right hand scrollbar always present
-  set guioptions+=L "Left hand scrollbar when needed
-  set guioptions+=m "Menu bar is present
-
-  " Use anti-aliasing
-  set antialias
-end
-
 " Using putty I get the wrong t_Co value
 if (&term == "xterm")
   set t_Co=256
