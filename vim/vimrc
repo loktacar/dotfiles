@@ -132,8 +132,8 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 inoremap <A-Space> <Space>
 
 " Next/previous ALE warning or error
-nnoremap <Leader>n :ALENext<CR>
-nnoremap <Leader>p :ALEPrevious<CR>
+nnoremap <Leader>n :ALENextWrap<CR>
+nnoremap <Leader>p :ALEPreviousWrap<CR>
 
 " run pdflatex
 autocmd filetype tex nnoremap <Leader>m :!pdflatex -shell-escape %<CR>
