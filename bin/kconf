@@ -7,28 +7,37 @@
 # KUBECONFIG points to the configuration file for kube
 # CONFIGDIR contains all possible kube configuration yaml files.
 #
+# The switch is made by changing the symlink of the kube configuration file
+#
+# Installation:
+#   1. Add this file to your $PATH and make it executable
+#   2. Check if kconf is runnable: `kconf`, you should get an error that
+#      config file is not a symbolic link
+#   3. Create the CONFIGDIR: `mkdir ~/.kube/configs/`
+#   4. Move the current kube config file into CONFIGDIR:
+#      `mv ~/.kube/config ~/.kube/configs/default`
+#   5. Check available configs: `kconf`
+#   6. Activate the previous config: `kconf default`
+#
+
+KUBECONFIG="${HOME}/.kube/config"
+CONFIGDIR="${HOME}/.kube/configs/"
 
 # Display help message, then exit
-if [ "$1" == "-h" ]; then
+if [ "$1" == "-h" ] ||  [ "$1" == "--help" ]; then
   echo "Usage: $(basename $0) [CONFIG_FILE]"
   echo ""
-  echo "If CONFIG_FILE is supplied the kubectl config file will be symlinked to that configuration."
-  echo "If not supplied it will print the current configuration and the possible configurations."
+  echo "CONFIG_FILE is the name of a file in the configuration directory which becomes"
+  echo "    the current configuration for kubernetes if supplied. If not supplied it"
+  echo "    will print the current configuration and the possible configurations."
+  echo ""
+  echo "The configuration directory is: ${CONFIGDIR}"
   echo ""
   echo "NOTE: the switch is made globally"
   exit 0
 fi
 
 config_file=$1
-
-KUBECONFIG="${HOME}/.kube/config"
-CONFIGDIR="${HOME}/.kube/configs/"
-
-# Show current config and list possible, then exit
-if [ -z "${config_file}" ]; then
-  echo "Current config: $(basename "$(readlink -f ${KUBECONFIG})"). Possible configs: $(ls -1 ${CONFIGDIR} | tr '\n' ',' | head --bytes=-1)." 1>&2
-  exit 0
-fi
 
 # If KUBECONFIG exists and is not a symbolic link, then exit
 if [ -e "${KUBECONFIG}" ] && [ ! -L "${KUBECONFIG}" ]; then
@@ -37,9 +46,18 @@ if [ -e "${KUBECONFIG}" ] && [ ! -L "${KUBECONFIG}" ]; then
 fi
 
 # If Config file does not exist, then exit
-if [ ! -f "${CONFIGDIR}${config_file}" ]; then
+if [ ! -e "${CONFIGDIR}${config_file}" ]; then
   echo "Config file ${config_file} does not exist. Try one of $(ls -1 ${CONFIGDIR} | tr '\n' ',' | head --bytes=-1)." 1>&2
   exit 1
+fi
+
+# Show current config and list possible, then exit
+if [ -z "${config_file}" ]; then
+  if [ -L "${KUBECONFIG}" ]; then
+    echo "Current config: $(basename "$(readlink -f ${KUBECONFIG})")."
+  fi
+  echo "Possible configs: $(ls -1 ${CONFIGDIR} | tr '\n' ',' | head --bytes=-1)." 1>&2
+  exit 0
 fi
 
 # Remove old symbolic link
