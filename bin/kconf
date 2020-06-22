@@ -1,0 +1,48 @@
+#!/bin/bash
+
+###
+# Switch between kubectl configurations with one command.
+# NOTE: the switch is made globally.
+#
+
+# Display help message, then exit
+if [ "$1" == "-h" ]; then
+  echo "Usage: $(basename $0) [CONFIG_FILE]"
+  echo ""
+  echo "If CONFIG_FILE is supplied the kubectl config file will be symlinked to that configuration."
+  echo "If not supplied it will print the current configuration and the possible configurations."
+  echo ""
+  echo "NOTE: the switch is made globally"
+  exit 0
+fi
+
+config_file=$1
+
+KUBECONFIG="${HOME}/.kube/config"
+CONFIGDIR="${HOME}/.kube/configs/"
+
+# If KUBECONFIG exists and is not a symbolic link, then exit
+if [ -e "${KUBECONFIG}" ] && [ ! -L "${KUBECONFIG}" ]; then
+  echo "Config file ${KUBECONFIG} is not a symbolic link!" 1>&2
+  exit 1
+fi
+
+# Show current config and list possible, then exit
+if [ -z "${config_file}" ]; then
+  echo "Current config: $(basename "$(readlink -f ${KUBECONFIG})"). Possible configs: $(ls -1 ${CONFIGDIR} | tr '\n' ',' | head --bytes=-1)." 1>&2
+  exit 0
+fi
+
+# If Config file does not exist, then exit
+if [ ! -f "${CONFIGDIR}${config_file}" ]; then
+  echo "Config file ${config_file} does not exist. Try one of $(ls -1 ${CONFIGDIR} | tr '\n' ',' | head --bytes=-1)." 1>&2
+  exit 1
+fi
+
+# Remove old symbolic link
+if [ -L "${KUBECONFIG}" ]; then
+  rm "${KUBECONFIG}"
+fi
+
+# Create new symbolic link
+ln -s "${CONFIGDIR}${config_file}" "${KUBECONFIG}"
