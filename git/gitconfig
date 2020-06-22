@@ -42,3 +42,5 @@
   ui = true
 [pager]
 	branch = false
+[commit]
+	verbose = true
