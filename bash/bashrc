@@ -142,11 +142,11 @@ fi
 
 # 365 python projects
 export CHARGER_CONFIG=$HOME/github/charger/mr.developer.cfg
-export MEDIATOR_CONFIG=$HOME/github/mediator/mr.developer.cfg
+export MEDIATOR_CONFIG=$HOME/.config/mediator/mr.developer.cfg
 export USAGE_SERVICES_CONFIG=$HOME/github/usage-services/mr.developer.cfg
 
 # Go projects
-export GOPATH=$HOME/projects/go
+export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
 # Rust stuff (https://rustup.rs/)
@@ -167,6 +167,16 @@ fi
 # sonar-scanner
 export PATH="$PATH:/opt/sonar-scanner/bin"
 
+# istio
+export PATH="$PATH:/opt/istio/bin"
+
+# Java Home
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+
+# confluent
+export CONFLUENT_HOME="/home/viktoralex/confluent/confluent-5.5.0"
+export PATH="$PATH:/home/viktoralex/confluent/confluent-5.5.0/bin"
+
 # Kubernetes
 alias k='kubectl'
 alias kgp='kubectl get pods | grep ${PWD##*/}'
@@ -174,3 +184,11 @@ alias kpg='kubectl -n postgres'
 alias kl='kubectl logs'
 alias kcurr='kubectl config current-context'
 alias kuse='kubectl config use-context'
+
+alias kn='kubectl_new'
+alias kngp='kubectl_new get pods | grep ${PWD##*/}'
+alias knpg='kubectl_new -n postgres'
+alias knl='kubectl_new logs'
+alias kncurr='kubectl_new config current-context'
+alias knuse='kubectl_new config use-context'
+export XDG_CONFIG_HOME=$HOME/.config
