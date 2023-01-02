@@ -8,6 +8,13 @@ let g:ale_completion_enabled = 1
 
 " {{{ Plug.vim (plugin management)
 
+" vim plug installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 " General plugins
@@ -56,14 +63,12 @@ endif
 
 " colorscheme (works in both gvim and vim)
 " only set if exists
-"let g:molokai_original=1
-"let g:rehash256=1
-"let g:vim_monokai_tasty_italic = 1
-"silent! colorscheme vim-monokai-tasty
-"silent! colorscheme onehalflight
-colorscheme github
-set background=light
-let g:airline_theme = "github"
+let g:vim_monokai_tasty_italic = 1
+silent! colorscheme vim-monokai-tasty
+
+"colorscheme github
+"set background=light
+"let g:airline_theme = "github"
 
 
 " nord specific
@@ -200,7 +205,7 @@ set wildmenu
 set wildmode=list:longest
 
 " Show what I'm search/replacing
-set inccommand=split
+"set inccommand=split
 
 " Create ctags with a simple command
 command! MakeTags !ctags -R .
